@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil — Eprocash Academy</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+    </div>
+    <nav>
+        <ul class="menu" id="menu">
+            <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+            <li><a href="trading.html"><i class="fa-solid fa-chart-line"></i> Trading</a></li>
+            <li class="has-dropdown">
+                <a href="#">
+                    <i class="fa-solid fa-bolt"></i> Aprender
+                    <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="procesadores.html"><i class="fa-solid fa-credit-card"></i> Procesadores de pago</a></li>
+                    <li><a href="exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+                    <li><a href="analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis técnico</a></li>
+                    <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis fundamental</a></li>
+                </ul>
+            </li>
+            <li><a href="cursos.html"><i class="fa-solid fa-graduation-cap"></i> Cursos</a></li>
+            <li><a href="acerca.html"><i class="fa-solid fa-circle-info"></i> Acerca de</a></li>
+        </ul>
+    </nav>
+    <div class="right-icons">
+        <button id="theme-toggle" title="Cambiar tema">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="perfil.html" class="login-btn" style="color:var(--cyan)">
+            <i class="fa-solid fa-user"></i> Mi perfil
+        </a>
+        <button class="register-btn" id="logout-btn">
+            Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+<div class="menu-overlay" id="menu-overlay"></div>
+
+
+<!-- CONTENIDO PERFIL -->
+<main class="perfil-page">
+
+    <!-- HEADER DEL PERFIL -->
+    <div class="perfil-header">
+        <div class="perfil-header-bg">
+            <div class="perfil-orb perfil-orb-1"></div>
+            <div class="perfil-orb perfil-orb-2"></div>
+        </div>
+        <div class="perfil-header-content">
+            <div class="perfil-avatar-wrap">
+                <div class="perfil-zenix-glow" id="perfil-zenix-glow"></div>
+                <img src="" alt="Mi Zenix" class="perfil-zenix-avatar" id="perfil-zenix-img">
+            </div>
+            <div class="perfil-info">
+                <h1 id="perfil-nombre">Cargando...</h1>
+                <p class="perfil-email" id="perfil-email"></p>
+                <div class="perfil-badges">
+                    <span class="perfil-rareza" id="perfil-rareza">—</span>
+                    <span class="perfil-member-since">
+                        <i class="fa-solid fa-calendar"></i>
+                        Miembro desde <span id="perfil-fecha">—</span>
+                    </span>
+                </div>
+            </div>
+            <div class="perfil-stats-mini">
+                <div class="psm-item">
+                    <span class="psm-val" id="perfil-xp">0 XP</span>
+                    <span class="psm-lbl">Experiencia</span>
+                </div>
+                <div class="psm-div"></div>
+                <div class="psm-item">
+                    <span class="psm-val" id="perfil-nivel">Nivel 1</span>
+                    <span class="psm-lbl">Nivel</span>
+                </div>
+                <div class="psm-div"></div>
+                <div class="psm-item">
+                    <span class="psm-val" id="perfil-coleccion-count">1</span>
+                    <span class="psm-lbl">Zenix</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GRID PRINCIPAL -->
+    <div class="perfil-grid">
+
+        <!-- CARD ZENIX ACTIVO -->
+        <div class="perfil-card zenix-card">
+            <div class="pcard-header">
+                <i class="fa-solid fa-star"></i>
+                <h3>Mi Zenix</h3>
+            </div>
+            <div class="zenix-card-body">
+                <div class="zenix-card-img-wrap">
+                    <div class="zenix-card-glow" id="perfil-zenix-glow-2"></div>
+                    <img src="" alt="Zenix" id="perfil-zenix-img-2" class="zenix-card-img">
+                </div>
+                <div class="zenix-card-info">
+                    <h2 id="perfil-zenix-nombre">—</h2>
+                    <span class="zenix-card-rareza" id="perfil-rareza-2">—</span>
+                    <div class="zenix-card-stats">
+                        <div class="zcs-item">
+                            <span class="zcs-label">Personalidad</span>
+                            <span class="zcs-value" id="perfil-personalidad">—</span>
+                        </div>
+                        <div class="zcs-item">
+                            <span class="zcs-label">Habilidad especial</span>
+                            <span class="zcs-value highlight" id="perfil-habilidad">—</span>
+                        </div>
+                    </div>
+                    <p class="zenix-card-desc" id="perfil-desc">—</p>
+                </div>
+            </div>
+            <!-- Lore -->
+            <div class="zenix-lore">
+                <i class="fa-solid fa-scroll"></i>
+                <p id="perfil-lore">—</p>
+            </div>
+        </div>
+
+
+        <!-- CARD COLECCIÓN -->
+        <div class="perfil-card coleccion-card">
+            <div class="pcard-header">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>Mi colección</h3>
+                <span class="pcard-count" id="perfil-coleccion-count-2">1 Zenix</span>
+            </div>
+            <div class="coleccion-grid" id="perfil-coleccion-grid">
+                <!-- Se genera dinámicamente por JS -->
+            </div>
+            <!-- Slots bloqueados (futuros) -->
+            <div class="coleccion-locked">
+                <div class="locked-slot"><i class="fa-solid fa-lock"></i></div>
+                <div class="locked-slot"><i class="fa-solid fa-lock"></i></div>
+                <div class="locked-slot"><i class="fa-solid fa-lock"></i></div>
+                <p>Más Zenix disponibles próximamente</p>
+            </div>
+        </div>
+
+
+        <!-- CARD PROGRESIÓN -->
+        <div class="perfil-card progresion-card">
+            <div class="pcard-header">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Progresión</h3>
+            </div>
+            <div class="progresion-body">
+                <div class="xp-bar-wrap">
+                    <div class="xp-bar-labels">
+                        <span>Nivel 1</span>
+                        <span id="perfil-xp-label">0 / 100 XP</span>
+                        <span>Nivel 2</span>
+                    </div>
+                    <div class="xp-bar">
+                        <div class="xp-bar-fill" id="xp-bar-fill" style="width:0%"></div>
+                    </div>
+                </div>
+                <div class="progresion-tips">
+                    <p class="tips-title"><i class="fa-solid fa-bolt"></i> Cómo ganar XP</p>
+                    <div class="tip-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Completar lecciones de Bitcoin</span>
+                        <strong>+10 XP</strong>
+                    </div>
+                    <div class="tip-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Unirte a la comunidad Telegram</span>
+                        <strong>+15 XP</strong>
+                    </div>
+                    <div class="tip-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Completar tu perfil</span>
+                        <strong>+20 XP</strong>
+                    </div>
+                    <div class="tip-item locked">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Completar primer curso</span>
+                        <strong>+50 XP</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CARD PRÓXIMAMENTE -->
+        <div class="perfil-card coming-card">
+            <div class="pcard-header">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>Próximamente</h3>
+            </div>
+            <div class="coming-grid">
+                <div class="coming-item">
+                    <i class="fa-solid fa-store"></i>
+                    <span>Marketplace</span>
+                </div>
+                <div class="coming-item">
+                    <i class="fa-solid fa-gift"></i>
+                    <span>Regalar Zenix</span>
+                </div>
+                <div class="coming-item">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <span>Intercambios</span>
+                </div>
+                <div class="coming-item">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>Torneos</span>
+                </div>
+                <div class="coming-item">
+                    <i class="fa-solid fa-calendar-star"></i>
+                    <span>Eventos</span>
+                </div>
+                <div class="coming-item">
+                    <i class="fa-solid fa-dna"></i>
+                    <span>Evolución</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Eprocash Academy">
+            <p>Aprende, invierte y crece junto a Zenix.</p>
+            <div class="footer-socials">
+                <a href="TU_LINK_YOUTUBE" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="TU_LINK_TIKTOK" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="TU_LINK_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="TU_LINK_TELEGRAM" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="TU_LINK_TWITTER" target="_blank" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Explorar</h4>
+            <a href="bitcoin.html">Bitcoin</a>
+            <a href="trading.html">Trading</a>
+            <a href="cursos.html">Cursos</a>
+        </div>
+        <div class="footer-links">
+            <h4>Mi cuenta</h4>
+            <a href="perfil.html">Mi perfil</a>
+            <a href="login.html">Iniciar sesión</a>
+            <a href="registro.html">Registrarse</a>
+        </div>
+        <div class="footer-links">
+            <h4>Soporte</h4>
+            <a href="acerca.html">Acerca de</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="privacidad.html">Privacidad</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+        <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+    </div>
+</footer>
+
+<!-- Telegram flotante -->
+<a href="TU_LINK_TELEGRAM" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+    <i class="fa-brands fa-telegram"></i>
+    <span class="tg-tip">Únete al grupo</span>
+</a>
+
+<!-- Scroll top -->
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+
+<script src="js/app.js"></script>
+<script src="js/zenix.js"></script>
+<script>
+/* Renderiza el perfil al cargar la página */
+document.addEventListener('DOMContentLoaded', () => {
+
+    ZenixSystem.renderPerfil();
+
+    /* Sincronizar segunda imagen del Zenix */
+    const perfil = ZenixSystem.cargarPerfil();
+    if (perfil) {
+        const z = perfil.zenix_activo;
+
+        const img2 = document.getElementById('perfil-zenix-img-2');
+        if (img2) img2.src = z.imagen;
+
+        const rareza2 = document.getElementById('perfil-rareza-2');
+        if (rareza2) {
+            rareza2.textContent    = z.rareza_emoji + ' ' + z.rareza;
+            rareza2.style.color    = z.rareza_color;
+            rareza2.style.borderColor = z.rareza_color + '50';
+            rareza2.style.background  = z.rareza_color + '15';
+        }
+
+        const glow2 = document.getElementById('perfil-zenix-glow-2');
+        if (glow2) glow2.style.background =
+            `radial-gradient(circle, ${z.rareza_color}35 0%, transparent 70%)`;
+
+        /* Contar colección */
+        const count2 = document.getElementById('perfil-coleccion-count-2');
+        if (count2) count2.textContent = perfil.coleccion.length + ' Zenix';
+    }
+
+    /* Botón cerrar sesión */
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('epc_user');
+            window.location.href = 'index.html';
+        });
+    }
+});
+</script>
+</body>
+</html>
