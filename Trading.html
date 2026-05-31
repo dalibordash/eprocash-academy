@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading — Eprocash Academy</title>
+    <meta name="description" content="Aprende trading con las mejores plataformas: Binance, KuCoin, Bybit, IQ Option, Vantage. Videos tutoriales y guías completas con Zenix.">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/trading.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+    </div>
+    <nav>
+        <ul class="menu" id="menu">
+            <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+            <li><a href="trading.html" class="nav-active"><i class="fa-solid fa-chart-line"></i> Trading</a></li>
+            <li class="has-dropdown">
+                <a href="#">
+                    <i class="fa-solid fa-bolt"></i> Aprender
+                    <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="procesadores.html"><i class="fa-solid fa-credit-card"></i> Procesadores de pago</a></li>
+                    <li><a href="exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+                    <li><a href="analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis técnico</a></li>
+                    <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis fundamental</a></li>
+                </ul>
+            </li>
+            <li><a href="cursos.html"><i class="fa-solid fa-graduation-cap"></i> Cursos</a></li>
+            <li><a href="acerca.html"><i class="fa-solid fa-circle-info"></i> Acerca de</a></li>
+        </ul>
+    </nav>
+    <div class="right-icons">
+        <button id="theme-toggle" title="Cambiar tema">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="login.html" class="login-btn">Iniciar sesión</a>
+        <a href="registro.html" class="register-btn">Registrarse <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+<div class="menu-overlay" id="menu-overlay"></div>
+
+
+<!-- ============================================================
+     HERO TRADING
+============================================================ -->
+<section class="trading-hero">
+    <div class="trading-hero-bg">
+        <div class="t-orb t-orb-1"></div>
+        <div class="t-orb t-orb-2"></div>
+        <div class="t-grid"></div>
+    </div>
+    <div class="trading-hero-inner">
+        <div class="trading-hero-text">
+            <div class="trading-badge">
+                <i class="fa-solid fa-chart-line"></i>
+                Plataformas de Trading
+            </div>
+            <h1>
+                Domina el trading con<br>
+                las mejores <span class="gradient-text">plataformas</span>
+            </h1>
+            <p>
+                Zenix te guía a través de las 6 plataformas más poderosas del mercado.
+                Aprende a operar cripto, forex y más desde cero hasta nivel profesional.
+            </p>
+            <div class="trading-hero-btns">
+                <a href="#binance" class="primary-btn">
+                    Ver plataformas <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="https://t.me/eprocashacademy" target="_blank" class="secondary-btn">
+                    Comunidad <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="trading-hero-img">
+            <div class="trading-zenix-glow"></div>
+            <img src="images/Zenix_hero.png" alt="Zenix Trading" class="trading-zenix">
+        </div>
+    </div>
+
+    <!-- Nav de plataformas -->
+    <div class="platforms-nav">
+        <a href="#binance" class="pnav-item">
+            <i class="fa-solid fa-building-columns"></i> Binance
+        </a>
+        <a href="#kucoin" class="pnav-item">
+            <i class="fa-solid fa-coins"></i> KuCoin
+        </a>
+        <a href="#bybit" class="pnav-item">
+            <i class="fa-solid fa-chart-candlestick"></i> Bybit
+        </a>
+        <a href="#iqoption" class="pnav-item">
+            <i class="fa-solid fa-chart-bar"></i> IQ Option
+        </a>
+        <a href="#vantage" class="pnav-item">
+            <i class="fa-solid fa-globe"></i> Vantage
+        </a>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PLATAFORMAS
+============================================================ -->
+<div class="platforms-section">
+
+    <!-- ══════════════════════════════
+         BINANCE
+    ══════════════════════════════ -->
+    <section class="platform-block" id="binance">
+        <div class="platform-header binance-header">
+            <div class="platform-header-bg"></div>
+            <div class="platform-header-content">
+                <div class="platform-logo-wrap binance-logo">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div class="platform-header-info">
+                    <div class="platform-tag">Exchange #1 Mundial</div>
+                    <h2>Binance</h2>
+                    <p>El exchange de criptomonedas más grande del mundo por volumen de operaciones.</p>
+                </div>
+                <div class="platform-header-stats">
+                    <div class="phs-item">
+                        <span class="phs-val">$76B+</span>
+                        <span class="phs-lbl">Volumen diario</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">350+</span>
+                        <span class="phs-lbl">Criptos</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">0.1%</span>
+                        <span class="phs-lbl">Comisión base</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="platform-body">
+            <!-- Zenix + descripción -->
+            <div class="platform-zenix-row">
+                <img src="images/zenix_ejecutivo.png" alt="Zenix Binance" class="platform-zenix-img">
+                <div class="platform-zenix-text">
+                    <h3>¿Por qué Zenix recomienda Binance?</h3>
+                    <p>Binance es el punto de entrada ideal para cualquier trader. Su interfaz simple para principiantes y avanzada para profesionales la convierte en la plataforma más versátil del mercado. Con soporte en español, app móvil y las comisiones más bajas, es la primera que debes aprender.</p>
+                    <div class="platform-pros-cons">
+                        <div class="pros">
+                            <h4><i class="fa-solid fa-circle-check"></i> Ventajas</h4>
+                            <ul>
+                                <li>Mayor liquidez del mercado</li>
+                                <li>Más de 350 criptomonedas</li>
+                                <li>Comisiones desde 0.1%</li>
+                                <li>Spot, futuros, P2P y más</li>
+                                <li>App móvil excelente</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4><i class="fa-solid fa-circle-xmark"></i> Desventajas</h4>
+                            <ul>
+                                <li>Requiere verificación KYC</li>
+                                <li>Interfaz puede abrumar al inicio</li>
+                                <li>Soporte lento en algunos casos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video -->
+            <div class="platform-video-wrap">
+                <div class="pvideo-intro">
+                    <span class="section-tag">Tutorial en video</span>
+                    <h3>Cómo usar Binance desde cero</h3>
+                    <p>Aprende a crear tu cuenta, verificarla, depositar fondos y hacer tu primera compra de Bitcoin en Binance paso a paso con Zenix.</p>
+                    <div class="pvideo-tags">
+                        <span><i class="fa-solid fa-signal"></i> Principiante</span>
+                        <span><i class="fa-solid fa-clock"></i> Cripto spot</span>
+                        <span><i class="fa-solid fa-shield-halved"></i> Seguridad</span>
+                    </div>
+                </div>
+                <div class="pvideo-player">
+                    <div class="pvideo-frame">
+                        <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video de Binance -->
+                        <iframe src="https://www.youtube.com/embed/XXXXXXXX"
+                            title="Tutorial Binance" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <!-- Barra afiliado -->
+                    <div class="aff-bar binance-aff">
+                        <div class="aff-left">
+                            <div class="aff-icon" style="background:rgba(243,186,47,0.15);border-color:rgba(243,186,47,0.3);">
+                                <i class="fa-solid fa-building-columns" style="color:#f3ba2f"></i>
+                            </div>
+                            <div class="aff-info">
+                                <span class="aff-label">Oferta exclusiva Eprocash Academy</span>
+                                <span class="aff-name">Binance — Hasta 20% de descuento en comisiones con mi link</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de afiliado de Binance -->
+                        <a href="TU_LINK_AFILIADO_BINANCE" target="_blank" rel="noopener" class="aff-btn" style="background:linear-gradient(135deg,#f3ba2f,#e0a800);">
+                            Crear cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════
+         KUCOIN
+    ══════════════════════════════ -->
+    <section class="platform-block alt-bg" id="kucoin">
+        <div class="platform-header kucoin-header">
+            <div class="platform-header-bg"></div>
+            <div class="platform-header-content">
+                <div class="platform-logo-wrap kucoin-logo">
+                    <i class="fa-solid fa-coins"></i>
+                </div>
+                <div class="platform-header-info">
+                    <div class="platform-tag">El Exchange del Pueblo</div>
+                    <h2>KuCoin</h2>
+                    <p>Acceso a cientos de altcoins con bajas comisiones y sin KYC obligatorio.</p>
+                </div>
+                <div class="platform-header-stats">
+                    <div class="phs-item">
+                        <span class="phs-val">700+</span>
+                        <span class="phs-lbl">Criptos listadas</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">0.1%</span>
+                        <span class="phs-lbl">Comisión</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">No KYC</span>
+                        <span class="phs-lbl">Hasta $2,000/día</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="platform-body">
+            <div class="platform-zenix-row reverse">
+                <div class="platform-zenix-text">
+                    <h3>¿Por qué Zenix recomienda KuCoin?</h3>
+                    <p>KuCoin es perfecta para quienes quieren explorar altcoins antes de que lleguen a Binance. Su política sin KYC obligatorio la hace accesible desde el primer día, y su programa de futuros y bots de trading la convierten en una herramienta poderosa para traders intermedios.</p>
+                    <div class="platform-pros-cons">
+                        <div class="pros">
+                            <h4><i class="fa-solid fa-circle-check"></i> Ventajas</h4>
+                            <ul>
+                                <li>Sin KYC hasta $2,000/día</li>
+                                <li>700+ criptos disponibles</li>
+                                <li>Bots de trading integrados</li>
+                                <li>Staking y lending disponible</li>
+                                <li>Interfaz amigable</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4><i class="fa-solid fa-circle-xmark"></i> Desventajas</h4>
+                            <ul>
+                                <li>Menor liquidez que Binance</li>
+                                <li>Token KCS para descuentos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/zenix_estudiante.png" alt="Zenix KuCoin" class="platform-zenix-img">
+            </div>
+
+            <div class="platform-video-wrap">
+                <div class="pvideo-intro">
+                    <span class="section-tag">Tutorial en video</span>
+                    <h3>Cómo usar KuCoin paso a paso</h3>
+                    <p>Registro, depósito, trading spot y cómo aprovechar los bots de KuCoin para automatizar tus operaciones.</p>
+                    <div class="pvideo-tags">
+                        <span><i class="fa-solid fa-signal"></i> Principiante</span>
+                        <span><i class="fa-solid fa-robot"></i> Bots integrados</span>
+                        <span><i class="fa-solid fa-coins"></i> Altcoins</span>
+                    </div>
+                </div>
+                <div class="pvideo-player">
+                    <div class="pvideo-frame">
+                        <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video de KuCoin -->
+                        <iframe src="https://www.youtube.com/embed/XXXXXXXX"
+                            title="Tutorial KuCoin" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="aff-bar kucoin-aff">
+                        <div class="aff-left">
+                            <div class="aff-icon" style="background:rgba(13,203,146,0.15);border-color:rgba(13,203,146,0.3);">
+                                <i class="fa-solid fa-coins" style="color:#0dcb92"></i>
+                            </div>
+                            <div class="aff-info">
+                                <span class="aff-label">Oferta exclusiva Eprocash Academy</span>
+                                <span class="aff-name">KuCoin — Bono de bienvenida + descuento en comisiones</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de afiliado de KuCoin -->
+                        <a href="TU_LINK_AFILIADO_KUCOIN" target="_blank" rel="noopener" class="aff-btn" style="background:linear-gradient(135deg,#0dcb92,#09a876);">
+                            Crear cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════
+         BYBIT
+    ══════════════════════════════ -->
+    <section class="platform-block" id="bybit">
+        <div class="platform-header bybit-header">
+            <div class="platform-header-bg"></div>
+            <div class="platform-header-content">
+                <div class="platform-logo-wrap bybit-logo">
+                    <i class="fa-solid fa-chart-candlestick"></i>
+                </div>
+                <div class="platform-header-info">
+                    <div class="platform-tag">Exchange de Derivados</div>
+                    <h2>Bybit</h2>
+                    <p>La plataforma líder en trading de futuros y derivados cripto.</p>
+                </div>
+                <div class="platform-header-stats">
+                    <div class="phs-item">
+                        <span class="phs-val">$10B+</span>
+                        <span class="phs-lbl">Volumen diario</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">100x</span>
+                        <span class="phs-lbl">Apalancamiento</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">$30K</span>
+                        <span class="phs-lbl">Bono bienvenida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="platform-body">
+            <div class="platform-zenix-row">
+                <img src="images/zenix_bitcoin.png" alt="Zenix Bybit" class="platform-zenix-img">
+                <div class="platform-zenix-text">
+                    <h3>¿Por qué Zenix recomienda Bybit?</h3>
+                    <p>Bybit es la plataforma preferida de los traders de futuros. Su interfaz profesional, velocidad de ejecución y herramientas avanzadas la hacen ideal para quienes ya tienen experiencia en spot y quieren dar el siguiente paso con derivados y apalancamiento.</p>
+                    <div class="platform-pros-cons">
+                        <div class="pros">
+                            <h4><i class="fa-solid fa-circle-check"></i> Ventajas</h4>
+                            <ul>
+                                <li>Bono de hasta $30,000 USDT</li>
+                                <li>Futuros perpetuos y de entrega</li>
+                                <li>Copy trading integrado</li>
+                                <li>Velocidad de ejecución alta</li>
+                                <li>Herramientas profesionales</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4><i class="fa-solid fa-circle-xmark"></i> Desventajas</h4>
+                            <ul>
+                                <li>No recomendada para principiantes</li>
+                                <li>Apalancamiento requiere experiencia</li>
+                                <li>Menor variedad de altcoins</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-video-wrap">
+                <div class="pvideo-intro">
+                    <span class="section-tag">Tutorial en video</span>
+                    <h3>Cómo usar Bybit — Futuros y trading avanzado</h3>
+                    <p>Aprende a configurar tu cuenta en Bybit, entender los contratos de futuros, gestionar el riesgo y operar con apalancamiento de forma responsable.</p>
+                    <div class="pvideo-tags">
+                        <span><i class="fa-solid fa-signal"></i> Intermedio</span>
+                        <span><i class="fa-solid fa-chart-line"></i> Futuros</span>
+                        <span><i class="fa-solid fa-arrows-up-down"></i> Apalancamiento</span>
+                    </div>
+                </div>
+                <div class="pvideo-player">
+                    <div class="pvideo-frame">
+                        <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video de Bybit -->
+                        <iframe src="https://www.youtube.com/embed/XXXXXXXX"
+                            title="Tutorial Bybit" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="aff-bar bybit-aff">
+                        <div class="aff-left">
+                            <div class="aff-icon" style="background:rgba(243,156,18,0.15);border-color:rgba(243,156,18,0.3);">
+                                <i class="fa-solid fa-chart-candlestick" style="color:#f39c12"></i>
+                            </div>
+                            <div class="aff-info">
+                                <span class="aff-label">Oferta exclusiva Eprocash Academy</span>
+                                <span class="aff-name">Bybit — Bono de bienvenida hasta $30,000 USDT</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de afiliado de Bybit -->
+                        <a href="TU_LINK_AFILIADO_BYBIT" target="_blank" rel="noopener" class="aff-btn" style="background:linear-gradient(135deg,#f39c12,#d68910);">
+                            Crear cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════
+         IQ OPTION
+    ══════════════════════════════ -->
+    <section class="platform-block alt-bg" id="iqoption">
+        <div class="platform-header iq-header">
+            <div class="platform-header-bg"></div>
+            <div class="platform-header-content">
+                <div class="platform-logo-wrap iq-logo">
+                    <i class="fa-solid fa-chart-bar"></i>
+                </div>
+                <div class="platform-header-info">
+                    <div class="platform-tag">Opciones Binarias & CFDs</div>
+                    <h2>IQ Option</h2>
+                    <p>Plataforma líder en opciones binarias, CFDs y trading de acciones digitales.</p>
+                </div>
+                <div class="platform-header-stats">
+                    <div class="phs-item">
+                        <span class="phs-val">$10</span>
+                        <span class="phs-lbl">Depósito mínimo</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">$10K</span>
+                        <span class="phs-lbl">Cuenta demo</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">500+</span>
+                        <span class="phs-lbl">Activos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="platform-body">
+            <div class="platform-zenix-row reverse">
+                <div class="platform-zenix-text">
+                    <h3>¿Por qué Zenix recomienda IQ Option?</h3>
+                    <p>IQ Option destaca por su cuenta demo gratuita de $10,000 virtuales, perfecta para practicar sin riesgo. Es ideal para quienes empiezan en opciones binarias y CFDs. Su app móvil es una de las mejores del sector y el depósito mínimo de $10 la hace muy accesible.</p>
+
+                    <!-- Barra de tarjeta — aplica para IQ Option -->
+                    <div class="card-bar">
+                        <div class="card-bar-left">
+                            <i class="fa-solid fa-credit-card" style="color:#00cfff;font-size:20px;"></i>
+                            <div>
+                                <span class="card-bar-label">Tarjeta IQ Option disponible</span>
+                                <span class="card-bar-desc">Solicita tu tarjeta y opera directamente desde tu cuenta</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de solicitud de tarjeta IQ Option -->
+                        <a href="TU_LINK_TARJETA_IQOPTION" target="_blank" rel="noopener" class="card-bar-btn">
+                            Solicitar tarjeta <i class="fa-solid fa-credit-card"></i>
+                        </a>
+                    </div>
+
+                    <div class="platform-pros-cons">
+                        <div class="pros">
+                            <h4><i class="fa-solid fa-circle-check"></i> Ventajas</h4>
+                            <ul>
+                                <li>Cuenta demo gratis $10,000</li>
+                                <li>Depósito mínimo solo $10</li>
+                                <li>Opciones binarias y CFDs</li>
+                                <li>App móvil muy completa</li>
+                                <li>Más de 500 activos</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4><i class="fa-solid fa-circle-xmark"></i> Desventajas</h4>
+                            <ul>
+                                <li>No disponible en todos los países</li>
+                                <li>Opciones binarias son de alto riesgo</li>
+                                <li>Retiros pueden tardar varios días</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <img src="images/zenix_guiño.png" alt="Zenix IQ Option" class="platform-zenix-img">
+            </div>
+
+            <div class="platform-video-wrap">
+                <div class="pvideo-intro">
+                    <span class="section-tag">Tutorial en video</span>
+                    <h3>Cómo usar IQ Option — Opciones binarias y CFDs</h3>
+                    <p>Desde la cuenta demo hasta tu primera operación real. Aprende estrategias básicas de opciones binarias y cómo gestionar el riesgo correctamente.</p>
+                    <div class="pvideo-tags">
+                        <span><i class="fa-solid fa-signal"></i> Principiante</span>
+                        <span><i class="fa-solid fa-chart-bar"></i> Opciones</span>
+                        <span><i class="fa-solid fa-mobile"></i> App móvil</span>
+                    </div>
+                </div>
+                <div class="pvideo-player">
+                    <div class="pvideo-frame">
+                        <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video de IQ Option -->
+                        <iframe src="https://www.youtube.com/embed/XXXXXXXX"
+                            title="Tutorial IQ Option" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="aff-bar iq-aff">
+                        <div class="aff-left">
+                            <div class="aff-icon" style="background:rgba(0,207,255,0.15);border-color:rgba(0,207,255,0.3);">
+                                <i class="fa-solid fa-chart-bar" style="color:#00cfff"></i>
+                            </div>
+                            <div class="aff-info">
+                                <span class="aff-label">Oferta exclusiva Eprocash Academy</span>
+                                <span class="aff-name">IQ Option — Cuenta demo gratis + bono en primer depósito</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de afiliado de IQ Option -->
+                        <a href="TU_LINK_AFILIADO_IQOPTION" target="_blank" rel="noopener" class="aff-btn" style="background:linear-gradient(135deg,#00cfff,#0077ff);">
+                            Crear cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════
+         VANTAGE
+    ══════════════════════════════ -->
+    <section class="platform-block" id="vantage">
+        <div class="platform-header vantage-header">
+            <div class="platform-header-bg"></div>
+            <div class="platform-header-content">
+                <div class="platform-logo-wrap vantage-logo">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="platform-header-info">
+                    <div class="platform-tag">Forex & CFD Broker</div>
+                    <h2>Vantage</h2>
+                    <p>Broker regulado de Forex y CFDs con spreads ultra bajos y acceso global.</p>
+                </div>
+                <div class="platform-header-stats">
+                    <div class="phs-item">
+                        <span class="phs-val">$50</span>
+                        <span class="phs-lbl">Depósito mínimo</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">500+</span>
+                        <span class="phs-lbl">Instrumentos</span>
+                    </div>
+                    <div class="phs-div"></div>
+                    <div class="phs-item">
+                        <span class="phs-val">500:1</span>
+                        <span class="phs-lbl">Apalancamiento</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="platform-body">
+            <div class="platform-zenix-row">
+                <img src="images/zenix_ejecutivo.png" alt="Zenix Vantage" class="platform-zenix-img">
+                <div class="platform-zenix-text">
+                    <h3>¿Por qué Zenix recomienda Vantage?</h3>
+                    <p>Vantage es un broker regulado ideal para traders de Forex que buscan spreads competitivos y acceso a mercados globales. Con más de 500 instrumentos incluyendo divisas, materias primas, índices y acciones, es la plataforma más completa para diversificar tu portafolio.</p>
+
+                    <!-- Barra de tarjeta — aplica para Vantage -->
+                    <div class="card-bar">
+                        <div class="card-bar-left">
+                            <i class="fa-solid fa-credit-card" style="color:#00cfff;font-size:20px;"></i>
+                            <div>
+                                <span class="card-bar-label">Tarjeta Vantage disponible</span>
+                                <span class="card-bar-desc">Retira tus ganancias directamente con la tarjeta Vantage</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de solicitud de tarjeta Vantage -->
+                        <a href="TU_LINK_TARJETA_VANTAGE" target="_blank" rel="noopener" class="card-bar-btn">
+                            Solicitar tarjeta <i class="fa-solid fa-credit-card"></i>
+                        </a>
+                    </div>
+
+                    <div class="platform-pros-cons">
+                        <div class="pros">
+                            <h4><i class="fa-solid fa-circle-check"></i> Ventajas</h4>
+                            <ul>
+                                <li>Broker regulado internacionalmente</li>
+                                <li>Spreads ultra bajos desde 0.0</li>
+                                <li>MetaTrader 4 y 5 disponible</li>
+                                <li>Forex, cripto, acciones, índices</li>
+                                <li>Depósito mínimo accesible</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4><i class="fa-solid fa-circle-xmark"></i> Desventajas</h4>
+                            <ul>
+                                <li>Requiere más conocimiento previo</li>
+                                <li>Comisiones en cuenta ECN</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-video-wrap">
+                <div class="pvideo-intro">
+                    <span class="section-tag">Tutorial en video</span>
+                    <h3>Cómo usar Vantage — Forex y CFDs profesional</h3>
+                    <p>Aprende a abrir tu cuenta en Vantage, conectar MetaTrader, operar pares de divisas y aprovechar los spreads más bajos del mercado.</p>
+                    <div class="pvideo-tags">
+                        <span><i class="fa-solid fa-signal"></i> Intermedio</span>
+                        <span><i class="fa-solid fa-globe"></i> Forex</span>
+                        <span><i class="fa-solid fa-chart-line"></i> CFDs</span>
+                    </div>
+                </div>
+                <div class="pvideo-player">
+                    <div class="pvideo-frame">
+                        <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video de Vantage -->
+                        <iframe src="https://www.youtube.com/embed/XXXXXXXX"
+                            title="Tutorial Vantage" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="aff-bar vantage-aff">
+                        <div class="aff-left">
+                            <div class="aff-icon" style="background:rgba(255,107,0,0.15);border-color:rgba(255,107,0,0.3);">
+                                <i class="fa-solid fa-globe" style="color:#ff6b00"></i>
+                            </div>
+                            <div class="aff-info">
+                                <span class="aff-label">Oferta exclusiva Eprocash Academy</span>
+                                <span class="aff-name">Vantage — Bono de bienvenida en tu primer depósito</span>
+                            </div>
+                        </div>
+                        <!-- ⚠️ Reemplaza con tu link de afiliado de Vantage -->
+                        <a href="TU_LINK_AFILIADO_VANTAGE" target="_blank" rel="noopener" class="aff-btn" style="background:linear-gradient(135deg,#ff6b00,#cc5500);">
+                            Crear cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<!-- CTA FINAL -->
+<section class="trading-cta">
+    <div class="trading-cta-box">
+        <div class="trading-cta-glow"></div>
+        <i class="fa-solid fa-chart-line trading-cta-icon"></i>
+        <h2>¿Listo para empezar a <span class="gradient-text">operar</span>?</h2>
+        <p>Únete a la comunidad Eprocash Academy y recibe señales, análisis y soporte en tiempo real.</p>
+        <div class="trading-cta-btns">
+            <a href="registro.html" class="primary-btn">Comenzar gratis <i class="fa-solid fa-rocket"></i></a>
+            <a href="https://t.me/eprocashacademy" target="_blank" class="secondary-btn">
+                Señales Telegram <i class="fa-brands fa-telegram"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Eprocash Academy">
+            <p>Aprende, invierte y crece junto a Zenix.</p>
+            <div class="footer-socials">
+                <a href="TU_LINK_YOUTUBE" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="TU_LINK_TIKTOK" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="TU_LINK_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="TU_LINK_TELEGRAM" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="TU_LINK_TWITTER" target="_blank" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Explorar</h4>
+            <a href="bitcoin.html">Bitcoin</a>
+            <a href="trading.html">Trading</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="exchanges.html">Exchanges</a>
+        </div>
+        <div class="footer-links">
+            <h4>Plataformas</h4>
+            <a href="#binance">Binance</a>
+            <a href="#kucoin">KuCoin</a>
+            <a href="#bybit">Bybit</a>
+            <a href="#iqoption">IQ Option</a>
+            <a href="#vantage">Vantage</a>
+        </div>
+        <div class="footer-links">
+            <h4>Soporte</h4>
+            <a href="acerca.html">Acerca de</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="privacidad.html">Privacidad</a>
+            <a href="terminos.html">Términos</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+        <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+    </div>
+</footer>
+
+
+<!-- FLOTANTES -->
+<a href="TU_LINK_TELEGRAM" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+    <i class="fa-brands fa-telegram"></i>
+    <span class="tg-tip">Únete al grupo</span>
+</a>
+
+<!-- Botón FAQ Zenix -->
+<button class="zenix-faq-btn" id="zenix-faq-btn" aria-label="Pregúntale a Zenix">
+    <img src="images/favicon.png" alt="Zenix">
+    <span class="zfaq-tooltip">Pregúntale a Zenix</span>
+</button>
+
+<!-- Modal FAQ -->
+<div class="faq-overlay" id="faq-overlay"></div>
+<div class="faq-modal" id="faq-modal">
+    <div class="faq-modal-head">
+        <div class="faq-modal-title">
+            <img src="images/favicon.png" alt="Zenix" style="width:34px;border-radius:8px;">
+            <div>
+                <strong>Zenix</strong>
+                <span>Preguntas frecuentes sobre Trading</span>
+            </div>
+        </div>
+        <button class="faq-modal-close" id="faq-close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+    <div class="faq-body">
+        <div class="faq-item">
+            <button class="faq-q">¿Cuál plataforma recomiendas para empezar? <i class="fa-solid fa-chevron-down faq-arrow"></i></button>
+            <div class="faq-a"><p>Para principiantes recomiendo Binance por su interfaz simple y soporte en español. Si quieres practicar sin riesgo, IQ Option tiene una cuenta demo gratuita de $10,000 virtuales.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">¿Es seguro operar con apalancamiento? <i class="fa-solid fa-chevron-down faq-arrow"></i></button>
+            <div class="faq-a"><p>El apalancamiento amplifica tanto ganancias como pérdidas. Solo úsalo cuando tengas experiencia sólida en trading spot. Siempre usa stop loss y nunca arriesgues más del 1-2% de tu capital por operación.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">¿Qué diferencia hay entre spot y futuros? <i class="fa-solid fa-chevron-down faq-arrow"></i></button>
+            <div class="faq-a"><p>En spot compras el activo real. En futuros operas contratos sobre el precio futuro del activo con apalancamiento. Spot es para principiantes, futuros para traders con experiencia.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">¿Cuánto dinero necesito para empezar? <i class="fa-solid fa-chevron-down faq-arrow"></i></button>
+            <div class="faq-a"><p>Con IQ Option puedes empezar con $10. En Binance no hay mínimo real en spot. Lo importante no es cuánto dinero tienes sino cuánto conocimiento tienes antes de invertir.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">¿IQ Option y Vantage tienen tarjeta? <i class="fa-solid fa-chevron-down faq-arrow"></i></button>
+            <div class="faq-a"><p>Sí, ambas plataformas ofrecen tarjetas asociadas a tu cuenta de trading. Puedes solicitarlas usando los links de la sección de cada plataforma en esta página.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">¿Qué es el trading de Forex? <i class="fa-solid fa-chevron-down faq-arrow"></i></button>
+            <div class="faq-a"><p>Forex es el mercado de divisas, el más grande del mundo con $7 billones diarios. Operas pares de monedas como EUR/USD. Vantage es ideal para este tipo de trading con spreads muy bajos.</p></div>
+        </div>
+    </div>
+</div>
+
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="js/app.js"></script>
+<script src="js/sesion.js"></script>
+<script src="js/bitcoin.js"></script>
+</body>
+</html>

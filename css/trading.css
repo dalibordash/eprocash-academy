@@ -1,0 +1,625 @@
+/* ================================================================
+   EPROCASH ACADEMY — css/trading.css
+   Estilos exclusivos de la página Trading
+================================================================ */
+
+
+/* ================================================================
+   HERO TRADING
+================================================================ */
+
+.trading-hero {
+    position: relative;
+    padding: calc(var(--nav-h) + 50px) 80px 0;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.trading-hero-bg { position:absolute; inset:0; pointer-events:none; z-index:0; }
+.t-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+.t-orb-1 {
+    width:600px; height:600px;
+    background: radial-gradient(circle, rgba(0,119,255,0.2), transparent 70%);
+    top:-200px; right:-100px;
+    animation: orbMove 9s ease-in-out infinite alternate;
+}
+.t-orb-2 {
+    width:400px; height:400px;
+    background: radial-gradient(circle, rgba(0,207,255,0.15), transparent 70%);
+    bottom:-100px; left:-80px;
+    animation: orbMove 11s ease-in-out infinite alternate-reverse;
+}
+.t-grid {
+    position: absolute; inset:0;
+    background-image:
+        linear-gradient(rgba(0,207,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,207,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at 60% 40%, black 20%, transparent 70%);
+}
+
+.trading-hero-inner {
+    position: relative; z-index:1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.trading-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,207,255,0.08);
+    border: 1px solid var(--border-c);
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+}
+
+.trading-hero-text { max-width:560px; flex-shrink:0; }
+.trading-hero-text h1 {
+    font-family: var(--font-h);
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+.trading-hero-text > p {
+    font-size: 17px;
+    color: var(--text-soft);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 480px;
+}
+.trading-hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+
+.trading-hero-img {
+    position: relative; flex-shrink:0;
+    display: flex; align-items:center; justify-content:center;
+}
+.trading-zenix-glow {
+    position: absolute;
+    width:400px; height:400px;
+    background: radial-gradient(circle, rgba(0,207,255,0.15) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+.trading-zenix {
+    width: clamp(260px, 28vw, 420px);
+    position: relative; z-index:1;
+    animation: floatY 4s ease-in-out infinite;
+    filter: drop-shadow(0 20px 40px rgba(0,207,255,0.25));
+}
+
+/* Nav de plataformas */
+.platforms-nav {
+    position: relative; z-index:1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+.pnav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-soft);
+    transition: all var(--t);
+    white-space: nowrap;
+}
+.pnav-item i { color:var(--cyan); font-size:12px; }
+.pnav-item:hover {
+    background: rgba(0,207,255,0.08);
+    border-color: var(--border-c);
+    color: var(--cyan);
+    transform: translateY(-2px);
+}
+
+
+/* ================================================================
+   SECCIÓN PLATAFORMAS
+================================================================ */
+
+.platforms-section { background: var(--bg); }
+
+.platform-block {
+    padding: 80px;
+    border-bottom: 1px solid var(--border);
+}
+.platform-block.alt-bg { background: var(--bg-2); }
+
+/* Header de cada plataforma */
+.platform-header {
+    border-radius: var(--radius-xl);
+    padding: 36px 40px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+}
+.platform-header-bg {
+    position: absolute; inset:0;
+    pointer-events: none;
+}
+.binance-header  { background: linear-gradient(135deg, rgba(243,186,47,0.08), rgba(0,0,0,0.2)); border:1px solid rgba(243,186,47,0.2); }
+.kucoin-header   { background: linear-gradient(135deg, rgba(13,203,146,0.08), rgba(0,0,0,0.2)); border:1px solid rgba(13,203,146,0.2); }
+.bybit-header    { background: linear-gradient(135deg, rgba(243,156,18,0.08), rgba(0,0,0,0.2)); border:1px solid rgba(243,156,18,0.2); }
+.iq-header       { background: linear-gradient(135deg, rgba(0,207,255,0.08), rgba(0,0,0,0.2)); border:1px solid rgba(0,207,255,0.2); }
+.vantage-header  { background: linear-gradient(135deg, rgba(255,107,0,0.08), rgba(0,0,0,0.2)); border:1px solid rgba(255,107,0,0.2); }
+
+.platform-header-content {
+    position: relative; z-index:1;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.platform-logo-wrap {
+    width:64px; height:64px;
+    border-radius: 16px;
+    display: flex; align-items:center; justify-content:center;
+    font-size: 26px;
+    flex-shrink: 0;
+}
+.binance-logo  { background:rgba(243,186,47,0.15); color:#f3ba2f; border:1px solid rgba(243,186,47,0.3); }
+.kucoin-logo   { background:rgba(13,203,146,0.15); color:#0dcb92; border:1px solid rgba(13,203,146,0.3); }
+.bybit-logo    { background:rgba(243,156,18,0.15); color:#f39c12; border:1px solid rgba(243,156,18,0.3); }
+.iq-logo       { background:rgba(0,207,255,0.15);  color:#00cfff; border:1px solid rgba(0,207,255,0.3); }
+.vantage-logo  { background:rgba(255,107,0,0.15);  color:#ff6b00; border:1px solid rgba(255,107,0,0.3); }
+
+.platform-header-info { flex:1; }
+.platform-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+.platform-header-info h2 {
+    font-family: var(--font-h);
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+.platform-header-info p { font-size:14px; color:var(--text-soft); }
+
+.platform-header-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+.phs-item { display:flex; flex-direction:column; text-align:center; }
+.phs-val  { font-family:var(--font-h); font-size:20px; font-weight:800; color:var(--text); }
+.phs-lbl  { font-size:11px; color:var(--text-muted); margin-top:2px; }
+.phs-div  { width:1px; height:36px; background:var(--border); }
+
+/* Zenix + descripción */
+.platform-zenix-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 48px;
+}
+.platform-zenix-row.reverse { grid-template-columns: 1fr 200px; }
+.platform-zenix-row.reverse .platform-zenix-text { order:1; }
+.platform-zenix-row.reverse .platform-zenix-img  { order:2; }
+
+.platform-zenix-img {
+    width: 200px;
+    animation: floatY 4.5s ease-in-out infinite;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
+
+.platform-zenix-text h3 {
+    font-family: var(--font-h);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.platform-zenix-text > p {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.75;
+    margin-bottom: 24px;
+}
+
+/* Pros y contras */
+.platform-pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+.pros, .cons {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+}
+.pros { border-color: rgba(0,229,155,0.2); }
+.cons { border-color: rgba(255,64,96,0.2); }
+.pros h4, .cons h4 {
+    font-family: var(--font-h);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.pros h4 { color:var(--up); }
+.cons h4 { color:var(--down); }
+.pros h4 i { color:var(--up); }
+.cons h4 i { color:var(--down); }
+.pros ul, .cons ul { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.pros li, .cons li { font-size:13px; color:var(--text-soft); padding-left:14px; position:relative; }
+.pros li::before { content:'✓'; position:absolute; left:0; color:var(--up); font-size:11px; font-weight:700; }
+.cons li::before { content:'✗'; position:absolute; left:0; color:var(--down); font-size:11px; font-weight:700; }
+
+/* Barra de tarjeta */
+.card-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(0,207,255,0.06), rgba(0,119,255,0.06));
+    border: 1px solid rgba(0,207,255,0.2);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.card-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+.card-bar-left > i { flex-shrink:0; }
+.card-bar-label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.card-bar-desc {
+    display: block;
+    font-size: 13px;
+    color: var(--text-soft);
+}
+.card-bar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    transition: transform var(--t), box-shadow var(--t);
+    flex-shrink: 0;
+}
+.card-bar-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,207,255,0.35);
+}
+
+/* Video de plataforma */
+.platform-video-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.pvideo-intro h3 {
+    font-family: var(--font-h);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+.pvideo-intro p {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+.pvideo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.pvideo-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,207,255,0.07);
+    border: 1px solid var(--border-c);
+    color: var(--text-soft);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+.pvideo-tags span i { color:var(--cyan); font-size:11px; }
+
+.pvideo-frame {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    background: #000;
+}
+.pvideo-frame iframe {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border:none;
+}
+
+/* Barra de afiliado */
+.aff-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 16px 20px;
+    flex-wrap: wrap;
+}
+.binance-aff { background:linear-gradient(135deg,rgba(243,186,47,0.06),rgba(0,0,0,0.1)); border-color:rgba(243,186,47,0.2); }
+.kucoin-aff  { background:linear-gradient(135deg,rgba(13,203,146,0.06),rgba(0,0,0,0.1)); border-color:rgba(13,203,146,0.2); }
+.bybit-aff   { background:linear-gradient(135deg,rgba(243,156,18,0.06),rgba(0,0,0,0.1)); border-color:rgba(243,156,18,0.2); }
+.iq-aff      { background:linear-gradient(135deg,rgba(0,207,255,0.06),rgba(0,0,0,0.1)); border-color:rgba(0,207,255,0.2); }
+.vantage-aff { background:linear-gradient(135deg,rgba(255,107,0,0.06),rgba(0,0,0,0.1)); border-color:rgba(255,107,0,0.2); }
+
+.aff-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+.aff-icon {
+    width:42px; height:42px;
+    border-radius: 10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 18px;
+    flex-shrink:0;
+    border: 1px solid;
+}
+.aff-info { display:flex; flex-direction:column; gap:2px; }
+.aff-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; font-weight:600; }
+.aff-name  { font-size:13.5px; color:var(--text); font-weight:500; }
+.aff-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    transition: transform var(--t), box-shadow var(--t), filter var(--t);
+    flex-shrink: 0;
+}
+.aff-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.aff-btn i { font-size:12px; }
+
+
+/* ================================================================
+   CTA FINAL
+================================================================ */
+
+.trading-cta { padding:80px; background:var(--bg-2); }
+.trading-cta-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0,119,255,0.06), rgba(0,207,255,0.06));
+    border: 1px solid var(--border-c);
+    border-radius: var(--radius-xl);
+    padding: 70px 60px;
+    position: relative;
+    overflow: hidden;
+}
+.trading-cta-glow {
+    position: absolute; inset:0;
+    background: radial-gradient(circle at center, rgba(0,207,255,0.06) 0%, transparent 70%);
+    pointer-events:none;
+}
+.trading-cta-icon {
+    font-size: 52px;
+    color: var(--cyan);
+    display: block;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(0,207,255,0.5));
+    animation: floatY 3s ease-in-out infinite;
+}
+.trading-cta-box h2 {
+    font-family: var(--font-h);
+    font-size: clamp(24px,3.5vw,38px);
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+.trading-cta-box p {
+    font-size: 16px;
+    color: var(--text-soft);
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left:auto; margin-right:auto;
+}
+.trading-cta-btns {
+    display:flex; gap:14px;
+    justify-content:center; flex-wrap:wrap;
+}
+
+
+/* ================================================================
+   ZENIX FAQ (reutiliza estilos de bitcoin.css)
+   Solo se necesita si no está ya incluido bitcoin.css
+================================================================ */
+
+.zenix-faq-btn {
+    position: fixed;
+    bottom: 100px; right: 28px;
+    width:54px; height:54px;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 8px 30px rgba(0,207,255,0.4);
+    z-index:500; cursor:pointer;
+    transition: transform var(--t), box-shadow var(--t);
+    overflow:hidden; padding:0;
+}
+.zenix-faq-btn img { width:38px; height:38px; object-fit:contain; border-radius:50%; }
+.zenix-faq-btn:hover { transform:scale(1.1) translateY(-3px); box-shadow:0 12px 40px rgba(0,207,255,0.5); }
+.zfaq-tooltip {
+    position:absolute; right:62px;
+    background:var(--bg-card); border:1px solid var(--border);
+    color:var(--text); font-size:12px; font-weight:500;
+    padding:6px 12px; border-radius:var(--radius-sm);
+    white-space:nowrap; opacity:0; pointer-events:none;
+    transition: opacity var(--t), right var(--t);
+    font-family:var(--font-b);
+}
+.zenix-faq-btn:hover .zfaq-tooltip { opacity:1; right:66px; }
+
+.faq-overlay {
+    display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,0.6); z-index:900;
+    backdrop-filter:blur(4px);
+}
+.faq-overlay.visible { display:block; }
+.faq-modal {
+    position:fixed; bottom:170px; right:28px;
+    width:360px; max-height:500px;
+    background:var(--bg-card); border:1px solid var(--border-c);
+    border-radius:var(--radius-lg); overflow:hidden;
+    z-index:901; box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    transform:scale(0.9) translateY(20px); opacity:0; pointer-events:none;
+    transition:transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+.faq-modal.open { transform:scale(1) translateY(0); opacity:1; pointer-events:all; }
+.faq-modal-head {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px;
+    background:linear-gradient(135deg,rgba(0,207,255,0.1),rgba(0,119,255,0.1));
+    border-bottom:1px solid var(--border);
+}
+.faq-modal-title { display:flex; align-items:center; gap:12px; }
+.faq-modal-title strong { display:block; font-family:var(--font-h); font-size:15px; font-weight:700; color:var(--cyan); }
+.faq-modal-title span { font-size:12px; color:var(--text-muted); }
+.faq-modal-close {
+    width:30px; height:30px; background:rgba(255,255,255,0.06);
+    border:1px solid var(--border); color:var(--text-soft);
+    border-radius:6px; display:flex; align-items:center; justify-content:center;
+    font-size:14px; cursor:pointer; transition:color var(--t),background var(--t);
+}
+.faq-modal-close:hover { color:var(--down); background:rgba(255,64,96,0.1); }
+.faq-body { overflow-y:auto; max-height:420px; padding:8px; }
+.faq-body::-webkit-scrollbar { width:4px; }
+.faq-body::-webkit-scrollbar-thumb { background:var(--border-c); border-radius:2px; }
+.faq-item { border-radius:var(--radius-sm); overflow:hidden; margin-bottom:4px; border:1px solid var(--border); background:rgba(255,255,255,0.02); }
+.faq-q {
+    width:100%; display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:14px 16px; font-size:13.5px; font-weight:600;
+    color:var(--text); text-align:left; cursor:pointer; background:transparent;
+    transition:background var(--t),color var(--t); font-family:var(--font-b);
+}
+.faq-q:hover { background:rgba(0,207,255,0.05); color:var(--cyan); }
+.faq-q.open  { color:var(--cyan); background:rgba(0,207,255,0.07); }
+.faq-arrow { font-size:11px; flex-shrink:0; transition:transform var(--t) var(--ease); color:var(--text-muted); }
+.faq-q.open .faq-arrow { transform:rotate(180deg); color:var(--cyan); }
+.faq-a { display:none; padding:0 16px 14px; }
+.faq-a p { font-size:13.5px; color:var(--text-soft); line-height:1.65; }
+
+.nav-active { color:var(--cyan) !important; }
+
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width:1100px) {
+    .trading-hero   { padding-left:40px; padding-right:40px; }
+    .platform-block { padding:60px 40px; }
+    .trading-cta    { padding:60px 40px; }
+}
+
+@media (max-width:900px) {
+    .trading-hero { padding-left:24px; padding-right:24px; }
+    .trading-hero-inner { flex-direction:column; text-align:center; padding-bottom:32px; }
+    .trading-hero-text { max-width:100%; }
+    .trading-hero-text > p { margin-left:auto; margin-right:auto; }
+    .trading-hero-btns { justify-content:center; }
+    .trading-zenix { width:220px; }
+
+    .platforms-nav { gap:6px; }
+    .pnav-item { padding:7px 12px; font-size:12px; }
+
+    .platform-block { padding:40px 24px; }
+
+    .platform-header { padding:24px; }
+    .platform-header-content { flex-direction:column; align-items:flex-start; gap:16px; }
+    .platform-header-stats { width:100%; justify-content:space-between; }
+
+    .platform-zenix-row { grid-template-columns:1fr; gap:24px; text-align:center; }
+    .platform-zenix-row.reverse .platform-zenix-text { order:0; }
+    .platform-zenix-row.reverse .platform-zenix-img  { order:0; }
+    .platform-zenix-img { width:160px; margin:0 auto; }
+
+    .platform-pros-cons { grid-template-columns:1fr; }
+
+    .platform-video-wrap { grid-template-columns:1fr; gap:24px; }
+
+    .card-bar { flex-direction:column; align-items:flex-start; gap:12px; }
+    .card-bar-btn { width:100%; justify-content:center; }
+
+    .aff-bar { flex-direction:column; align-items:flex-start; gap:12px; }
+    .aff-btn { width:100%; justify-content:center; }
+
+    .trading-cta { padding:50px 24px; }
+    .trading-cta-box { padding:40px 24px; }
+
+    .faq-modal { width:calc(100vw - 40px); right:20px; bottom:160px; }
+}
