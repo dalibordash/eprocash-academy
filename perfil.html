@@ -1,631 +1,676 @@
-/* ================================================================
-   EPROCASH ACADEMY — css/perfil.css  v3.0
-   01. Navbar dinámico con miniatura Zenix
-   02. Animación de revelación
-   03. Preview rarezas en registro
-   04. Mejoras formulario auth
-   05. Header del perfil
-   06. Tabs de navegación
-   07. Tab Identidad Digital
-   08. Tab Datos Personales
-   09. Tab Progresión
-   10. Modal imagen Zenix
-   11. Responsive
-================================================================ */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil — Eprocash Academy</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+    <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+    </div>
+    <nav>
+        <ul class="menu" id="menu">
+            <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+            <li><a href="trading.html"><i class="fa-solid fa-chart-line"></i> Trading</a></li>
+            <li class="has-dropdown">
+                <a href="#">
+                    <i class="fa-solid fa-bolt"></i> Aprender
+                    <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="procesadores.html"><i class="fa-solid fa-credit-card"></i> Procesadores de pago</a></li>
+                    <li><a href="exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+                    <li><a href="analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis técnico</a></li>
+                    <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis fundamental</a></li>
+                </ul>
+            </li>
+            <li><a href="cursos.html"><i class="fa-solid fa-graduation-cap"></i> Cursos</a></li>
+            <li><a href="acerca.html"><i class="fa-solid fa-circle-info"></i> Acerca de</a></li>
+        </ul>
+    </nav>
+    <!-- El navbar dinámico lo maneja sesion.js -->
+    <div class="right-icons" id="right-icons">
+        <button id="theme-toggle" title="Cambiar tema">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="login.html" class="login-btn">Iniciar sesión</a>
+        <a href="registro.html" class="register-btn">Registrarse <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+<div class="menu-overlay" id="menu-overlay"></div>
 
 
-/* ================================================================
-   01. NAVBAR DINÁMICO — miniatura Zenix
-================================================================ */
+<!-- CONTENIDO PERFIL -->
+<main class="perfil-page">
 
-.nav-user-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 14px 5px 5px;
-    background: rgba(0,207,255,0.07);
-    border: 1px solid var(--border-c);
-    border-radius: 30px;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 600;
-    transition: all var(--t);
-    white-space: nowrap;
-    text-decoration: none;
+    <!-- HEADER DEL PERFIL -->
+    <div class="perfil-header">
+        <div class="perfil-header-bg">
+            <div class="perfil-orb perfil-orb-1"></div>
+            <div class="perfil-orb perfil-orb-2"></div>
+        </div>
+        <div class="perfil-header-inner">
+            <!-- Avatar clickeable -->
+            <div class="perfil-avatar-wrap" id="perfil-avatar-wrap">
+                <div class="perfil-zenix-glow" id="perfil-zenix-glow"></div>
+                <img src="" alt="Mi Zenix" class="perfil-zenix-avatar" id="perfil-zenix-img">
+                <div class="perfil-avatar-hover">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </div>
+            <div class="perfil-info">
+                <h1 id="perfil-nombre">Cargando...</h1>
+                <p class="perfil-email" id="perfil-email"></p>
+                <div class="perfil-badges">
+                    <span class="perfil-rareza" id="perfil-rareza">—</span>
+                    <span class="perfil-member-since">
+                        <i class="fa-solid fa-calendar"></i>
+                        Miembro desde <span id="perfil-fecha">—</span>
+                    </span>
+                </div>
+            </div>
+            <div class="perfil-stats-mini">
+                <div class="psm-item">
+                    <span class="psm-val" id="perfil-xp">0 XP</span>
+                    <span class="psm-lbl">Experiencia</span>
+                </div>
+                <div class="psm-div"></div>
+                <div class="psm-item">
+                    <span class="psm-val" id="perfil-nivel">Nivel 1</span>
+                    <span class="psm-lbl">Nivel</span>
+                </div>
+                <div class="psm-div"></div>
+                <div class="psm-item">
+                    <span class="psm-val" id="perfil-coleccion-count">1</span>
+                    <span class="psm-lbl">Zenix</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABS DE NAVEGACIÓN -->
+    <div class="perfil-tabs-wrap">
+        <div class="perfil-tabs">
+            <button class="perfil-tab active" data-tab="identidad">
+                <i class="fa-solid fa-star"></i>
+                Identidad Digital
+            </button>
+            <button class="perfil-tab" data-tab="datos">
+                <i class="fa-solid fa-user"></i>
+                Datos Personales
+            </button>
+            <button class="perfil-tab" data-tab="progresion">
+                <i class="fa-solid fa-chart-line"></i>
+                Progresión
+            </button>
+        </div>
+    </div>
+
+    <!-- CONTENIDO DE TABS -->
+    <div class="perfil-tab-content">
+
+        <!-- ── TAB: IDENTIDAD DIGITAL ── -->
+        <div class="tab-panel active" id="tab-identidad">
+            <div class="identidad-grid">
+
+                <!-- Card Zenix activo -->
+                <div class="perfil-card zenix-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-star"></i>
+                        <h3>Mi Zenix</h3>
+                        <span class="pcard-badge" id="zenix-rareza-badge">—</span>
+                    </div>
+                    <div class="zenix-card-body">
+                        <!-- Imagen clickeable -->
+                        <div class="zenix-img-wrap" id="zenix-img-click">
+                            <div class="zenix-card-glow" id="zenix-card-glow"></div>
+                            <img src="" alt="Zenix" id="zenix-card-img" class="zenix-card-img">
+                            <div class="zenix-img-hover">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>Ver imagen</span>
+                            </div>
+                        </div>
+                        <div class="zenix-card-info">
+                            <h2 id="zenix-nombre">—</h2>
+                            <div class="zenix-stats">
+                                <div class="zstat">
+                                    <span class="zstat-label">Personalidad</span>
+                                    <span class="zstat-value" id="zenix-personalidad">—</span>
+                                </div>
+                                <div class="zstat">
+                                    <span class="zstat-label">Habilidad especial</span>
+                                    <span class="zstat-value highlight" id="zenix-habilidad">—</span>
+                                </div>
+                                <div class="zstat">
+                                    <span class="zstat-label">Rareza</span>
+                                    <span class="zstat-value" id="zenix-rareza-stat">—</span>
+                                </div>
+                            </div>
+                            <p class="zenix-desc" id="zenix-desc">—</p>
+                        </div>
+                    </div>
+                    <div class="zenix-lore">
+                        <i class="fa-solid fa-scroll"></i>
+                        <p id="zenix-lore">—</p>
+                    </div>
+                </div>
+
+                <!-- Colección -->
+                <div class="perfil-card coleccion-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <h3>Mi Colección</h3>
+                        <span class="pcard-count" id="col-count">1 Zenix</span>
+                    </div>
+                    <div class="coleccion-grid" id="coleccion-grid">
+                        <!-- Se genera por JS -->
+                    </div>
+                    <div class="coleccion-locked">
+                        <p class="locked-title"><i class="fa-solid fa-lock"></i> Próximas variantes</p>
+                        <div class="locked-slots">
+                            <div class="locked-slot"><i class="fa-solid fa-question"></i></div>
+                            <div class="locked-slot"><i class="fa-solid fa-question"></i></div>
+                            <div class="locked-slot"><i class="fa-solid fa-question"></i></div>
+                        </div>
+                        <p class="locked-desc">Nuevas colecciones y ediciones especiales próximamente</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── TAB: DATOS PERSONALES ── -->
+        <div class="tab-panel" id="tab-datos">
+            <div class="datos-grid">
+
+                <!-- Información personal -->
+                <div class="perfil-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Información personal</h3>
+                    </div>
+                    <div class="datos-form">
+                        <div class="datos-field">
+                            <label>Nombre completo</label>
+                            <div class="datos-input-wrap">
+                                <input type="text" id="edit-nombre" placeholder="Tu nombre">
+                                <button class="datos-edit-btn" id="btn-edit-nombre">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="datos-field">
+                            <label>Correo electrónico</label>
+                            <div class="datos-input-wrap">
+                                <input type="email" id="edit-email" placeholder="Tu correo" disabled>
+                                <span class="datos-verified">
+                                    <i class="fa-solid fa-circle-check"></i> Verificado
+                                </span>
+                            </div>
+                        </div>
+                        <div class="datos-field">
+                            <label>Miembro desde</label>
+                            <div class="datos-input-wrap">
+                                <input type="text" id="edit-fecha" disabled>
+                            </div>
+                        </div>
+                        <button class="primary-btn" id="btn-guardar-datos" style="display:none">
+                            Guardar cambios <i class="fa-solid fa-floppy-disk"></i>
+                        </button>
+                        <p class="datos-success" id="datos-success">
+                            <i class="fa-solid fa-circle-check"></i> Cambios guardados correctamente
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cambio de contraseña -->
+                <div class="perfil-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-lock"></i>
+                        <h3>Cambiar contraseña</h3>
+                    </div>
+                    <div class="datos-form">
+                        <div class="datos-field">
+                            <label>Contraseña actual</label>
+                            <div class="datos-input-wrap">
+                                <input type="password" id="pass-actual" placeholder="Tu contraseña actual">
+                                <button class="datos-eye-btn" data-target="pass-actual">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="datos-field">
+                            <label>Nueva contraseña</label>
+                            <div class="datos-input-wrap">
+                                <input type="password" id="pass-nueva" placeholder="Mínimo 8 caracteres">
+                                <button class="datos-eye-btn" data-target="pass-nueva">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="datos-field">
+                            <label>Confirmar nueva contraseña</label>
+                            <div class="datos-input-wrap">
+                                <input type="password" id="pass-confirmar" placeholder="Repite la nueva contraseña">
+                                <button class="datos-eye-btn" data-target="pass-confirmar">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <span class="field-error" id="pass-error"></span>
+                        <button class="primary-btn" id="btn-cambiar-pass">
+                            Cambiar contraseña <i class="fa-solid fa-shield-halved"></i>
+                        </button>
+                        <p class="datos-success" id="pass-success">
+                            <i class="fa-solid fa-circle-check"></i> Contraseña actualizada
+                        </p>
+                        <p class="datos-note">
+                            <i class="fa-solid fa-circle-info"></i>
+                            La autenticación real estará disponible cuando se integre Supabase.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Zona de peligro -->
+                <div class="perfil-card danger-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-triangle-exclamation" style="color:var(--down)"></i>
+                        <h3>Zona de peligro</h3>
+                    </div>
+                    <div class="datos-form">
+                        <p class="danger-desc">
+                            Cerrar sesión eliminará tu acceso en este dispositivo. Tu cuenta y tu Zenix se conservan.
+                        </p>
+                        <button class="danger-btn" id="btn-logout-perfil">
+                            <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── TAB: PROGRESIÓN ── -->
+        <div class="tab-panel" id="tab-progresion">
+            <div class="progresion-grid">
+
+                <!-- XP y nivel -->
+                <div class="perfil-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h3>Experiencia (XP)</h3>
+                    </div>
+                    <div class="prog-xp-body">
+                        <div class="prog-level-display">
+                            <div class="prog-level-circle">
+                                <span id="prog-nivel-num">1</span>
+                            </div>
+                            <div>
+                                <h3 id="prog-nivel-label">Nivel 1 — Iniciado</h3>
+                                <p id="prog-xp-label">0 / 100 XP para el siguiente nivel</p>
+                            </div>
+                        </div>
+                        <div class="xp-bar-wrap">
+                            <div class="xp-bar">
+                                <div class="xp-bar-fill" id="xp-bar-fill" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <div class="prog-tips">
+                            <p class="tips-title"><i class="fa-solid fa-list-check"></i> Cómo ganar XP</p>
+                            <div class="tip-row">
+                                <i class="fa-solid fa-circle-check" style="color:var(--up)"></i>
+                                <span>Ver tutoriales de Bitcoin</span>
+                                <strong>+10 XP</strong>
+                            </div>
+                            <div class="tip-row">
+                                <i class="fa-solid fa-circle-check" style="color:var(--up)"></i>
+                                <span>Unirte a la comunidad Telegram</span>
+                                <strong>+15 XP</strong>
+                            </div>
+                            <div class="tip-row">
+                                <i class="fa-solid fa-circle-check" style="color:var(--up)"></i>
+                                <span>Completar tu perfil</span>
+                                <strong>+20 XP</strong>
+                            </div>
+                            <div class="tip-row locked">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Completar primer curso</span>
+                                <strong>+50 XP</strong>
+                            </div>
+                            <div class="tip-row locked">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Referir un amigo</span>
+                                <strong>+30 XP</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Próximamente -->
+                <div class="perfil-card coming-card">
+                    <div class="pcard-header">
+                        <i class="fa-solid fa-rocket"></i>
+                        <h3>Próximamente</h3>
+                    </div>
+                    <div class="coming-grid">
+                        <div class="coming-item">
+                            <i class="fa-solid fa-store"></i>
+                            <span>Marketplace</span>
+                        </div>
+                        <div class="coming-item">
+                            <i class="fa-solid fa-gift"></i>
+                            <span>Regalar Zenix</span>
+                        </div>
+                        <div class="coming-item">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            <span>Intercambios</span>
+                        </div>
+                        <div class="coming-item">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>Torneos</span>
+                        </div>
+                        <div class="coming-item">
+                            <i class="fa-solid fa-calendar-star"></i>
+                            <span>Eventos</span>
+                        </div>
+                        <div class="coming-item">
+                            <i class="fa-solid fa-dna"></i>
+                            <span>Evolución</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="images/logo.png" alt="Eprocash Academy">
+            <p>Aprende, invierte y crece junto a Zenix.</p>
+            <div class="footer-socials">
+                <a href="TU_LINK_YOUTUBE" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="TU_LINK_TIKTOK" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="TU_LINK_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="TU_LINK_TELEGRAM" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="TU_LINK_TWITTER" target="_blank" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Mi cuenta</h4>
+            <a href="perfil.html">Mi perfil</a>
+            <a href="login.html">Iniciar sesión</a>
+            <a href="registro.html">Registrarse</a>
+        </div>
+        <div class="footer-links">
+            <h4>Explorar</h4>
+            <a href="bitcoin.html">Bitcoin</a>
+            <a href="trading.html">Trading</a>
+            <a href="cursos.html">Cursos</a>
+        </div>
+        <div class="footer-links">
+            <h4>Soporte</h4>
+            <a href="acerca.html">Acerca de</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="privacidad.html">Privacidad</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+        <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+    </div>
+</footer>
+
+<!-- Telegram flotante -->
+<a href="TU_LINK_TELEGRAM" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+    <i class="fa-brands fa-telegram"></i>
+    <span class="tg-tip">Únete al grupo</span>
+</a>
+
+<!-- Scroll top -->
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- Modal imagen Zenix -->
+<div class="zenix-img-modal" id="zenix-img-modal">
+    <div class="zim-overlay" id="zim-overlay"></div>
+    <div class="zim-box">
+        <button class="zim-close" id="zim-close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="zim-glow" id="zim-glow"></div>
+        <img src="" alt="Zenix" id="zim-img">
+        <div class="zim-info">
+            <div class="zim-rareza" id="zim-rareza">—</div>
+            <h3 id="zim-nombre">—</h3>
+            <p id="zim-personalidad">—</p>
+            <div class="zim-habilidad">
+                <i class="fa-solid fa-bolt"></i>
+                <span id="zim-habilidad">—</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/app.js"></script>
+<script src="js/zenix.js"></script>
+<script src="js/sesion.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ── Cargar perfil ── */
+    const perfil = ZenixSystem.cargarPerfil();
+    if (!perfil) { window.location.href = 'registro.html'; return; }
+    const z = perfil.zenix_activo;
+
+    /* ── Rellenar header ── */
+    document.getElementById('perfil-nombre').textContent  = perfil.nombre;
+    document.getElementById('perfil-email').textContent   = perfil.email;
+    document.getElementById('perfil-xp').textContent      = perfil.xp + ' XP';
+    document.getElementById('perfil-nivel').textContent   = 'Nivel ' + perfil.nivel;
+    document.getElementById('perfil-coleccion-count').textContent = perfil.coleccion.length;
+
+    const fecha = new Date(perfil.fecha_registro);
+    document.getElementById('perfil-fecha').textContent = fecha.toLocaleDateString('es-ES', { year:'numeric', month:'long', day:'numeric' });
+
+    /* Avatar header */
+    document.getElementById('perfil-zenix-img').src = z.imagen;
+    const glow = document.getElementById('perfil-zenix-glow');
+    if (glow) glow.style.background = `radial-gradient(circle, ${z.rareza_color}30, transparent 70%)`;
+
+    /* Rareza badge */
+    const rarezaEl = document.getElementById('perfil-rareza');
+    rarezaEl.textContent   = z.rareza_emoji + ' ' + z.rareza;
+    rarezaEl.style.color   = z.rareza_color;
+    rarezaEl.style.borderColor = z.rareza_color + '50';
+    rarezaEl.style.background  = z.rareza_color + '15';
+
+    /* ── Tab Identidad ── */
+    document.getElementById('zenix-card-img').src      = z.imagen;
+    document.getElementById('zenix-nombre').textContent = z.nombre;
+    document.getElementById('zenix-personalidad').textContent = z.personalidad;
+    document.getElementById('zenix-habilidad').textContent    = z.habilidad;
+    document.getElementById('zenix-desc').textContent         = z.descripcion;
+    document.getElementById('zenix-lore').textContent         = z.lore;
+
+    const zRarezaBadge = document.getElementById('zenix-rareza-badge');
+    zRarezaBadge.textContent   = z.rareza_emoji + ' ' + z.rareza;
+    zRarezaBadge.style.color   = z.rareza_color;
+    zRarezaBadge.style.borderColor = z.rareza_color + '50';
+    zRarezaBadge.style.background  = z.rareza_color + '15';
+
+    document.getElementById('zenix-rareza-stat').textContent = z.rareza_emoji + ' ' + z.rareza;
+    document.getElementById('zenix-rareza-stat').style.color = z.rareza_color;
+
+    const cardGlow = document.getElementById('zenix-card-glow');
+    if (cardGlow) cardGlow.style.background = `radial-gradient(circle, ${z.rareza_color}30, transparent 70%)`;
+
+    /* Colección */
+    const colGrid  = document.getElementById('coleccion-grid');
+    const colCount = document.getElementById('col-count');
+    colCount.textContent = perfil.coleccion.length + ' Zenix';
+    colGrid.innerHTML = '';
+    perfil.coleccion.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'col-item' + (item.id === z.id ? ' col-item-active' : '');
+        div.style.setProperty('--rc', item.rareza_color);
+        div.innerHTML = `
+            <img src="${item.imagen}" alt="${item.nombre}">
+            <span class="col-name">${item.nombre}</span>
+            <span class="col-rarity" style="color:${item.rareza_color}">${item.rareza_emoji} ${item.rareza}</span>
+        `;
+        /* Click en colección → abre modal */
+        div.addEventListener('click', () => abrirModal(item));
+        colGrid.appendChild(div);
+    });
+
+    /* ── Tab Datos ── */
+    document.getElementById('edit-nombre').value = perfil.nombre;
+    document.getElementById('edit-email').value  = perfil.email;
+    document.getElementById('edit-fecha').value  = fecha.toLocaleDateString('es-ES', { year:'numeric', month:'long', day:'numeric' });
+
+    /* Editar nombre */
+    const btnEditNombre = document.getElementById('btn-edit-nombre');
+    const inputNombre   = document.getElementById('edit-nombre');
+    const btnGuardar    = document.getElementById('btn-guardar-datos');
+    const datosSuccess  = document.getElementById('datos-success');
+
+    btnEditNombre.addEventListener('click', () => {
+        inputNombre.disabled = !inputNombre.disabled;
+        btnEditNombre.innerHTML = inputNombre.disabled
+            ? '<i class="fa-solid fa-pen"></i>'
+            : '<i class="fa-solid fa-xmark"></i>';
+        btnGuardar.style.display = inputNombre.disabled ? 'none' : 'inline-flex';
+        datosSuccess.style.display = 'none';
+    });
+
+    btnGuardar.addEventListener('click', () => {
+        perfil.nombre = inputNombre.value.trim() || perfil.nombre;
+        ZenixSystem.guardarPerfil(perfil);
+        inputNombre.disabled = true;
+        btnEditNombre.innerHTML = '<i class="fa-solid fa-pen"></i>';
+        btnGuardar.style.display = 'none';
+        datosSuccess.style.display = 'flex';
+        document.getElementById('perfil-nombre').textContent = perfil.nombre;
+        setTimeout(() => { datosSuccess.style.display = 'none'; }, 3000);
+    });
+
+    /* Toggle contraseña */
+    document.querySelectorAll('.datos-eye-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = document.getElementById(btn.dataset.target);
+            const isPass = target.type === 'password';
+            target.type = isPass ? 'text' : 'password';
+            btn.innerHTML = isPass
+                ? '<i class="fa-solid fa-eye-slash"></i>'
+                : '<i class="fa-solid fa-eye"></i>';
+        });
+    });
+
+    /* Cambiar contraseña (simulado) */
+    document.getElementById('btn-cambiar-pass').addEventListener('click', () => {
+        const actual    = document.getElementById('pass-actual').value;
+        const nueva     = document.getElementById('pass-nueva').value;
+        const confirmar = document.getElementById('pass-confirmar').value;
+        const errEl     = document.getElementById('pass-error');
+        const succEl    = document.getElementById('pass-success');
+
+        errEl.textContent = '';
+        succEl.style.display = 'none';
+
+        if (!actual)            { errEl.textContent = 'Ingresa tu contraseña actual'; return; }
+        if (nueva.length < 8)   { errEl.textContent = 'La nueva contraseña debe tener mínimo 8 caracteres'; return; }
+        if (nueva !== confirmar){ errEl.textContent = 'Las contraseñas no coinciden'; return; }
+
+        /* Simulación — en Fase 2 se conecta a Supabase Auth */
+        succEl.style.display = 'flex';
+        document.getElementById('pass-actual').value    = '';
+        document.getElementById('pass-nueva').value     = '';
+        document.getElementById('pass-confirmar').value = '';
+        setTimeout(() => { succEl.style.display = 'none'; }, 3000);
+    });
+
+    /* Cerrar sesión */
+    document.getElementById('btn-logout-perfil').addEventListener('click', () => {
+        localStorage.removeItem('epc_user');
+        window.location.href = 'index.html';
+    });
+
+    /* ── Tab Progresión ── */
+    document.getElementById('prog-nivel-num').textContent   = perfil.nivel;
+    document.getElementById('prog-nivel-label').textContent = 'Nivel ' + perfil.nivel + ' — ' + getNivelNombre(perfil.nivel);
+    const xpNecesario = perfil.nivel * 100;
+    document.getElementById('prog-xp-label').textContent    = perfil.xp + ' / ' + xpNecesario + ' XP';
+    const pct = Math.min((perfil.xp / xpNecesario) * 100, 100);
+    setTimeout(() => {
+        document.getElementById('xp-bar-fill').style.width = pct + '%';
+    }, 300);
+
+    /* ── Tabs ── */
+    document.querySelectorAll('.perfil-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.perfil-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    /* ── Modal de imagen ── */
+    function abrirModal(zenixItem) {
+        const modal = document.getElementById('zenix-img-modal');
+        document.getElementById('zim-img').src         = zenixItem.imagen;
+        document.getElementById('zim-nombre').textContent      = zenixItem.nombre;
+        document.getElementById('zim-personalidad').textContent= zenixItem.personalidad;
+        document.getElementById('zim-habilidad').textContent   = zenixItem.habilidad;
+        document.getElementById('zim-rareza').textContent      = zenixItem.rareza_emoji + ' ' + zenixItem.rareza;
+        document.getElementById('zim-rareza').style.color      = zenixItem.rareza_color;
+        document.getElementById('zim-rareza').style.borderColor= zenixItem.rareza_color + '50';
+        document.getElementById('zim-rareza').style.background = zenixItem.rareza_color + '15';
+        document.getElementById('zim-glow').style.background   = `radial-gradient(circle, ${zenixItem.rareza_color}25, transparent 70%)`;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarModal() {
+        document.getElementById('zenix-img-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    /* Click en avatar del header */
+    document.getElementById('perfil-avatar-wrap').addEventListener('click', () => abrirModal(z));
+    /* Click en imagen de la card */
+    document.getElementById('zenix-img-click').addEventListener('click', () => abrirModal(z));
+    /* Cerrar modal */
+    document.getElementById('zim-close').addEventListener('click', cerrarModal);
+    document.getElementById('zim-overlay').addEventListener('click', cerrarModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
+});
+
+function getNivelNombre(nivel) {
+    const nombres = { 1:'Iniciado', 2:'Aprendiz', 3:'Trader', 4:'Experto', 5:'Maestro' };
+    return nombres[nivel] || 'Leyenda';
 }
-.nav-user-btn:hover {
-    background: rgba(0,207,255,0.12);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(0,207,255,0.15);
-}
-
-.nav-zenix-mini {
-    width: 34px; height: 34px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.3);
-    border: 2px solid var(--rarity-color, var(--cyan));
-    display: flex; align-items:center; justify-content:center;
-    overflow: hidden;
-    box-shadow: 0 0 10px color-mix(in srgb, var(--rarity-color, var(--cyan)) 40%, transparent);
-    flex-shrink: 0;
-}
-.nav-zenix-mini img {
-    width: 100%; height: 100%;
-    object-fit: contain;
-    padding: 2px;
-}
-
-.nav-user-name { font-size:14px; font-weight:600; }
-.nav-user-badge { font-size:16px; }
-
-.nav-logout-btn {
-    width:36px; height:36px;
-    background: rgba(255,64,96,0.08);
-    border: 1px solid rgba(255,64,96,0.2);
-    color: var(--down);
-    border-radius: var(--radius-sm);
-    display:flex; align-items:center; justify-content:center;
-    font-size:14px; cursor:pointer;
-    transition: background var(--t), border-color var(--t), transform var(--t);
-}
-.nav-logout-btn:hover {
-    background: rgba(255,64,96,0.15);
-    border-color: rgba(255,64,96,0.4);
-    transform: translateY(-1px);
-}
-
-
-/* ================================================================
-   02. ANIMACIÓN DE REVELACIÓN DE ZENIX
-================================================================ */
-
-.zenix-reveal-overlay {
-    position: fixed; inset:0;
-    background: rgba(0,0,0,0.92);
-    z-index: 9999;
-    display:flex; align-items:center; justify-content:center;
-    backdrop-filter: blur(8px);
-    animation: fadeInOverlay 0.3s ease;
-}
-@keyframes fadeInOverlay { from{opacity:0} to{opacity:1} }
-
-.zenix-reveal-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border-c);
-    border-radius: var(--radius-xl);
-    padding: 50px 40px;
-    max-width: 460px;
-    width: calc(100% - 40px);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(0,207,255,0.1);
-}
-
-.reveal-step {
-    opacity:0; transform:translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    pointer-events:none;
-}
-.reveal-step.active { opacity:1; transform:translateY(0); pointer-events:all; }
-.reveal-step.exit   { opacity:0; transform:translateY(-20px); }
-
-.reveal-particles { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
-.reveal-particles span {
-    position:absolute; width:6px; height:6px;
-    background:var(--cyan); border-radius:50%;
-    animation:particleFloat 3s ease-in-out infinite; opacity:0.6;
-}
-.reveal-particles span:nth-child(1){left:10%;top:20%;animation-delay:0s}
-.reveal-particles span:nth-child(2){left:80%;top:30%;animation-delay:.4s;background:var(--blue)}
-.reveal-particles span:nth-child(3){left:50%;top:10%;animation-delay:.8s}
-.reveal-particles span:nth-child(4){left:20%;top:70%;animation-delay:1.2s;background:#a855f7}
-.reveal-particles span:nth-child(5){left:70%;top:80%;animation-delay:1.6s;background:#f59e0b}
-.reveal-particles span:nth-child(6){left:40%;top:85%;animation-delay:2s}
-@keyframes particleFloat{0%,100%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-20px) scale(1.4);opacity:1}}
-
-.reveal-logo img { width:80px; margin:0 auto 20px; animation:floatY 2s ease-in-out infinite; filter:drop-shadow(0 0 20px rgba(0,207,255,0.5)); }
-.reveal-title { font-family:var(--font-h); font-size:24px; font-weight:800; margin-bottom:8px; }
-.reveal-subtitle { font-size:14px; color:var(--text-soft); margin-bottom:28px; }
-.reveal-bar { height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
-.reveal-bar-fill { height:100%; background:linear-gradient(90deg,var(--cyan),var(--blue)); width:0%; transition:width 0.1s linear; border-radius:2px; }
-
-.reveal-rarity-badge {
-    display:inline-block;
-    border:1px solid var(--rarity-color,var(--cyan));
-    color:var(--rarity-color,var(--cyan));
-    background:color-mix(in srgb,var(--rarity-color,var(--cyan)) 12%,transparent);
-    font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
-    padding:5px 16px; border-radius:20px; margin-bottom:24px;
-}
-.reveal-zenix-img-wrap { position:relative; width:200px; margin:0 auto 20px; }
-.reveal-glow {
-    position:absolute; inset:-20px;
-    background:radial-gradient(circle,var(--rarity-color,var(--cyan)) 0%,transparent 70%);
-    opacity:0.3; border-radius:50%;
-    animation:glowPulse 2s ease-in-out infinite;
-}
-@keyframes glowPulse{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:.5;transform:scale(1.1)}}
-.reveal-zenix-img { width:200px; position:relative; z-index:1; animation:revealBounce 0.6s cubic-bezier(0.34,1.56,0.64,1); filter:drop-shadow(0 10px 30px rgba(0,0,0,0.5)); }
-@keyframes revealBounce{from{transform:scale(0.3) rotate(-10deg);opacity:0}to{transform:scale(1) rotate(0deg);opacity:1}}
-.reveal-zenix-name { font-family:var(--font-h); font-size:26px; font-weight:800; margin-bottom:6px; }
-.reveal-zenix-personalidad { font-size:14px; color:var(--text-soft); margin-bottom:10px; font-style:italic; }
-.reveal-zenix-habilidad { font-size:14px; color:var(--text-soft); margin-bottom:14px; }
-.reveal-zenix-habilidad strong { color:var(--cyan); }
-.reveal-zenix-desc { font-size:13.5px; color:var(--text-soft); line-height:1.65; margin-bottom:28px; max-width:340px; margin-left:auto; margin-right:auto; }
-.reveal-continue { width:100%; justify-content:center; }
-
-
-/* ================================================================
-   03. PREVIEW DE RAREZAS EN REGISTRO
-================================================================ */
-
-.rarity-preview {
-    display:flex; flex-wrap:wrap; gap:8px;
-    margin-top:16px; justify-content:center;
-}
-.rarity-preview span {
-    font-size:12px; font-weight:600;
-    background:rgba(255,255,255,0.05);
-    border:1px solid var(--border);
-    padding:4px 12px; border-radius:20px;
-}
-
-
-/* ================================================================
-   04. MEJORAS FORMULARIO AUTH
-================================================================ */
-
-.auth-error {
-    background:rgba(255,64,96,0.1); border:1px solid rgba(255,64,96,0.3);
-    color:#ff8099; font-size:13.5px; padding:12px 16px;
-    border-radius:var(--radius-sm); margin-bottom:16px;
-    display:flex; align-items:center; gap:8px;
-}
-.field-error { font-size:12px; color:var(--down); margin-top:4px; min-height:16px; display:block; }
-.input-wrap { position:relative; }
-.input-wrap input { width:100%; padding-right:46px !important; }
-.toggle-pass {
-    position:absolute; right:12px; top:50%; transform:translateY(-50%);
-    background:transparent; border:none; color:var(--text-muted);
-    font-size:14px; cursor:pointer; padding:4px;
-    transition:color var(--t);
-}
-.toggle-pass:hover { color:var(--cyan); }
-.form-check { display:flex; align-items:flex-start; gap:10px; margin-top:4px; }
-.form-check input[type="checkbox"] { width:16px; height:16px; accent-color:var(--cyan); flex-shrink:0; margin-top:2px; cursor:pointer; }
-.form-check label { font-size:13px; color:var(--text-soft); line-height:1.5; cursor:pointer; }
-.form-check label a { color:var(--cyan); text-decoration:underline; }
-
-
-/* ================================================================
-   05. HEADER DEL PERFIL
-================================================================ */
-
-.perfil-page { padding-top:var(--nav-h); min-height:100vh; background:var(--bg); }
-
-.perfil-header {
-    position:relative;
-    padding:50px 80px 40px;
-    background:linear-gradient(135deg,#0b1a3e,#0f172a);
-    border-bottom:1px solid var(--border);
-    overflow:hidden;
-}
-.perfil-header-bg { position:absolute; inset:0; pointer-events:none; z-index:0; }
-.perfil-orb { position:absolute; border-radius:50%; filter:blur(80px); }
-.perfil-orb-1 { width:400px; height:400px; background:radial-gradient(circle,rgba(0,119,255,0.2),transparent 70%); top:-150px; right:-100px; }
-.perfil-orb-2 { width:300px; height:300px; background:radial-gradient(circle,rgba(0,207,255,0.12),transparent 70%); bottom:-100px; left:-50px; }
-
-.perfil-header-inner {
-    position:relative; z-index:1;
-    display:flex; align-items:center; gap:32px;
-    max-width:1100px; margin:0 auto;
-}
-
-.perfil-avatar-wrap {
-    position:relative; flex-shrink:0; cursor:pointer;
-    border-radius:50%;
-}
-.perfil-zenix-glow { position:absolute; inset:-15px; border-radius:50%; pointer-events:none; }
-.perfil-zenix-avatar {
-    width:120px; height:120px;
-    object-fit:contain; border-radius:50%;
-    border:3px solid var(--border-c);
-    background:rgba(0,0,0,0.3);
-    position:relative; z-index:1; padding:6px;
-    transition:filter var(--t), transform var(--t);
-}
-.perfil-avatar-hover {
-    position:absolute; inset:0; border-radius:50%;
-    background:rgba(0,207,255,0.2);
-    display:flex; align-items:center; justify-content:center;
-    opacity:0; z-index:2;
-    transition:opacity var(--t);
-    color:white; font-size:20px;
-}
-.perfil-avatar-wrap:hover .perfil-zenix-avatar { filter:brightness(0.7); }
-.perfil-avatar-wrap:hover .perfil-avatar-hover  { opacity:1; }
-
-.perfil-info { flex:1; }
-.perfil-info h1 { font-family:var(--font-h); font-size:30px; font-weight:800; margin-bottom:6px; }
-.perfil-email { font-size:14px; color:var(--text-muted); margin-bottom:12px; }
-.perfil-badges { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-.perfil-rareza { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 12px; border-radius:20px; border:1px solid; }
-.perfil-member-since { font-size:13px; color:var(--text-muted); display:flex; align-items:center; gap:6px; }
-.perfil-member-since i { color:var(--cyan); font-size:12px; }
-
-.perfil-stats-mini { display:flex; align-items:center; gap:20px; flex-shrink:0; }
-.psm-item { display:flex; flex-direction:column; text-align:center; }
-.psm-val  { font-family:var(--font-h); font-size:20px; font-weight:800; color:var(--cyan); }
-.psm-lbl  { font-size:11px; color:var(--text-muted); margin-top:2px; }
-.psm-div  { width:1px; height:32px; background:var(--border); }
-
-
-/* ================================================================
-   06. TABS
-================================================================ */
-
-.perfil-tabs-wrap {
-    background:var(--bg-2);
-    border-bottom:1px solid var(--border);
-    padding:0 80px;
-}
-.perfil-tabs { display:flex; gap:4px; max-width:1100px; margin:0 auto; }
-.perfil-tab {
-    display:inline-flex; align-items:center; gap:8px;
-    padding:16px 22px;
-    font-size:14px; font-weight:600;
-    color:var(--text-soft);
-    background:transparent; border:none; cursor:pointer;
-    border-bottom:3px solid transparent;
-    transition:color var(--t), border-color var(--t);
-    font-family:var(--font-b);
-    white-space:nowrap;
-}
-.perfil-tab i { font-size:13px; color:var(--text-muted); transition:color var(--t); }
-.perfil-tab:hover { color:var(--text); }
-.perfil-tab:hover i { color:var(--cyan); }
-.perfil-tab.active { color:var(--cyan); border-bottom-color:var(--cyan); }
-.perfil-tab.active i { color:var(--cyan); }
-
-.perfil-tab-content { padding:40px 80px 80px; max-width:1280px; margin:0 auto; }
-.tab-panel { display:none; }
-.tab-panel.active { display:block; }
-
-
-/* ================================================================
-   07. TAB IDENTIDAD DIGITAL
-================================================================ */
-
-.identidad-grid {
-    display:grid;
-    grid-template-columns:1.5fr 1fr;
-    gap:24px;
-}
-
-/* Cards base */
-.perfil-card {
-    background:var(--bg-card);
-    border:1px solid var(--border);
-    border-radius:var(--radius-xl);
-    overflow:hidden;
-    transition:border-color var(--t);
-}
-.perfil-card:hover { border-color:var(--border-c); }
-.pcard-header {
-    display:flex; align-items:center; gap:10px;
-    padding:18px 24px;
-    border-bottom:1px solid var(--border);
-    background:rgba(0,207,255,0.03);
-}
-.pcard-header i  { color:var(--cyan); font-size:15px; }
-.pcard-header h3 { font-family:var(--font-h); font-size:15px; font-weight:700; flex:1; }
-.pcard-badge {
-    font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
-    padding:3px 10px; border-radius:20px; border:1px solid;
-}
-.pcard-count {
-    font-size:12px; color:var(--text-muted);
-    background:rgba(255,255,255,0.05);
-    padding:3px 10px; border-radius:20px; border:1px solid var(--border);
-}
-
-/* Zenix card */
-.zenix-card-body {
-    display:flex; gap:24px;
-    padding:24px; align-items:flex-start;
-}
-.zenix-img-wrap {
-    position:relative; flex-shrink:0; width:150px; cursor:pointer;
-}
-.zenix-card-glow { position:absolute; inset:-15px; border-radius:50%; pointer-events:none; }
-.zenix-card-img {
-    width:150px; position:relative; z-index:1;
-    animation:floatY 4.5s ease-in-out infinite;
-    filter:drop-shadow(0 10px 25px rgba(0,0,0,0.4));
-    transition:filter var(--t), transform var(--t);
-}
-.zenix-img-hover {
-    position:absolute; inset:0;
-    background:rgba(0,207,255,0.15);
-    border-radius:8px;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:6px; opacity:0; z-index:2;
-    transition:opacity var(--t);
-    color:white; font-size:20px;
-}
-.zenix-img-hover span { font-size:11px; font-weight:600; }
-.zenix-img-wrap:hover .zenix-card-img { filter:brightness(0.7); }
-.zenix-img-wrap:hover .zenix-img-hover { opacity:1; }
-
-.zenix-card-info { flex:1; }
-.zenix-card-info h2 { font-family:var(--font-h); font-size:20px; font-weight:800; margin-bottom:12px; }
-.zenix-stats { display:flex; flex-direction:column; gap:10px; margin-bottom:12px; }
-.zstat { display:flex; flex-direction:column; gap:2px; }
-.zstat-label { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; }
-.zstat-value { font-size:14px; font-weight:600; color:var(--text); }
-.zstat-value.highlight { color:var(--cyan); }
-.zenix-desc { font-size:13.5px; color:var(--text-soft); line-height:1.65; }
-
-.zenix-lore {
-    display:flex; align-items:flex-start; gap:12px;
-    padding:14px 24px 20px;
-    background:rgba(0,207,255,0.03);
-    border-top:1px solid var(--border);
-}
-.zenix-lore i { color:var(--cyan); font-size:13px; flex-shrink:0; margin-top:2px; }
-.zenix-lore p { font-size:13px; color:var(--text-soft); line-height:1.65; font-style:italic; }
-
-/* Colección */
-.coleccion-grid {
-    display:grid; grid-template-columns:1fr 1fr;
-    gap:10px; padding:16px;
-}
-.col-item {
-    background:rgba(255,255,255,0.02);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:14px 10px; text-align:center;
-    transition:border-color var(--t),transform var(--t),box-shadow var(--t);
-    cursor:pointer;
-}
-.col-item:hover {
-    border-color:var(--rc,var(--cyan));
-    transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
-.col-item-active { border-color:var(--rc,var(--cyan)) !important; box-shadow:0 0 16px color-mix(in srgb,var(--rc,var(--cyan)) 20%,transparent); }
-.col-item img { width:72px; margin:0 auto 8px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.4)); }
-.col-name   { display:block; font-size:12px; font-weight:600; color:var(--text); margin-bottom:3px; }
-.col-rarity { display:block; font-size:11px; font-weight:600; }
-
-.coleccion-locked { padding:4px 16px 20px; }
-.locked-title { font-size:12px; color:var(--text-muted); font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:6px; }
-.locked-title i { color:var(--warn); }
-.locked-slots { display:flex; gap:8px; margin-bottom:10px; }
-.locked-slot {
-    width:56px; height:56px;
-    background:rgba(255,255,255,0.02); border:1px dashed var(--border);
-    border-radius:var(--radius-sm);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--text-muted); font-size:16px;
-}
-.locked-desc { font-size:12px; color:var(--text-muted); }
-
-
-/* ================================================================
-   08. TAB DATOS PERSONALES
-================================================================ */
-
-.datos-grid {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-}
-.danger-card { grid-column:1 / -1; }
-
-.datos-form { padding:24px; display:flex; flex-direction:column; gap:18px; }
-.datos-field { display:flex; flex-direction:column; gap:6px; }
-.datos-field label { font-size:13px; font-weight:600; color:var(--text-soft); }
-.datos-input-wrap { position:relative; display:flex; align-items:center; }
-.datos-input-wrap input {
-    flex:1; background:rgba(255,255,255,0.05); border:1px solid var(--border);
-    color:var(--text); font-family:var(--font-b); font-size:15px;
-    padding:12px 48px 12px 16px; border-radius:var(--radius);
-    outline:none; transition:border-color var(--t),background var(--t),box-shadow var(--t);
-    width:100%;
-}
-.datos-input-wrap input:focus { border-color:var(--border-c); background:rgba(0,207,255,0.04); box-shadow:0 0 0 3px rgba(0,207,255,0.1); }
-.datos-input-wrap input:disabled { opacity:0.6; cursor:not-allowed; }
-.datos-input-wrap input::placeholder { color:var(--text-muted); }
-
-.datos-edit-btn, .datos-eye-btn {
-    position:absolute; right:12px;
-    background:transparent; border:none;
-    color:var(--text-muted); font-size:14px; cursor:pointer;
-    padding:4px; transition:color var(--t);
-}
-.datos-edit-btn:hover, .datos-eye-btn:hover { color:var(--cyan); }
-
-.datos-verified {
-    position:absolute; right:12px;
-    font-size:12px; color:var(--up); font-weight:600;
-    display:flex; align-items:center; gap:4px;
-}
-.datos-verified i { font-size:13px; }
-
-.datos-success {
-    display:none; font-size:13.5px; color:var(--up); font-weight:500;
-    align-items:center; gap:7px; padding:10px 14px;
-    background:rgba(0,229,155,0.08); border:1px solid rgba(0,229,155,0.2);
-    border-radius:var(--radius-sm);
-}
-.datos-note {
-    font-size:12px; color:var(--text-muted);
-    display:flex; align-items:flex-start; gap:6px; line-height:1.5;
-}
-.datos-note i { color:var(--cyan); flex-shrink:0; margin-top:1px; }
-
-.danger-desc { font-size:14px; color:var(--text-soft); line-height:1.6; }
-.danger-btn {
-    display:inline-flex; align-items:center; gap:8px;
-    background:rgba(255,64,96,0.1); border:1px solid rgba(255,64,96,0.3);
-    color:var(--down); font-size:14px; font-weight:600;
-    padding:12px 22px; border-radius:var(--radius);
-    cursor:pointer; font-family:var(--font-b);
-    transition:background var(--t),border-color var(--t),transform var(--t);
-    width:fit-content;
-}
-.danger-btn:hover { background:rgba(255,64,96,0.18); border-color:rgba(255,64,96,0.5); transform:translateY(-1px); }
-
-
-/* ================================================================
-   09. TAB PROGRESIÓN
-================================================================ */
-
-.progresion-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-
-.prog-xp-body { padding:24px; }
-.prog-level-display { display:flex; align-items:center; gap:20px; margin-bottom:24px; }
-.prog-level-circle {
-    width:60px; height:60px; border-radius:50%;
-    background:linear-gradient(135deg,var(--cyan),var(--blue));
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-h); font-size:24px; font-weight:800;
-    color:#fff; flex-shrink:0;
-    box-shadow:0 0 20px rgba(0,207,255,0.3);
-}
-.prog-level-display h3 { font-family:var(--font-h); font-size:18px; font-weight:700; margin-bottom:4px; }
-.prog-level-display p  { font-size:13px; color:var(--text-muted); }
-
-.xp-bar-wrap { margin-bottom:24px; }
-.xp-bar { height:10px; background:rgba(255,255,255,0.06); border-radius:5px; overflow:hidden; }
-.xp-bar-fill { height:100%; background:linear-gradient(90deg,var(--cyan),var(--blue)); border-radius:5px; transition:width 1.2s cubic-bezier(0.4,0,0.2,1); box-shadow:0 0 12px rgba(0,207,255,0.4); }
-
-.prog-tips { display:flex; flex-direction:column; gap:4px; }
-.tips-title { font-size:13px; font-weight:600; color:var(--text-soft); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
-.tips-title i { color:var(--cyan); }
-.tip-row { display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:13.5px; }
-.tip-row:last-child { border-bottom:none; }
-.tip-row i { font-size:13px; flex-shrink:0; }
-.tip-row span { flex:1; color:var(--text-soft); }
-.tip-row strong { color:var(--cyan); font-size:12px; white-space:nowrap; }
-.tip-row.locked { opacity:0.4; }
-.tip-row.locked i { color:var(--text-muted); }
-
-.coming-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:20px; }
-.coming-item {
-    display:flex; flex-direction:column; align-items:center; gap:8px;
-    padding:16px 8px;
-    background:rgba(255,255,255,0.02); border:1px solid var(--border);
-    border-radius:var(--radius); font-size:12px; color:var(--text-muted);
-    text-align:center; cursor:default;
-    transition:border-color var(--t),background var(--t),color var(--t);
-}
-.coming-item:hover { border-color:var(--border-c); background:rgba(0,207,255,0.05); color:var(--cyan); }
-.coming-item i { font-size:22px; color:var(--text-muted); transition:color var(--t); }
-.coming-item:hover i { color:var(--cyan); }
-
-
-/* ================================================================
-   10. MODAL IMAGEN ZENIX
-================================================================ */
-
-.zenix-img-modal {
-    position:fixed; inset:0; z-index:9000;
-    display:flex; align-items:center; justify-content:center;
-    opacity:0; pointer-events:none;
-    transition:opacity 0.3s ease;
-}
-.zenix-img-modal.open { opacity:1; pointer-events:all; }
-
-.zim-overlay {
-    position:absolute; inset:0;
-    background:rgba(0,0,0,0.85);
-    backdrop-filter:blur(8px);
-}
-.zim-box {
-    position:relative; z-index:1;
-    background:var(--bg-card);
-    border:1px solid var(--border-c);
-    border-radius:var(--radius-xl);
-    padding:40px 36px;
-    max-width:420px; width:calc(100% - 40px);
-    text-align:center;
-    transform:scale(0.9);
-    transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    overflow:hidden;
-}
-.zenix-img-modal.open .zim-box { transform:scale(1); }
-
-.zim-close {
-    position:absolute; top:16px; right:16px;
-    width:32px; height:32px;
-    background:rgba(255,255,255,0.07); border:1px solid var(--border);
-    color:var(--text-soft); border-radius:8px;
-    display:flex; align-items:center; justify-content:center;
-    font-size:14px; cursor:pointer;
-    transition:color var(--t),background var(--t);
-}
-.zim-close:hover { color:var(--down); background:rgba(255,64,96,0.1); }
-
-.zim-glow {
-    position:absolute; inset:0; pointer-events:none;
-}
-.zim-box img {
-    width:220px; margin:0 auto 20px;
-    position:relative; z-index:1;
-    animation:revealBounce 0.5s cubic-bezier(0.34,1.56,0.64,1);
-    filter:drop-shadow(0 16px 40px rgba(0,0,0,0.5));
-}
-.zim-info { position:relative; z-index:1; }
-.zim-rareza {
-    display:inline-block; font-size:11px; font-weight:700;
-    letter-spacing:1.5px; text-transform:uppercase;
-    padding:4px 14px; border-radius:20px; border:1px solid;
-    margin-bottom:12px;
-}
-.zim-info h3 { font-family:var(--font-h); font-size:22px; font-weight:800; margin-bottom:6px; }
-.zim-info p  { font-size:13.5px; color:var(--text-soft); font-style:italic; margin-bottom:12px; }
-.zim-habilidad {
-    display:inline-flex; align-items:center; gap:7px;
-    background:rgba(0,207,255,0.08); border:1px solid var(--border-c);
-    color:var(--cyan); font-size:13px; font-weight:600;
-    padding:6px 14px; border-radius:20px;
-}
-
-
-/* ================================================================
-   11. RESPONSIVE
-================================================================ */
-
-@media (max-width:1100px) {
-    .perfil-header        { padding:40px; }
-    .perfil-tabs-wrap     { padding:0 40px; }
-    .perfil-tab-content   { padding:32px 40px 60px; }
-}
-
-@media (max-width:900px) {
-    .perfil-header { padding:32px 24px; }
-    .perfil-header-inner { flex-direction:column; text-align:center; }
-    .perfil-badges { justify-content:center; }
-    .perfil-stats-mini { justify-content:center; }
-
-    .perfil-tabs-wrap   { padding:0 24px; }
-    .perfil-tabs        { overflow-x:auto; gap:0; }
-    .perfil-tab         { padding:14px 16px; font-size:13px; }
-    .perfil-tab-content { padding:24px 24px 60px; }
-
-    .identidad-grid { grid-template-columns:1fr; }
-    .datos-grid     { grid-template-columns:1fr; }
-    .danger-card    { grid-column:1; }
-    .progresion-grid{ grid-template-columns:1fr; }
-
-    .zenix-card-body { flex-direction:column; align-items:center; text-align:center; }
-    .zenix-img-wrap  { width:140px; }
-    .zenix-card-img  { width:140px; }
-
-    .coming-grid { grid-template-columns:repeat(2,1fr); }
-
-    .nav-user-name { display:none; }
-}
+</script>
+</body>
+</html>
