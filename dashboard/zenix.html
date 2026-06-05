@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Zenix — Eprocash Academy</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<header class="dash-navbar" id="navbar">
+    <div class="dash-nav-left">
+        <a href="../index.html" class="dash-logo"><img src="../images/logo.png" alt="Eprocash Academy"></a>
+        <nav class="dash-nav-links">
+            <a href="index.html" class="dash-link"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="rutas.html" class="dash-link"><i class="fa-solid fa-road"></i> Rutas</a>
+            <a href="recursos.html" class="dash-link"><i class="fa-solid fa-folder-open"></i> Recursos</a>
+            <a href="eventos.html" class="dash-link"><i class="fa-solid fa-calendar-star"></i> Eventos</a>
+            <a href="logros.html" class="dash-link"><i class="fa-solid fa-trophy"></i> Logros</a>
+            <a href="zenix.html" class="dash-link active"><i class="fa-solid fa-star"></i> Mi Zenix</a>
+        </nav>
+    </div>
+    <div class="dash-nav-right">
+        <button id="theme-toggle"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+        <a href="perfil.html" class="dash-user-btn">
+            <div class="dash-zenix-mini"><img src="../images/favicon.png" alt="Zenix" id="dash-nav-zenix-img"></div>
+            <span id="dash-nav-nombre">...</span>
+        </a>
+        <button class="dash-logout" onclick="DashboardSystem.cerrarSesion()"><i class="fa-solid fa-right-from-bracket"></i></button>
+        <button class="dash-hamburger" id="dash-hamburger"><span></span><span></span><span></span></button>
+    </div>
+</header>
+<div class="dash-mobile-menu" id="dash-mobile-menu">
+    <a href="index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="rutas.html"><i class="fa-solid fa-road"></i> Rutas</a>
+    <a href="recursos.html"><i class="fa-solid fa-folder-open"></i> Recursos</a>
+    <a href="eventos.html"><i class="fa-solid fa-calendar-star"></i> Eventos</a>
+    <a href="logros.html"><i class="fa-solid fa-trophy"></i> Logros</a>
+    <a href="zenix.html"><i class="fa-solid fa-star"></i> Mi Zenix</a>
+    <a href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+    <button onclick="DashboardSystem.cerrarSesion()"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+</div>
+<div class="dash-overlay" id="dash-overlay"></div>
+
+<main class="dash-main">
+
+    <div class="zenix-page-hero">
+        <div class="zph-bg"><div class="zph-orb" id="zph-orb"></div></div>
+        <div class="zph-content">
+            <div class="zph-img-wrap" onclick="abrirModal()">
+                <div class="zph-glow" id="zph-glow"></div>
+                <img src="../images/favicon.png" alt="Mi Zenix" class="zph-img" id="zph-img">
+                <div class="zph-img-hover"><i class="fa-solid fa-expand"></i><span>Ver completo</span></div>
+            </div>
+            <div class="zph-info">
+                <div class="zph-rareza-wrap">
+                    <span class="zph-rareza" id="zph-rareza">—</span>
+                    <span class="zph-evolucion" id="zph-evolucion">Base</span>
+                </div>
+                <h1 id="zph-nombre">Mi Zenix</h1>
+                <p class="zph-personalidad" id="zph-personalidad">—</p>
+                <div class="zph-stats">
+                    <div class="zph-stat">
+                        <span class="zph-stat-label">Habilidad especial</span>
+                        <span class="zph-stat-val highlight" id="zph-habilidad">—</span>
+                    </div>
+                    <div class="zph-stat">
+                        <span class="zph-stat-label">Nivel</span>
+                        <span class="zph-stat-val" id="zph-nivel">1</span>
+                    </div>
+                    <div class="zph-stat">
+                        <span class="zph-stat-label">XP total</span>
+                        <span class="zph-stat-val" id="zph-xp">0</span>
+                    </div>
+                </div>
+                <div class="zph-evol-wrap">
+                    <p class="zph-evol-label">Evolución</p>
+                    <div class="zph-evol-track">
+                        <div class="zph-evol-step" id="evol-base"><div class="evol-dot"></div><span>Base</span></div>
+                        <div class="zph-evol-line"></div>
+                        <div class="zph-evol-step" id="evol-mejorado"><div class="evol-dot"></div><span>Mejorado</span></div>
+                        <div class="zph-evol-line"></div>
+                        <div class="zph-evol-step" id="evol-avanzado"><div class="evol-dot"></div><span>Avanzado</span></div>
+                        <div class="zph-evol-line"></div>
+                        <div class="zph-evol-step" id="evol-maestro"><div class="evol-dot"></div><span>Maestro</span></div>
+                    </div>
+                    <p class="zph-evol-hint" id="zph-evol-hint">Alcanza el Nivel 4 para evolucionar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zenix-lore-section">
+        <div class="zls-card dash-card">
+            <div class="dash-card-header"><i class="fa-solid fa-info-circle"></i><h3>Descripción</h3></div>
+            <p id="zph-desc" class="zls-text" style="padding:20px 24px;color:var(--text-soft)">—</p>
+        </div>
+        <div class="zls-card dash-card">
+            <div class="dash-card-header"><i class="fa-solid fa-scroll"></i><h3>Historia</h3></div>
+            <p id="zph-lore" class="zls-text" style="padding:20px 24px;color:var(--text-soft);font-style:italic">—</p>
+        </div>
+    </div>
+
+    <div class="dash-card">
+        <div class="dash-card-header">
+            <i class="fa-solid fa-layer-group"></i>
+            <h3>Mi Colección</h3>
+            <span class="pcard-count" id="col-count-zenix">1 Zenix</span>
+        </div>
+        <div class="zenix-col-grid" id="zenix-col-grid"></div>
+        <div class="zenix-col-locked">
+            <p class="locked-title"><i class="fa-solid fa-lock"></i> Próximas variantes</p>
+            <div class="locked-slots">
+                <div class="locked-slot"><i class="fa-solid fa-question"></i></div>
+                <div class="locked-slot"><i class="fa-solid fa-question"></i></div>
+                <div class="locked-slot"><i class="fa-solid fa-question"></i></div>
+            </div>
+            <p class="locked-desc">Nuevas variantes exclusivas mediante eventos y logros especiales</p>
+        </div>
+    </div>
+
+    <div class="zenix-futuro">
+        <h2 class="logros-section-title"><i class="fa-solid fa-rocket"></i> Próximamente</h2>
+        <div class="zenix-futuro-grid">
+            <div class="zf-card"><i class="fa-solid fa-store"></i><h4>Marketplace</h4><p>Intercambia o vende tu Zenix en el mercado interno.</p><span class="soon-badge">Próximamente</span></div>
+            <div class="zf-card"><i class="fa-solid fa-gift"></i><h4>Regalar Zenix</h4><p>Envía un Zenix como regalo a otro miembro.</p><span class="soon-badge">Próximamente</span></div>
+            <div class="zf-card"><i class="fa-solid fa-dna"></i><h4>Evolución</h4><p>Tu Zenix evolucionará visualmente al subir de nivel.</p><span class="soon-badge">Nivel 4+</span></div>
+            <div class="zf-card"><i class="fa-solid fa-trophy"></i><h4>Torneos</h4><p>Compite con tu Zenix en torneos especiales.</p><span class="soon-badge">Próximamente</span></div>
+            <div class="zf-card"><i class="fa-solid fa-calendar-star"></i><h4>Eventos Exclusivos</h4><p>Variantes especiales solo en eventos limitados.</p><span class="soon-badge">Próximamente</span></div>
+            <div class="zf-card"><i class="fa-solid fa-arrows-rotate"></i><h4>Intercambios</h4><p>Propón intercambios con otros miembros.</p><span class="soon-badge">Próximamente</span></div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Modal imagen -->
+<div class="zenix-img-modal" id="zenix-img-modal">
+    <div class="zim-overlay" id="zim-overlay"></div>
+    <div class="zim-box">
+        <button class="zim-close" id="zim-close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="zim-glow" id="zim-glow-modal"></div>
+        <img src="" alt="Zenix" id="zim-img-modal">
+        <div class="zim-info">
+            <div class="zim-rareza" id="zim-rareza-modal">—</div>
+            <h3 id="zim-nombre-modal">—</h3>
+            <p id="zim-per-modal" style="font-size:13.5px;color:var(--text-soft);font-style:italic;margin-bottom:12px">—</p>
+            <div class="zim-habilidad"><i class="fa-solid fa-bolt"></i><span id="zim-hab-modal">—</span></div>
+        </div>
+    </div>
+</div>
+
+<button class="scroll-top" id="scroll-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="../js/app.js"></script>
+<script src="../js/zenix.js"></script>
+<script src="../js/dashboard.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (!DashboardSystem.protegerRuta()) return;
+    const perfil = DashboardSystem.cargarPerfil();
+    if (!perfil) return;
+    const z = perfil.zenix_activo;
+    const ni = DashboardSystem.calcularNivel(perfil.xp || 0);
+
+    /* Navbar */
+    const navImg = document.getElementById('dash-nav-zenix-img');
+    if (navImg) navImg.src = z.imagen;
+    const navNom = document.getElementById('dash-nav-nombre');
+    if (navNom) navNom.textContent = perfil.nombre.split(' ')[0];
+
+    /* Hero */
+    const s = (id, t) => { const e = document.getElementById(id); if(e) e.textContent = t; };
+    document.getElementById('zph-img').src = z.imagen;
+
+    const glow = document.getElementById('zph-glow');
+    if (glow) glow.style.background = `radial-gradient(circle, ${z.rareza_color}35, transparent 70%)`;
+    const orb = document.getElementById('zph-orb');
+    if (orb) orb.style.background = `radial-gradient(circle, ${z.rareza_color}15, transparent 70%)`;
+
+    const rEl = document.getElementById('zph-rareza');
+    if (rEl) { rEl.textContent = z.rareza_emoji + ' ' + z.rareza; rEl.style.color = z.rareza_color; rEl.style.borderColor = z.rareza_color+'50'; rEl.style.background = z.rareza_color+'15'; }
+
+    s('zph-nombre', z.nombre);
+    s('zph-personalidad', z.personalidad);
+    s('zph-habilidad', z.habilidad);
+    s('zph-nivel', 'Nivel ' + ni.nivel);
+    s('zph-xp', (perfil.xp||0) + ' XP');
+    const evol = z.evolucion || 'base';
+    s('zph-evolucion', evol.charAt(0).toUpperCase() + evol.slice(1));
+    s('zph-desc', z.descripcion);
+    s('zph-lore', z.lore);
+
+    /* Evolución */
+    const etapas = ['base','mejorado','avanzado','maestro'];
+    const idx = etapas.indexOf(evol);
+    etapas.forEach((e, i) => {
+        const el = document.getElementById('evol-'+e);
+        if (el) { el.classList.toggle('active', i <= idx); el.classList.toggle('proxima', i === idx+1); }
+    });
+    const hints = { base:'Alcanza el Nivel 4 para evolucionar', mejorado:'Alcanza el Nivel 6', avanzado:'Alcanza el Nivel 8', maestro:'🏆 ¡Evolución máxima!' };
+    s('zph-evol-hint', hints[evol]);
+
+    /* Colección */
+    const grid = document.getElementById('zenix-col-grid');
+    const cnt  = document.getElementById('col-count-zenix');
+    if (cnt) cnt.textContent = perfil.coleccion.length + ' Zenix';
+    if (grid) {
+        grid.innerHTML = '';
+        perfil.coleccion.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'col-item' + (item.id === z.id ? ' col-item-active' : '');
+            div.style.setProperty('--rc', item.rareza_color);
+            div.innerHTML = `<img src="${item.imagen}" alt="${item.nombre}"><span class="col-name">${item.nombre}</span><span class="col-rarity" style="color:${item.rareza_color}">${item.rareza_emoji} ${item.rareza}</span>`;
+            div.addEventListener('click', () => abrirModalItem(item));
+            grid.appendChild(div);
+        });
+    }
+
+    /* Modal */
+    document.getElementById('zim-close').addEventListener('click', cerrarModal);
+    document.getElementById('zim-overlay').addEventListener('click', cerrarModal);
+    document.addEventListener('keydown', e => { if(e.key==='Escape') cerrarModal(); });
+
+    /* Hamburguesa */
+    const ham = document.getElementById('dash-hamburger');
+    const menu = document.getElementById('dash-mobile-menu');
+    const ov = document.getElementById('dash-overlay');
+    if (ham) { ham.addEventListener('click', () => { ham.classList.toggle('open'); menu.classList.toggle('open'); ov.classList.toggle('visible'); }); ov.addEventListener('click', () => { ham.classList.remove('open'); menu.classList.remove('open'); ov.classList.remove('visible'); }); }
+
+    /* Theme */
+    const tb = document.getElementById('theme-toggle'); const ti = document.getElementById('theme-icon');
+    if (localStorage.getItem('epc-theme')==='light') { document.body.classList.add('light-mode'); if(ti) ti.className='fa-solid fa-sun'; }
+    if (tb) tb.addEventListener('click', () => { const l=document.body.classList.toggle('light-mode'); if(ti) ti.className=l?'fa-solid fa-sun':'fa-solid fa-moon'; localStorage.setItem('epc-theme',l?'light':'dark'); });
+
+    /* Scroll */
+    const sb = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => { if(sb) sb.classList.toggle('visible', window.scrollY>300); });
+    if (sb) sb.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+});
+
+function abrirModal() { const p = DashboardSystem.cargarPerfil(); if(p) abrirModalItem(p.zenix_activo); }
+function abrirModalItem(z) {
+    document.getElementById('zim-img-modal').src = z.imagen;
+    const s = (id,t) => { const e=document.getElementById(id); if(e) e.textContent=t; };
+    s('zim-nombre-modal', z.nombre); s('zim-per-modal', z.personalidad); s('zim-hab-modal', z.habilidad);
+    const rEl = document.getElementById('zim-rareza-modal');
+    if (rEl) { rEl.textContent=z.rareza_emoji+' '+z.rareza; rEl.style.color=z.rareza_color; rEl.style.borderColor=z.rareza_color+'50'; rEl.style.background=z.rareza_color+'15'; }
+    document.getElementById('zim-glow-modal').style.background = `radial-gradient(circle, ${z.rareza_color}25, transparent 70%)`;
+    document.getElementById('zenix-img-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function cerrarModal() { document.getElementById('zenix-img-modal').classList.remove('open'); document.body.style.overflow=''; }
+</script>
+</body>
+</html>

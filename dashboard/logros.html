@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logros — Eprocash Academy</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- NAVBAR -->
+<header class="dash-navbar" id="navbar">
+    <div class="dash-nav-left">
+        <a href="../index.html" class="dash-logo"><img src="../images/logo.png" alt="Eprocash Academy"></a>
+        <nav class="dash-nav-links">
+            <a href="index.html" class="dash-link"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+            <a href="rutas.html" class="dash-link"><i class="fa-solid fa-road"></i> Rutas</a>
+            <a href="recursos.html" class="dash-link"><i class="fa-solid fa-folder-open"></i> Recursos</a>
+            <a href="eventos.html" class="dash-link"><i class="fa-solid fa-calendar-star"></i> Eventos</a>
+            <a href="logros.html" class="dash-link active"><i class="fa-solid fa-trophy"></i> Logros</a>
+            <a href="zenix.html" class="dash-link"><i class="fa-solid fa-star"></i> Mi Zenix</a>
+        </nav>
+    </div>
+    <div class="dash-nav-right">
+        <button id="theme-toggle" title="Cambiar tema"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+        <a href="perfil.html" class="dash-user-btn">
+            <div class="dash-zenix-mini"><img src="../images/favicon.png" alt="Zenix" id="dash-nav-zenix-img"></div>
+            <span id="dash-nav-nombre">...</span>
+        </a>
+        <button class="dash-logout" onclick="DashboardSystem.cerrarSesion()"><i class="fa-solid fa-right-from-bracket"></i></button>
+        <button class="dash-hamburger" id="dash-hamburger"><span></span><span></span><span></span></button>
+    </div>
+</header>
+<div class="dash-mobile-menu" id="dash-mobile-menu">
+    <a href="index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="rutas.html"><i class="fa-solid fa-road"></i> Rutas</a>
+    <a href="recursos.html"><i class="fa-solid fa-folder-open"></i> Recursos</a>
+    <a href="eventos.html"><i class="fa-solid fa-calendar-star"></i> Eventos</a>
+    <a href="logros.html"><i class="fa-solid fa-trophy"></i> Logros</a>
+    <a href="zenix.html"><i class="fa-solid fa-star"></i> Mi Zenix</a>
+    <a href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+    <button onclick="DashboardSystem.cerrarSesion()"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+</div>
+<div class="dash-overlay" id="dash-overlay"></div>
+
+
+<main class="dash-main">
+
+    <!-- HEADER XP -->
+    <div class="logros-page-header">
+        <div class="lph-left">
+            <span class="section-tag">Tu progreso</span>
+            <h1>Logros y <span class="gradient-text">Medallas</span></h1>
+            <p>Cada logro desbloqueado es un paso más en tu camino hacia la libertad financiera.</p>
+        </div>
+        <div class="lph-right">
+            <div class="lph-stat">
+                <div class="lph-level-circle" id="logros-nivel-circle">1</div>
+                <div>
+                    <h3 id="logros-nivel">Nivel 1 — Iniciado</h3>
+                    <p id="logros-xp-label">0 / 100 XP</p>
+                </div>
+            </div>
+            <div class="xp-bar-wrap">
+                <div class="xp-bar">
+                    <div class="xp-bar-fill" id="logros-xp-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS RÁPIDAS -->
+    <div class="dash-stats-row">
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(255,184,0,0.1);color:#ffb800">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="logros-total">0</span>
+                <span class="dsc-lbl">Logros desbloqueados</span>
+            </div>
+        </div>
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(0,207,255,0.1);color:var(--cyan)">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="logros-xp-total">0 XP</span>
+                <span class="dsc-lbl">XP acumulado</span>
+            </div>
+        </div>
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(255,64,96,0.1);color:var(--down)">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="logros-racha">0 días</span>
+                <span class="dsc-lbl">Racha actual</span>
+            </div>
+        </div>
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(0,229,155,0.1);color:var(--up)">
+                <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val">0</span>
+                <span class="dsc-lbl">Certificados</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGROS -->
+    <div class="logros-section">
+        <h2 class="logros-section-title">
+            <i class="fa-solid fa-medal"></i> Todos los Logros
+        </h2>
+        <div class="logros-grid" id="logros-grid">
+            <!-- Se genera por JS -->
+        </div>
+    </div>
+
+    <!-- CERTIFICADOS — PRÓXIMAMENTE -->
+    <div class="certificados-section">
+        <h2 class="logros-section-title">
+            <i class="fa-solid fa-certificate"></i> Certificados
+            <span class="soon-badge">Próximamente</span>
+        </h2>
+        <div class="certificados-placeholder">
+            <div class="cert-placeholder-card">
+                <i class="fa-solid fa-lock"></i>
+                <h4>Certificado Nivel Básico</h4>
+                <p>Completa el Nivel Básico para obtener tu certificado</p>
+            </div>
+            <div class="cert-placeholder-card">
+                <i class="fa-solid fa-lock"></i>
+                <h4>Certificado Nivel Intermedio</h4>
+                <p>Completa el Nivel Intermedio para obtener tu certificado</p>
+            </div>
+            <div class="cert-placeholder-card">
+                <i class="fa-solid fa-lock"></i>
+                <h4>Certificado Trader Profesional</h4>
+                <p>Completa todos los niveles para obtener tu certificado final</p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<button class="scroll-top" id="scroll-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="../js/app.js"></script>
+<script src="../js/zenix.js"></script>
+<script src="../js/dashboard.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (!DashboardSystem.protegerRuta()) return;
+
+    const perfil    = DashboardSystem.cargarPerfil();
+    const nivelInfo = DashboardSystem.calcularNivel(perfil?.xp || 0);
+    const progNivel = DashboardSystem.calcularProgresoNivel(perfil?.xp || 0);
+
+    /* Navbar */
+    if (perfil) {
+        const img = document.getElementById('dash-nav-zenix-img');
+        if (img) img.src = perfil.zenix_activo.imagen;
+        const nom = document.getElementById('dash-nav-nombre');
+        if (nom) nom.textContent = perfil.nombre.split(' ')[0];
+    }
+
+    /* Header XP */
+    const elSet = (id, t) => { const e = document.getElementById(id); if(e) e.textContent = t; };
+    elSet('logros-nivel-circle', nivelInfo.nivel);
+    elSet('logros-nivel',        'Nivel ' + nivelInfo.nivel + ' — ' + nivelInfo.nombre);
+    elSet('logros-xp-label',     (perfil?.xp || 0) + ' / ' + progNivel.xp_siguiente + ' XP');
+    elSet('logros-xp-total',     (perfil?.xp || 0) + ' XP');
+    elSet('logros-racha',        (perfil?.racha_actual || 0) + ' días');
+
+    const xpBar = document.getElementById('logros-xp-bar');
+    if (xpBar) setTimeout(() => { xpBar.style.width = progNivel.pct + '%'; }, 300);
+
+    /* Renderizar logros */
+    DashboardSystem.renderLogros();
+
+    const logros_usuario = perfil?.logros || [];
+    elSet('logros-total', logros_usuario.length);
+
+    /* Hamburguesa */
+    const ham = document.getElementById('dash-hamburger');
+    const menu = document.getElementById('dash-mobile-menu');
+    const overlay = document.getElementById('dash-overlay');
+    if (ham) {
+        ham.addEventListener('click', () => { ham.classList.toggle('open'); menu.classList.toggle('open'); overlay.classList.toggle('visible'); });
+        overlay.addEventListener('click', () => { ham.classList.remove('open'); menu.classList.remove('open'); overlay.classList.remove('visible'); });
+    }
+
+    /* Theme */
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    if (localStorage.getItem('epc-theme') === 'light') { document.body.classList.add('light-mode'); if(themeIcon) themeIcon.className = 'fa-solid fa-sun'; }
+    if (themeBtn) { themeBtn.addEventListener('click', () => { const l = document.body.classList.toggle('light-mode'); if(themeIcon) themeIcon.className = l ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; localStorage.setItem('epc-theme', l ? 'light' : 'dark'); }); }
+
+    /* Scroll top */
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => { if(scrollBtn) scrollBtn.classList.toggle('visible', window.scrollY > 300); });
+    if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Eprocash Academy</title>
+    <link rel="icon" href="../images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- NAVBAR PRIVADO -->
+<header class="dash-navbar" id="navbar">
+    <div class="dash-nav-left">
+        <a href="../index.html" class="dash-logo">
+            <img src="../images/logo.png" alt="Eprocash Academy">
+        </a>
+        <nav class="dash-nav-links">
+            <a href="index.html" class="dash-link active">
+                <i class="fa-solid fa-gauge"></i> Dashboard
+            </a>
+            <a href="rutas.html" class="dash-link">
+                <i class="fa-solid fa-road"></i> Rutas
+            </a>
+            <a href="recursos.html" class="dash-link">
+                <i class="fa-solid fa-folder-open"></i> Recursos
+            </a>
+            <a href="eventos.html" class="dash-link">
+                <i class="fa-solid fa-calendar-star"></i> Eventos
+            </a>
+            <a href="logros.html" class="dash-link">
+                <i class="fa-solid fa-trophy"></i> Logros
+            </a>
+            <a href="zenix.html" class="dash-link">
+                <i class="fa-solid fa-star"></i> Mi Zenix
+            </a>
+        </nav>
+    </div>
+    <div class="dash-nav-right">
+        <button id="theme-toggle" title="Cambiar tema">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <a href="perfil.html" class="dash-user-btn" id="dash-user-btn">
+            <div class="dash-zenix-mini" id="dash-nav-zenix">
+                <img src="../images/favicon.png" alt="Zenix" id="dash-nav-zenix-img">
+            </div>
+            <span id="dash-nav-nombre">Cargando...</span>
+        </a>
+        <button class="dash-logout" onclick="DashboardSystem.cerrarSesion()" title="Cerrar sesión">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+        <button class="dash-hamburger" id="dash-hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Menú mobile -->
+<div class="dash-mobile-menu" id="dash-mobile-menu">
+    <a href="index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    <a href="rutas.html"><i class="fa-solid fa-road"></i> Rutas de Aprendizaje</a>
+    <a href="recursos.html"><i class="fa-solid fa-folder-open"></i> Centro de Recursos</a>
+    <a href="eventos.html"><i class="fa-solid fa-calendar-star"></i> Eventos</a>
+    <a href="logros.html"><i class="fa-solid fa-trophy"></i> Logros</a>
+    <a href="zenix.html"><i class="fa-solid fa-star"></i> Mi Zenix</a>
+    <a href="perfil.html"><i class="fa-solid fa-user"></i> Mi Perfil</a>
+    <button onclick="DashboardSystem.cerrarSesion()">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+    </button>
+</div>
+<div class="dash-overlay" id="dash-overlay"></div>
+
+
+<!-- CONTENIDO PRINCIPAL -->
+<main class="dash-main">
+
+    <!-- BIENVENIDA -->
+    <section class="dash-welcome">
+        <div class="dash-welcome-text">
+            <h1>Bienvenido de vuelta, <span class="gradient-text" id="dash-nombre">...</span> 👋</h1>
+            <p id="zenix-frase" class="dash-frase">"La información es el mejor activo."</p>
+        </div>
+        <div class="dash-welcome-meta">
+            <span class="dash-nivel-badge" id="dash-nivel">Nivel 1 — Iniciado</span>
+        </div>
+    </section>
+
+    <!-- STATS RÁPIDAS -->
+    <div class="dash-stats-row">
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(0,207,255,0.1);color:var(--cyan)">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="dash-xp">0 XP</span>
+                <span class="dsc-lbl">Experiencia total</span>
+            </div>
+        </div>
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(0,229,155,0.1);color:var(--up)">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="dash-lecciones">0</span>
+                <span class="dsc-lbl">Lecciones completadas</span>
+            </div>
+        </div>
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(255,184,0,0.1);color:#ffb800">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="dash-racha">0 días</span>
+                <span class="dsc-lbl">Racha actual</span>
+            </div>
+        </div>
+        <div class="dash-stat-card">
+            <div class="dsc-icon" style="background:rgba(168,85,247,0.1);color:#a855f7">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="dsc-info">
+                <span class="dsc-val" id="dash-prog-pct">0%</span>
+                <span class="dsc-lbl">Progreso general</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GRID PRINCIPAL -->
+    <div class="dash-grid">
+
+        <!-- MI ZENIX -->
+        <div class="dash-card zenix-dash-card">
+            <div class="dash-card-header">
+                <i class="fa-solid fa-star"></i>
+                <h3>Mi Zenix</h3>
+                <a href="zenix.html" class="dash-card-link">Ver completo <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="zenix-dash-body">
+                <div class="zenix-dash-img-wrap">
+                    <div class="zenix-dash-glow" id="zenix-dash-glow"></div>
+                    <img src="../images/favicon.png" alt="Mi Zenix" class="zenix-dash-img" id="dash-zenix-img">
+                </div>
+                <div class="zenix-dash-info">
+                    <h2 id="dash-zenix-nombre">—</h2>
+                    <span class="zenix-dash-rareza" id="dash-zenix-rareza">—</span>
+                    <span class="zenix-dash-nivel" id="dash-zenix-nivel">Nivel 1</span>
+                    <div class="zenix-dash-xp-wrap">
+                        <div class="zenix-dash-xp-bar">
+                            <div class="zenix-dash-xp-fill" id="dash-xp-bar"></div>
+                        </div>
+                        <span class="zenix-dash-xp-label" id="dash-xp-label">0 / 100 XP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRÓXIMA LECCIÓN -->
+        <div class="dash-card prox-leccion-card">
+            <div class="dash-card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h3>Próxima Lección</h3>
+                <a href="rutas.html" class="dash-card-link">Ver ruta <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="prox-leccion-body">
+                <div class="prox-leccion-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div class="prox-leccion-info">
+                    <span class="prox-nivel" id="dash-prox-nivel">Nivel Básico</span>
+                    <h3 id="dash-prox-leccion">¿Qué es el trading?</h3>
+                    <span class="prox-modulo" id="dash-prox-modulo">Módulo 1</span>
+                    <span class="prox-duracion"><i class="fa-solid fa-clock"></i> <span id="dash-prox-duracion">8 min</span></span>
+                </div>
+                <a href="rutas.html" class="primary-btn prox-btn">
+                    Continuar <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- PROGRESO GENERAL -->
+        <div class="dash-card progreso-card">
+            <div class="dash-card-header">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Progreso General</h3>
+            </div>
+            <div class="progreso-body">
+                <p class="progreso-texto" id="dash-prog-texto">0 de 0 lecciones</p>
+                <div class="progreso-bar-wrap">
+                    <div class="progreso-bar">
+                        <div class="progreso-bar-fill" id="dash-prog-bar"></div>
+                    </div>
+                </div>
+                <div class="progreso-niveles">
+                    <div class="prog-nivel-item">
+                        <span>📗 Básico</span>
+                        <span id="prog-basico-label">0/0</span>
+                    </div>
+                    <div class="prog-nivel-item">
+                        <span>📘 Intermedio</span>
+                        <span id="prog-inter-label">Bloqueado</span>
+                    </div>
+                    <div class="prog-nivel-item">
+                        <span>📕 Avanzado</span>
+                        <span id="prog-avanz-label">Bloqueado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGROS RECIENTES -->
+        <div class="dash-card logros-card">
+            <div class="dash-card-header">
+                <i class="fa-solid fa-trophy"></i>
+                <h3>Logros Recientes</h3>
+                <a href="logros.html" class="dash-card-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div id="logros-recientes" class="logros-recientes-body">
+                <!-- Se genera por JS -->
+            </div>
+        </div>
+
+        <!-- PRÓXIMO EVENTO -->
+        <div class="dash-card evento-card">
+            <div class="dash-card-header">
+                <i class="fa-solid fa-calendar-star"></i>
+                <h3>Próximo Evento</h3>
+                <a href="eventos.html" class="dash-card-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="evento-placeholder">
+                <!-- PLACEHOLDER — reemplazar con datos reales -->
+                <div class="evento-placeholder-content">
+                    <div class="evento-fecha-badge">
+                        <span class="evento-mes">JUN</span>
+                        <span class="evento-dia">15</span>
+                    </div>
+                    <div class="evento-info">
+                        <h4>Webinar: Análisis Bitcoin 2026</h4>
+                        <p>Con Zenix · 8:00 PM GMT-5</p>
+                        <span class="evento-tipo">En vivo</span>
+                    </div>
+                </div>
+                <a href="eventos.html" class="secondary-btn evento-btn">
+                    Registrarme <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- RECURSO DESTACADO -->
+        <div class="dash-card recurso-card">
+            <div class="dash-card-header">
+                <i class="fa-solid fa-folder-open"></i>
+                <h3>Recurso Destacado</h3>
+                <a href="recursos.html" class="dash-card-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="recurso-placeholder">
+                <!-- PLACEHOLDER — reemplazar con recurso real -->
+                <div class="recurso-icon-wrap">
+                    <i class="fa-solid fa-calculator" style="color:var(--cyan);font-size:28px;"></i>
+                </div>
+                <div class="recurso-info">
+                    <h4>Calculadora de Riesgo</h4>
+                    <p>Calcula el tamaño de tu posición y gestiona el riesgo por operación.</p>
+                    <a href="recursos.html" class="recurso-link">
+                        Abrir herramienta <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ZENIX TUTOR (preparado para IA) -->
+    <div class="zenix-tutor-banner">
+        <img src="../images/favicon.png" alt="Zenix Tutor" class="zenix-tutor-img">
+        <div class="zenix-tutor-text">
+            <h3>Zenix Tutor <span class="soon-badge">Próximamente</span></h3>
+            <p>Tu asistente de IA personal para resolver dudas, recomendar contenido y guiarte en tu aprendizaje financiero.</p>
+        </div>
+        <button class="secondary-btn" disabled>
+            <i class="fa-solid fa-robot"></i> En desarrollo
+        </button>
+    </div>
+
+</main>
+
+
+<!-- Telegram flotante -->
+<a href="TU_LINK_TELEGRAM" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+    <i class="fa-brands fa-telegram"></i>
+    <span class="tg-tip">Comunidad</span>
+</a>
+
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="../js/app.js"></script>
+<script src="../js/zenix.js"></script>
+<script src="../js/dashboard.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    /* Proteger ruta y renderizar */
+    DashboardSystem.renderDashboard();
+
+    /* Navbar imagen Zenix */
+    const perfil = DashboardSystem.cargarPerfil();
+    if (perfil) {
+        const z = perfil.zenix_activo;
+        const img = document.getElementById('dash-nav-zenix-img');
+        if (img) img.src = z.imagen;
+        const nom = document.getElementById('dash-nav-nombre');
+        if (nom) nom.textContent = perfil.nombre.split(' ')[0];
+
+        const glow = document.getElementById('zenix-dash-glow');
+        if (glow) glow.style.background =
+            `radial-gradient(circle, ${z.rareza_color}30 0%, transparent 70%)`;
+
+        const nav_wrap = document.getElementById('dash-nav-zenix');
+        if (nav_wrap) nav_wrap.style.setProperty('--rc', z.rareza_color);
+
+        /* Progreso niveles en sidebar */
+        const prog = DashboardSystem.getProgresoTotal();
+        const el = (id, t) => { const e = document.getElementById(id); if(e) e.textContent = t; };
+        el('prog-basico-label', prog.basico.completadas + '/' + prog.basico.total);
+    }
+
+    /* Hamburguesa mobile */
+    const ham = document.getElementById('dash-hamburger');
+    const menu = document.getElementById('dash-mobile-menu');
+    const overlay = document.getElementById('dash-overlay');
+    if (ham) {
+        ham.addEventListener('click', () => {
+            ham.classList.toggle('open');
+            menu.classList.toggle('open');
+            overlay.classList.toggle('visible');
+        });
+        overlay.addEventListener('click', () => {
+            ham.classList.remove('open');
+            menu.classList.remove('open');
+            overlay.classList.remove('visible');
+        });
+    }
+
+    /* Scroll top */
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+        if (scrollBtn) scrollBtn.classList.toggle('visible', window.scrollY > 300);
+    });
+    if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    /* Theme toggle */
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const saved = localStorage.getItem('epc-theme') || 'dark';
+    if (saved === 'light') {
+        document.body.classList.add('light-mode');
+        if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+    }
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            if (themeIcon) themeIcon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            localStorage.setItem('epc-theme', isLight ? 'light' : 'dark');
+        });
+    }
+});
+</script>
+</body>
+</html>
