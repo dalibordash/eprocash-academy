@@ -1,525 +1,565 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin — Eprocash Academy</title>
-    <meta name="description" content="Aprende todo sobre Bitcoin: qué es, cómo se comercializa, las mejores plataformas y el futuro del BTC con Zenix.">
-    <link rel="icon" href="images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/bitcoin.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin — Eprocash Academy</title>
+<meta name="description" content="Aprende todo sobre Bitcoin: qué es, cómo se comercializa, las mejores plataformas y el futuro del BTC con Zenix.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/bitcoin.css">
 </head>
-
 <body>
 
 <!-- ============================================================
-     NAVBAR
+  NAVBAR — v3.0
+  CAMBIOS:
+  - Reestructurado menú con 7 items + botón Acceder
+  - nav-active aplicado a "Academia" (item padre de Bitcoin)
+  - Corregidos nombres de archivo case-sensitive
+  - Footer: TU_LINK_* reemplazados por links reales
 ============================================================ -->
 <header class="navbar" id="navbar">
-    <div class="logo">
-        <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
-    </div>
-    <nav>
-        <ul class="menu" id="menu">
-            <li><a href="bitcoin.html" class="nav-active"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
-            <li><a href="trading.html"><i class="fa-solid fa-chart-line"></i> Trading</a></li>
-            <li class="has-dropdown">
-                <a href="#">
-                    <i class="fa-solid fa-bolt"></i> Aprender
-                    <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
-                </a>
-                <ul class="dropdown">
-                    <li><a href="procesadores.html"><i class="fa-solid fa-credit-card"></i> Procesadores de pago</a></li>
-                    <li><a href="exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
-                    <li><a href="analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis técnico</a></li>
-                    <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis fundamental</a></li>
-                </ul>
-            </li>
-            <li><a href="cursos.html"><i class="fa-solid fa-graduation-cap"></i> Cursos</a></li>
-            <li><a href="acerca.html"><i class="fa-solid fa-circle-info"></i> Acerca de</a></li>
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+  </div>
+
+  <nav>
+    <ul class="menu" id="menu">
+
+      <!-- 1. INICIO -->
+      <li>
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i> Inicio
+        </a>
+      </li>
+
+      <!-- 2. ACADEMIA (dropdown) — nav-active porque estamos en bitcoin.html -->
+      <li class="has-dropdown">
+        <a href="#" class="nav-active">
+          <i class="fa-solid fa-graduation-cap"></i> Academia
+          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+        </a>
+        <ul class="dropdown">
+          <li><a href="bitcoin.html" class="nav-active"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+          <li><a href="cursos.html"><i class="fa-solid fa-play-circle"></i> Cursos</a></li>
+          <li><a href="Analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis Técnico</a></li>
+          <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis Fundamental</a></li>
         </ul>
-    </nav>
-    <div class="right-icons">
-        <button id="theme-toggle" title="Cambiar tema">
-            <i class="fa-solid fa-moon" id="theme-icon"></i>
-        </button>
-        <a href="login.html" class="login-btn">Iniciar sesión</a>
-        <a href="registro.html" class="register-btn">Registrarse <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
+      </li>
+
+      <!-- 3. HERRAMIENTAS (dropdown) -->
+      <li class="has-dropdown">
+        <a href="#">
+          <i class="fa-solid fa-wrench"></i> Herramientas
+          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+        </a>
+        <ul class="dropdown">
+          <li><a href="Exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+          <li><a href="Procesadores-de-pago.html"><i class="fa-solid fa-credit-card"></i> Procesadores de Pago</a></li>
+        </ul>
+      </li>
+
+      <!-- 4. BOTS -->
+      <li>
+        <a href="#bots-pronto" class="nav-coming-soon" title="Próximamente">
+          <i class="fa-solid fa-robot"></i> Bots
+          <span class="nav-badge">Pronto</span>
+        </a>
+      </li>
+
+      <!-- 5. SEÑALES -->
+      <li>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener">
+          <i class="fa-solid fa-signal"></i> Señales
+        </a>
+      </li>
+
+      <!-- 6. PLATAFORMAS -->
+      <li>
+        <a href="trading.html">
+          <i class="fa-solid fa-chart-line"></i> Plataformas
+        </a>
+      </li>
+
+      <!-- 7. COMUNIDAD -->
+      <li>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener">
+          <i class="fa-brands fa-telegram"></i> Comunidad
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="right-icons">
+    <button id="theme-toggle" title="Cambiar tema">
+      <i class="fa-solid fa-moon" id="theme-icon"></i>
     </button>
+    <div class="acceder-wrap has-dropdown">
+      <a href="login.html" class="register-btn acceder-btn">
+        Acceder <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+      </a>
+      <ul class="dropdown dropdown-right">
+        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
+        <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registrarse gratis</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
 <div class="menu-overlay" id="menu-overlay"></div>
 
-
 <!-- ============================================================
-     HERO BITCOIN
+  HERO BITCOIN — sin cambios
 ============================================================ -->
 <section class="btc-hero">
-
-    <div class="btc-hero-bg">
-        <div class="btc-orb btc-orb-1"></div>
-        <div class="btc-orb btc-orb-2"></div>
-        <div class="btc-orb btc-orb-3"></div>
-        <div class="btc-grid"></div>
-        <div class="btc-ring btc-ring-1"></div>
-        <div class="btc-ring btc-ring-2"></div>
-    </div>
-
-    <div class="btc-hero-inner">
-
-        <div class="btc-hero-text">
-            <div class="btc-badge">
-                <i class="fa-brands fa-bitcoin"></i>
-                Guía completa de Bitcoin
-            </div>
-            <h1>
-                Todo lo que necesitas<br>
-                saber sobre
-                <span class="gradient-text">Bitcoin</span>
-            </h1>
-            <p>
-                Desde qué es un satoshi hasta cómo operar BTC en los mejores exchanges del mundo.
-                Zenix te guía paso a paso en el activo más importante de la historia financiera.
-            </p>
-            <div class="btc-hero-btns">
-                <a href="#videos" class="primary-btn">
-                    Ver tutoriales <i class="fa-solid fa-play"></i>
-                </a>
-                <a href="#plataformas" class="secondary-btn">
-                    Mejores plataformas <i class="fa-solid fa-arrow-down"></i>
-                </a>
-            </div>
-            <!-- Stats rápidas -->
-            <div class="btc-quick-stats">
-                <div class="bqs-item">
-                    <span class="bqs-val">2009</span>
-                    <span class="bqs-lbl">Creación</span>
-                </div>
-                <div class="bqs-div"></div>
-                <div class="bqs-item">
-                    <span class="bqs-val">21M</span>
-                    <span class="bqs-lbl">Supply máximo</span>
-                </div>
-                <div class="bqs-div"></div>
-                <div class="bqs-item">
-                    <span class="bqs-val">2028</span>
-                    <span class="bqs-lbl">Próximo halving</span>
-                </div>
-            </div>
+  <div class="btc-hero-bg">
+    <div class="btc-orb btc-orb-1"></div>
+    <div class="btc-orb btc-orb-2"></div>
+    <div class="btc-orb btc-orb-3"></div>
+    <div class="btc-grid"></div>
+    <div class="btc-ring btc-ring-1"></div>
+    <div class="btc-ring btc-ring-2"></div>
+  </div>
+  <div class="btc-hero-inner">
+    <div class="btc-hero-text">
+      <div class="btc-badge">
+        <i class="fa-brands fa-bitcoin"></i>
+        Guía completa de Bitcoin
+      </div>
+      <h1>
+        Todo lo que necesitas<br>
+        saber sobre
+        <span class="gradient-text">Bitcoin</span>
+      </h1>
+      <p>
+        Desde qué es un satoshi hasta cómo operar BTC en los mejores exchanges del mundo.
+        Zenix te guía paso a paso en el activo más importante de la historia financiera.
+      </p>
+      <div class="btc-hero-btns">
+        <a href="#videos" class="primary-btn">
+          Ver tutoriales <i class="fa-solid fa-play"></i>
+        </a>
+        <a href="#plataformas" class="secondary-btn">
+          Mejores plataformas <i class="fa-solid fa-arrow-down"></i>
+        </a>
+      </div>
+      <!-- Stats rápidas -->
+      <div class="btc-quick-stats">
+        <div class="bqs-item">
+          <span class="bqs-val">2009</span>
+          <span class="bqs-lbl">Creación</span>
         </div>
-
-        <div class="btc-hero-img">
-            <div class="btc-zenix-glow"></div>
-            <img src="images/zenix_bitcoin.png" alt="Zenix con Bitcoin" class="btc-zenix">
-            <!-- Card precio hero -->
-            <div class="btc-hero-card">
-                <div class="btc-hc-top">
-                    <i class="fa-brands fa-bitcoin" style="color:#f7931a;font-size:18px;"></i>
-                    <span>BTC / USDT</span>
-                    <span class="btc-live-dot"><span class="btc-live-pulse"></span>EN VIVO</span>
-                </div>
-                <div class="btc-hc-price" id="hero-price">Cargando...</div>
-                <div class="btc-hc-change" id="hero-change">—</div>
-            </div>
+        <div class="bqs-div"></div>
+        <div class="bqs-item">
+          <span class="bqs-val">21M</span>
+          <span class="bqs-lbl">Supply máximo</span>
         </div>
-
+        <div class="bqs-div"></div>
+        <div class="bqs-item">
+          <span class="bqs-val">2028</span>
+          <span class="bqs-lbl">Próximo halving</span>
+        </div>
+      </div>
     </div>
-
+    <div class="btc-hero-img">
+      <div class="btc-zenix-glow"></div>
+      <img src="images/zenix_bitcoin.png" alt="Zenix con Bitcoin" class="btc-zenix">
+      <div class="btc-hero-card">
+        <div class="btc-hc-top">
+          <i class="fa-brands fa-bitcoin" style="color:#f7931a;font-size:18px;"></i>
+          <span>BTC / USDT</span>
+          <span class="btc-live-dot"><span class="btc-live-pulse"></span>EN VIVO</span>
+        </div>
+        <div class="btc-hc-price" id="hero-price">Cargando...</div>
+        <div class="btc-hc-change" id="hero-change">—</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
 <!-- ============================================================
-     VIDEOS
+  VIDEOS — sin cambios
 ============================================================ -->
 <section class="videos-section" id="videos">
+  <div class="section-header">
+    <span class="section-tag">Tutoriales en video</span>
+    <h2 class="section-title">Aprende Bitcoin <span class="gradient-text">paso a paso</span></h2>
+    <p class="section-desc">Cada video incluye recursos y links de plataformas recomendadas por Zenix.</p>
+  </div>
 
-    <div class="section-header">
-        <span class="section-tag">Tutoriales en video</span>
-        <h2 class="section-title">Aprende Bitcoin <span class="gradient-text">paso a paso</span></h2>
-        <p class="section-desc">Cada video incluye recursos y links de plataformas recomendadas por Zenix.</p>
+  <!-- ── VIDEO 1 ── -->
+  <div class="vblock">
+    <div class="vblock-intro">
+      <div class="vblock-num">01</div>
+      <div class="vblock-text">
+        <h3>¿Qué es Bitcoin?</h3>
+        <p>
+          Bitcoin es la primera criptomoneda descentralizada del mundo, creada en 2009
+          por la misteriosa figura conocida como Satoshi Nakamoto. En este video aprenderás
+          qué es exactamente, cómo funciona la blockchain, qué son los satoshis y por qué
+          Bitcoin cambió para siempre la forma en que entendemos el dinero.
+        </p>
+        <div class="vblock-tags">
+          <span><i class="fa-solid fa-signal"></i> Principiante</span>
+          <span><i class="fa-solid fa-book"></i> Conceptos base</span>
+          <span><i class="fa-solid fa-link"></i> Blockchain</span>
+        </div>
+      </div>
     </div>
-
-    <!-- ── VIDEO 1 ── -->
-    <div class="vblock">
-        <div class="vblock-intro">
-            <div class="vblock-num">01</div>
-            <div class="vblock-text">
-                <h3>¿Qué es Bitcoin?</h3>
-                <p>
-                    Bitcoin es la primera criptomoneda descentralizada del mundo, creada en 2009
-                    por la misteriosa figura conocida como Satoshi Nakamoto. En este video aprenderás
-                    qué es exactamente, cómo funciona la blockchain, qué son los satoshis y por qué
-                    Bitcoin cambió para siempre la forma en que entendemos el dinero.
-                </p>
-                <div class="vblock-tags">
-                    <span><i class="fa-solid fa-signal"></i> Principiante</span>
-                    <span><i class="fa-solid fa-book"></i> Conceptos base</span>
-                    <span><i class="fa-solid fa-link"></i> Blockchain</span>
-                </div>
-            </div>
+    <div class="vblock-right">
+      <div class="vblock-frame">
+        <iframe
+          src="https://www.youtube.com/embed/XXXXXXXX"
+          title="¿Qué es Bitcoin?"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="aff-bar">
+        <div class="aff-left">
+          <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
+          <div class="aff-info">
+            <span class="aff-label">Plataforma recomendada por Zenix</span>
+            <span class="aff-name">Binance — Hasta 20% de descuento en comisiones</span>
+          </div>
         </div>
-        <div class="vblock-right">
-            <div class="vblock-frame">
-                <!-- ⚠️ Reemplaza el ID del video: cambia "XXXXXXXX" por el ID de tu video de YouTube -->
-                <!-- El ID es la parte después de ?v= en la URL. Ej: youtube.com/watch?v=ABC123 → src=".../embed/ABC123" -->
-                <iframe
-                    src="https://www.youtube.com/embed/XXXXXXXX"
-                    title="¿Qué es Bitcoin?"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="aff-bar">
-                <div class="aff-left">
-                    <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
-                    <div class="aff-info">
-                        <span class="aff-label">Plataforma recomendada por Zenix</span>
-                        <span class="aff-name">Binance — Hasta 20% de descuento en comisiones</span>
-                    </div>
-                </div>
-                <!-- ⚠️ Reemplaza href con tu link de afiliado de Binance -->
-                <a href="TU_LINK_AFILIADO_BINANCE" target="_blank" rel="noopener" class="aff-btn">
-                    Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
+        <a href="TU_LINK_AFILIADO_BINANCE" target="_blank" rel="noopener" class="aff-btn">
+          Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- ── VIDEO 2 ── -->
-    <div class="vblock vblock-reverse">
-        <div class="vblock-intro">
-            <div class="vblock-num">02</div>
-            <div class="vblock-text">
-                <h3>¿Cómo se comercializa Bitcoin?</h3>
-                <p>
-                    Comprar y vender Bitcoin puede parecer complicado al principio, pero con las
-                    herramientas correctas es más sencillo de lo que imaginas. En este tutorial
-                    aprenderás cómo funciona el mercado spot, los pares de trading, cómo colocar
-                    órdenes de compra y venta, y qué es el spread entre precios.
-                </p>
-                <div class="vblock-tags">
-                    <span><i class="fa-solid fa-signal"></i> Intermedio</span>
-                    <span><i class="fa-solid fa-chart-line"></i> Trading spot</span>
-                    <span><i class="fa-solid fa-arrows-left-right"></i> Pares de trading</span>
-                </div>
-            </div>
+  <!-- ── VIDEO 2 ── -->
+  <div class="vblock vblock-reverse">
+    <div class="vblock-intro">
+      <div class="vblock-num">02</div>
+      <div class="vblock-text">
+        <h3>¿Cómo se comercializa Bitcoin?</h3>
+        <p>
+          Comprar y vender Bitcoin puede parecer complicado al principio, pero con las
+          herramientas correctas es más sencillo de lo que imaginas. En este tutorial
+          aprenderás cómo funciona el mercado spot, los pares de trading, cómo colocar
+          órdenes de compra y venta, y qué es el spread entre precios.
+        </p>
+        <div class="vblock-tags">
+          <span><i class="fa-solid fa-signal"></i> Intermedio</span>
+          <span><i class="fa-solid fa-chart-line"></i> Trading spot</span>
+          <span><i class="fa-solid fa-arrows-left-right"></i> Pares de trading</span>
         </div>
-        <div class="vblock-right">
-            <div class="vblock-frame">
-                <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video -->
-                <iframe
-                    src="https://www.youtube.com/embed/XXXXXXXX"
-                    title="Cómo se comercializa Bitcoin"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="aff-bar">
-                <div class="aff-left">
-                    <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
-                    <div class="aff-info">
-                        <span class="aff-label">Plataforma recomendada por Zenix</span>
-                        <span class="aff-name">Bybit — Bono de bienvenida hasta $30,000 USDT</span>
-                    </div>
-                </div>
-                <!-- ⚠️ Reemplaza href con tu link de afiliado de Bybit -->
-                <a href="TU_LINK_AFILIADO_BYBIT" target="_blank" rel="noopener" class="aff-btn">
-                    Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
-
-    <!-- ── VIDEO 3 ── -->
-    <div class="vblock" id="plataformas">
-        <div class="vblock-intro">
-            <div class="vblock-num">03</div>
-            <div class="vblock-text">
-                <h3>Las mejores plataformas para comerciar BTC</h3>
-                <p>
-                    No todos los exchanges son iguales. En este video Zenix compara las principales
-                    plataformas para comprar y vender Bitcoin: Binance, Bybit, KuCoin y Kraken.
-                    Analizamos comisiones, seguridad, liquidez y facilidad de uso para que elijas
-                    la mejor opción según tu perfil de inversor.
-                </p>
-                <div class="vblock-tags">
-                    <span><i class="fa-solid fa-signal"></i> Intermedio</span>
-                    <span><i class="fa-solid fa-building-columns"></i> Exchanges</span>
-                    <span><i class="fa-solid fa-shield-halved"></i> Seguridad</span>
-                </div>
-            </div>
+    <div class="vblock-right">
+      <div class="vblock-frame">
+        <iframe
+          src="https://www.youtube.com/embed/XXXXXXXX"
+          title="Cómo se comercializa Bitcoin"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="aff-bar">
+        <div class="aff-left">
+          <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
+          <div class="aff-info">
+            <span class="aff-label">Plataforma recomendada por Zenix</span>
+            <span class="aff-name">Bybit — Bono de bienvenida hasta $30,000 USDT</span>
+          </div>
         </div>
-        <div class="vblock-right">
-            <div class="vblock-frame">
-                <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video -->
-                <iframe
-                    src="https://www.youtube.com/embed/XXXXXXXX"
-                    title="Mejores plataformas para BTC"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="aff-bar">
-                <div class="aff-left">
-                    <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
-                    <div class="aff-info">
-                        <span class="aff-label">Plataforma recomendada por Zenix</span>
-                        <span class="aff-name">KuCoin — Bajas comisiones + sin KYC obligatorio</span>
-                    </div>
-                </div>
-                <!-- ⚠️ Reemplaza href con tu link de afiliado de KuCoin -->
-                <a href="TU_LINK_AFILIADO_KUCOIN" target="_blank" rel="noopener" class="aff-btn">
-                    Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
+        <a href="TU_LINK_AFILIADO_BYBIT" target="_blank" rel="noopener" class="aff-btn">
+          Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- ── VIDEO 4 ── -->
-    <div class="vblock vblock-reverse">
-        <div class="vblock-intro">
-            <div class="vblock-num">04</div>
-            <div class="vblock-text">
-                <h3>Bitcoin en el futuro</h3>
-                <p>
-                    ¿Llegará Bitcoin a $1 millón? ¿Qué impacto tendrá el próximo halving de 2028?
-                    ¿Puede BTC reemplazar al sistema financiero tradicional? Analizamos las
-                    proyecciones más serias del mercado, el ciclo de los 4 años y por qué cada vez
-                    más instituciones acumulan Bitcoin como reserva de valor.
-                </p>
-                <div class="vblock-tags">
-                    <span><i class="fa-solid fa-signal"></i> Avanzado</span>
-                    <span><i class="fa-solid fa-chart-bar"></i> Análisis macro</span>
-                    <span><i class="fa-solid fa-fire"></i> Halving 2028</span>
-                </div>
-            </div>
+  <!-- ── VIDEO 3 ── -->
+  <div class="vblock" id="plataformas">
+    <div class="vblock-intro">
+      <div class="vblock-num">03</div>
+      <div class="vblock-text">
+        <h3>Las mejores plataformas para comerciar BTC</h3>
+        <p>
+          No todos los exchanges son iguales. En este video Zenix compara las principales
+          plataformas para comprar y vender Bitcoin: Binance, Bybit, KuCoin y Kraken.
+          Analizamos comisiones, seguridad, liquidez y facilidad de uso para que elijas
+          la mejor opción según tu perfil de inversor.
+        </p>
+        <div class="vblock-tags">
+          <span><i class="fa-solid fa-signal"></i> Intermedio</span>
+          <span><i class="fa-solid fa-building-columns"></i> Exchanges</span>
+          <span><i class="fa-solid fa-shield-halved"></i> Seguridad</span>
         </div>
-        <div class="vblock-right">
-            <div class="vblock-frame">
-                <!-- ⚠️ Reemplaza XXXXXXXX con el ID de tu video -->
-                <iframe
-                    src="https://www.youtube.com/embed/XXXXXXXX"
-                    title="Bitcoin en el futuro"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="aff-bar">
-                <div class="aff-left">
-                    <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
-                    <div class="aff-info">
-                        <span class="aff-label">Plataforma recomendada por Zenix</span>
-                        <span class="aff-name">Binance — La plataforma #1 del mundo en volumen</span>
-                    </div>
-                </div>
-                <!-- ⚠️ Reemplaza href con tu link de afiliado -->
-                <a href="TU_LINK_AFILIADO_BINANCE" target="_blank" rel="noopener" class="aff-btn">
-                    Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="vblock-right">
+      <div class="vblock-frame">
+        <iframe
+          src="https://www.youtube.com/embed/XXXXXXXX"
+          title="Mejores plataformas para BTC"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="aff-bar">
+        <div class="aff-left">
+          <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
+          <div class="aff-info">
+            <span class="aff-label">Plataforma recomendada por Zenix</span>
+            <span class="aff-name">KuCoin — Bajas comisiones + sin KYC obligatorio</span>
+          </div>
+        </div>
+        <a href="TU_LINK_AFILIADO_KUCOIN" target="_blank" rel="noopener" class="aff-btn">
+          Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 
+  <!-- ── VIDEO 4 ── -->
+  <div class="vblock vblock-reverse">
+    <div class="vblock-intro">
+      <div class="vblock-num">04</div>
+      <div class="vblock-text">
+        <h3>Bitcoin en el futuro</h3>
+        <p>
+          ¿Llegará Bitcoin a $1 millón? ¿Qué impacto tendrá el próximo halving de 2028?
+          ¿Puede BTC reemplazar al sistema financiero tradicional? Analizamos las
+          proyecciones más serias del mercado, el ciclo de los 4 años y por qué cada vez
+          más instituciones acumulan Bitcoin como reserva de valor.
+        </p>
+        <div class="vblock-tags">
+          <span><i class="fa-solid fa-signal"></i> Avanzado</span>
+          <span><i class="fa-solid fa-chart-bar"></i> Análisis macro</span>
+          <span><i class="fa-solid fa-fire"></i> Halving 2028</span>
+        </div>
+      </div>
+    </div>
+    <div class="vblock-right">
+      <div class="vblock-frame">
+        <iframe
+          src="https://www.youtube.com/embed/XXXXXXXX"
+          title="Bitcoin en el futuro"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="aff-bar">
+        <div class="aff-left">
+          <div class="aff-icon"><i class="fa-brands fa-bitcoin"></i></div>
+          <div class="aff-info">
+            <span class="aff-label">Plataforma recomendada por Zenix</span>
+            <span class="aff-name">Binance — La plataforma #1 del mundo en volumen</span>
+          </div>
+        </div>
+        <a href="TU_LINK_AFILIADO_BINANCE" target="_blank" rel="noopener" class="aff-btn">
+          Abrir cuenta <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
-
 <!-- ============================================================
-     CTA FINAL
+  CTA FINAL — sin cambios
 ============================================================ -->
 <section class="btc-cta-section">
-    <div class="btc-cta-box">
-        <div class="btc-cta-glow"></div>
-        <i class="fa-brands fa-bitcoin btc-cta-icon"></i>
-        <h2>¿Listo para comprar tu primer <span class="gradient-text">Bitcoin</span>?</h2>
-        <p>Únete a la comunidad Eprocash y aprende con Zenix cómo dar tus primeros pasos de forma segura.</p>
-        <div class="btc-cta-btns">
-            <a href="registro.html" class="primary-btn">Comenzar gratis <i class="fa-solid fa-rocket"></i></a>
-            <a href="https://t.me/eprocashacademy" target="_blank" class="secondary-btn">
-                Comunidad Telegram <i class="fa-brands fa-telegram"></i>
-            </a>
-        </div>
+  <div class="btc-cta-box">
+    <div class="btc-cta-glow"></div>
+    <i class="fa-brands fa-bitcoin btc-cta-icon"></i>
+    <h2>¿Listo para comprar tu primer <span class="gradient-text">Bitcoin</span>?</h2>
+    <p>Únete a la comunidad Eprocash y aprende con Zenix cómo dar tus primeros pasos de forma segura.</p>
+    <div class="btc-cta-btns">
+      <a href="registro.html" class="primary-btn">Comenzar gratis <i class="fa-solid fa-rocket"></i></a>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank" class="secondary-btn">
+        Comunidad Telegram <i class="fa-brands fa-telegram"></i>
+      </a>
     </div>
+  </div>
 </section>
 
-
 <!-- ============================================================
-     FOOTER
+  FOOTER
+  CAMBIOS:
+  - TU_LINK_YOUTUBE → https://www.youtube.com/@eprocashacademy5935
+  - TU_LINK_TELEGRAM → https://t.me/eprocashacademyofficial
+  - TikTok, Instagram, Twitter mantenidos como # (pendientes de URL real)
+  - Estructura de columnas actualizada al nuevo menú
+  - Links corregidos case-sensitive
 ============================================================ -->
 <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-brand">
-            <img src="images/logo.png" alt="Eprocash Academy">
-            <p>Aprende, invierte y crece junto a Zenix. La plataforma de educación financiera digital en español.</p>
-            <div class="footer-socials">
-                <a href="TU_LINK_YOUTUBE" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                <a href="TU_LINK_TIKTOK" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="TU_LINK_INSTAGRAM" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="TU_LINK_TELEGRAM" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
-                <a href="TU_LINK_TWITTER" target="_blank" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-        </div>
-        <div class="footer-links">
-            <h4>Explorar</h4>
-            <a href="bitcoin.html">Bitcoin</a>
-            <a href="trading.html">Trading</a>
-            <a href="cursos.html">Cursos</a>
-            <a href="exchanges.html">Exchanges</a>
-        </div>
-        <div class="footer-links">
-            <h4>Herramientas</h4>
-            <a href="procesadores.html">Procesadores de pago</a>
-            <a href="analisis-tecnico.html">Análisis técnico</a>
-            <a href="bots.html">Bots de trading</a>
-            <a href="ia.html">IA Financiera</a>
-        </div>
-        <div class="footer-links">
-            <h4>Soporte</h4>
-            <a href="acerca.html">Acerca de</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="privacidad.html">Privacidad</a>
-            <a href="terminos.html">Términos de uso</a>
-        </div>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Eprocash Academy">
+      <p>Aprende, invierte y crece junto a Zenix. La plataforma de educación financiera digital en español.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@eprocashacademy5935" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
     </div>
-    <div class="footer-bottom">
-        <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
-        <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+
+    <div class="footer-links">
+      <h4>Academia</h4>
+      <a href="bitcoin.html">Bitcoin</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="Analisis-tecnico.html">Análisis Técnico</a>
+      <a href="analisis-fundamental.html">Análisis Fundamental</a>
     </div>
+
+    <div class="footer-links">
+      <h4>Herramientas</h4>
+      <a href="Exchanges.html">Exchanges</a>
+      <a href="Procesadores-de-pago.html">Procesadores de pago</a>
+      <a href="trading.html">Plataformas</a>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank">Señales</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Soporte</h4>
+      <a href="Acerca-de.html">Acerca de</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos de uso</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+    <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+  </div>
 </footer>
 
-
 <!-- ============================================================
-     ELEMENTOS FLOTANTES
+  ELEMENTOS FLOTANTES
+  CAMBIOS: TU_LINK_TELEGRAM → https://t.me/eprocashacademyofficial
 ============================================================ -->
-
-<!-- Telegram flotante -->
-<a href="TU_LINK_TELEGRAM" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
-    <i class="fa-brands fa-telegram"></i>
-    <span class="tg-tip">Únete al grupo</span>
+<a href="https://t.me/eprocashacademyofficial" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+  <i class="fa-brands fa-telegram"></i>
+  <span class="tg-tip">Únete al grupo</span>
 </a>
 
-<!-- Precio BTC flotante -->
+<!-- Precio BTC flotante — sin cambios -->
 <div class="btc-price-float" id="btc-price-float">
-    <div class="bpf-top">
-        <i class="fa-brands fa-bitcoin" style="color:#f7931a;font-size:18px;"></i>
-        <span>BTC</span>
-        <span class="bpf-dot"><span></span></span>
-    </div>
-    <div class="bpf-price" id="bpf-price">...</div>
-    <div class="bpf-change" id="bpf-change">—</div>
+  <div class="bpf-top">
+    <i class="fa-brands fa-bitcoin" style="color:#f7931a;font-size:18px;"></i>
+    <span>BTC</span>
+    <span class="bpf-dot"><span></span></span>
+  </div>
+  <div class="bpf-price" id="bpf-price">...</div>
+  <div class="bpf-change" id="bpf-change">—</div>
 </div>
 
-<!-- Botón FAQ Zenix -->
+<!-- Botón FAQ Zenix — sin cambios -->
 <button class="zenix-faq-btn" id="zenix-faq-btn" aria-label="Preguntas frecuentes de Zenix">
-    <img src="images/favicon.png" alt="Zenix FAQ">
-    <span class="zfaq-tooltip">Pregúntale a Zenix</span>
+  <img src="images/favicon.png" alt="Zenix FAQ">
+  <span class="zfaq-tooltip">Pregúntale a Zenix</span>
 </button>
 
-<!-- Modal FAQ -->
+<!-- Modal FAQ — sin cambios -->
 <div class="faq-overlay" id="faq-overlay"></div>
 <div class="faq-modal" id="faq-modal">
-    <div class="faq-modal-head">
-        <div class="faq-modal-title">
-            <img src="images/favicon.png" alt="Zenix" style="width:34px;border-radius:8px;">
-            <div>
-                <strong>Zenix</strong>
-                <span>Preguntas frecuentes sobre Bitcoin</span>
-            </div>
-        </div>
-        <button class="faq-modal-close" id="faq-close">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+  <div class="faq-modal-head">
+    <div class="faq-modal-title">
+      <img src="images/favicon.png" alt="Zenix" style="width:34px;border-radius:8px;">
+      <div>
+        <strong>Zenix</strong>
+        <span>Preguntas frecuentes sobre Bitcoin</span>
+      </div>
     </div>
-    <div class="faq-body">
-
-        <div class="faq-item">
-            <button class="faq-q">
-                ¿Cuánto necesito para empezar en Bitcoin?
-                <i class="fa-solid fa-chevron-down faq-arrow"></i>
-            </button>
-            <div class="faq-a">
-                <p>Puedes empezar con tan solo $10 USD. Bitcoin se divide en unidades llamadas satoshis
-                (1 BTC = 100,000,000 satoshis), por lo que no necesitas comprar un Bitcoin completo.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-q">
-                ¿Bitcoin es seguro?
-                <i class="fa-solid fa-chevron-down faq-arrow"></i>
-            </button>
-            <div class="faq-a">
-                <p>La red Bitcoin nunca ha sido hackeada en más de 15 años. La seguridad depende de
-                cómo guardas tus activos. Usa exchanges de confianza y considera una wallet de hardware
-                para grandes cantidades.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-q">
-                ¿Qué exchange recomienda Zenix?
-                <i class="fa-solid fa-chevron-down faq-arrow"></i>
-            </button>
-            <div class="faq-a">
-                <p>Para principiantes recomiendo Binance por su interfaz simple, alta liquidez y soporte
-                en español. Usa el link de afiliado de Eprocash Academy para obtener descuento en
-                comisiones desde el primer día.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-q">
-                ¿Qué es el halving de Bitcoin?
-                <i class="fa-solid fa-chevron-down faq-arrow"></i>
-            </button>
-            <div class="faq-a">
-                <p>El halving ocurre cada 4 años aproximadamente y reduce a la mitad la recompensa
-                de los mineros. Históricamente, cada halving ha precedido un gran bull market.
-                El próximo es en 2028.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-q">
-                ¿Puedo perder todo en Bitcoin?
-                <i class="fa-solid fa-chevron-down faq-arrow"></i>
-            </button>
-            <div class="faq-a">
-                <p>Como cualquier inversión, Bitcoin conlleva riesgo. Nunca inviertas más de lo que
-                estés dispuesto a perder. La clave es la educación y la gestión del riesgo —
-                exactamente para eso existe Eprocash Academy.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-q">
-                ¿Bitcoin tiene futuro?
-                <i class="fa-solid fa-chevron-down faq-arrow"></i>
-            </button>
-            <div class="faq-a">
-                <p>Cada vez más instituciones, gobiernos y empresas adoptan Bitcoin como reserva de valor.
-                El supply está limitado a 21 millones, lo que genera escasez. Muchos analistas lo comparan
-                con el oro digital del siglo XXI.</p>
-            </div>
-        </div>
-
+    <button class="faq-modal-close" id="faq-close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <div class="faq-body">
+    <div class="faq-item">
+      <button class="faq-q">
+        ¿Cuánto necesito para empezar en Bitcoin?
+        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-a">
+        <p>Puedes empezar con tan solo $10 USD. Bitcoin se divide en unidades llamadas satoshis
+        (1 BTC = 100,000,000 satoshis), por lo que no necesitas comprar un Bitcoin completo.</p>
+      </div>
     </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        ¿Bitcoin es seguro?
+        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-a">
+        <p>La red Bitcoin nunca ha sido hackeada en más de 15 años. La seguridad depende de
+        cómo guardas tus activos. Usa exchanges de confianza y considera una wallet de hardware
+        para grandes cantidades.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        ¿Qué exchange recomienda Zenix?
+        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-a">
+        <p>Para principiantes recomiendo Binance por su interfaz simple, alta liquidez y soporte
+        en español. Usa el link de afiliado de Eprocash Academy para obtener descuento en
+        comisiones desde el primer día.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        ¿Qué es el halving de Bitcoin?
+        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-a">
+        <p>El halving ocurre cada 4 años aproximadamente y reduce a la mitad la recompensa
+        de los mineros. Históricamente, cada halving ha precedido un gran bull market.
+        El próximo es en 2028.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        ¿Puedo perder todo en Bitcoin?
+        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-a">
+        <p>Como cualquier inversión, Bitcoin conlleva riesgo. Nunca inviertas más de lo que
+        estés dispuesto a perder. La clave es la educación y la gestión del riesgo —
+        exactamente para eso existe Eprocash Academy.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">
+        ¿Bitcoin tiene futuro?
+        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-a">
+        <p>Cada vez más instituciones, gobiernos y empresas adoptan Bitcoin como reserva de valor.
+        El supply está limitado a 21 millones, lo que genera escasez. Muchos analistas lo comparan
+        con el oro digital del siglo XXI.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Scroll top -->
+<!-- Scroll top — sin cambios -->
 <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
-    <i class="fa-solid fa-chevron-up"></i>
+  <i class="fa-solid fa-chevron-up"></i>
 </button>
-
 
 <script src="js/app.js"></script>
 <script src="js/bitcoin.js"></script>
