@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de riesgo — Academia Eprocash</title>
+<meta name="description" content="Domina el tamaño de posición, el stop loss y el ratio riesgo/beneficio para proteger tu capital en cada operación.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/academia.css">
+</head>
+<!-- data-module-id y data-total-lessons alimentan el progreso en academia.js -->
+<body data-module-id="gestion-riesgo" data-total-lessons="4">
+
+<!-- ============================================================
+  NAVBAR — idéntico al estandarizado, "Academia" activo
+============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+  </div>
+
+  <nav>
+    <ul class="menu" id="menu">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+
+      <li class="has-dropdown">
+        <a href="academia.html" class="nav-active">
+          <i class="fa-solid fa-graduation-cap"></i> Academia
+          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+        </a>
+        <ul class="dropdown">
+          <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+          <li><a href="cursos.html"><i class="fa-solid fa-play-circle"></i> Cursos</a></li>
+          <li><a href="Analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis Técnico</a></li>
+          <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis Fundamental</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#">
+          <i class="fa-solid fa-wrench"></i> Herramientas
+          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+        </a>
+        <ul class="dropdown">
+          <li><a href="Exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+          <li><a href="Procesadores-de-pago.html"><i class="fa-solid fa-credit-card"></i> Procesadores de Pago</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#bots-pronto" class="nav-coming-soon" title="Próximamente"><i class="fa-solid fa-robot"></i> Bots <span class="nav-badge">Pronto</span></a></li>
+      <li><a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener"><i class="fa-solid fa-signal"></i> Señales</a></li>
+      <li><a href="trading.html"><i class="fa-solid fa-chart-line"></i> Plataformas</a></li>
+      <li><a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Comunidad</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-icons">
+    <button id="theme-toggle" title="Cambiar tema"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+    <div class="acceder-wrap has-dropdown">
+      <a href="login.html" class="register-btn acceder-btn">Acceder <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></a>
+      <ul class="dropdown dropdown-right">
+        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
+        <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registrarse gratis</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- ============================================================
+  HEADER DEL MÓDULO
+============================================================ -->
+<section class="module-hero">
+  <div class="module-hero-inner">
+    <div class="module-breadcrumb">
+      <a href="academia.html">Academia</a>
+      <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i>
+      <span>Gestión de riesgo</span>
+    </div>
+
+    <div class="module-hero-top">
+      <div class="module-hero-text reveal">
+        <span class="section-tag">Módulo 3 de 7</span>
+        <h1>Gestión de <span class="gradient-text">riesgo</span></h1>
+        <p>
+          El factor más importante en trading no es ganar, es no perder demasiado. Aquí aprenderás a calcular el tamaño de posición correcto, usar stop loss de forma efectiva y mantener un ratio riesgo/beneficio saludable.
+        </p>
+      </div>
+
+      <div class="module-hero-progress reveal">
+        <div class="module-hero-progress-top">
+          <strong id="module-progress-value">0%</strong>
+          <span id="module-progress-count">0 de 4 lecciones</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="module-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  LISTA DE LECCIONES + CONTENIDO
+============================================================ -->
+<section class="lessons-section">
+
+  <!-- Columna izquierda: lista de lecciones -->
+  <div>
+    <h3 style="font-family:'Syne',sans-serif;margin-bottom:16px;">Contenido del módulo</h3>
+    <div class="lessons-list">
+      <div class="content-placeholder" style="text-align:left;padding:32px;">
+        <i class="fa-solid fa-clock" style="margin-bottom:10px;"></i>
+        Contenido del módulo "Gestión de riesgo" en preparación.<br>
+        Las 4 lecciones (video, PDF y artículo) se publicarán próximamente.
+        Mientras tanto, puedes continuar con el módulo "Trading desde cero", que ya está disponible.
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha: sidebar de recursos -->
+  <div class="module-sidebar">
+    <div class="sidebar-box">
+      <h4><i class="fa-solid fa-circle-info" style="color:var(--aca-cyan,#00cfff);"></i> Sobre este módulo</h4>
+      <p>5 lecciones · Nivel principiante · Incluye video, PDF descargable y artículos escritos. Haz clic en una lección para ver su contenido.</p>
+    </div>
+    <div class="sidebar-box">
+      <h4><i class="fa-brands fa-telegram" style="color:var(--aca-cyan,#00cfff);"></i> ¿Tienes dudas?</h4>
+      <p>Pregúntale a la comunidad en Telegram o consulta a Zenix directamente.</p>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank" class="secondary-btn" style="margin-top:12px;display:inline-flex;">
+        Ir a Telegram <i class="fa-brands fa-telegram"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  BLOQUES DE CONTENIDO POR LECCIÓN
+  Cada bloque tiene tabs Video / PDF / Artículo (componente content-tabs)
+  Solo el primero se muestra por defecto; los demás quedan ocultos
+  hasta que el usuario hace click en su lección correspondiente.
+============================================================ -->
+
+
+<!-- Navegación al siguiente módulo -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <img src="images/zenix_ejecutivo.png" alt="Zenix" class="cta-zenix">
+    <div class="cta-content">
+      <span class="section-tag">Siguiente paso</span>
+      <h2>Continúa con <span class="gradient-text">Psicología del trading</span></h2>
+      <p>Cuando termines este módulo, continúa tu ruta de aprendizaje en "Psicología del trading".</p>
+      <a href="academia-psicologia-trading.html" class="primary-btn">
+        Ir al siguiente módulo <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  FOOTER — idéntico al estandarizado
+============================================================ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Eprocash Academy">
+      <p>Aprende, invierte y crece junto a Zenix.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@eprocashacademy5935" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Academia</h4>
+      <a href="academia-trading-desde-cero.html">Trading desde cero</a>
+      <a href="academia-analisis-tecnico.html">Análisis Técnico</a>
+      <a href="academia-gestion-riesgo.html">Gestión de riesgo</a>
+      <a href="academia-psicologia-trading.html">Psicología</a>
+    </div>
+    <div class="footer-links">
+      <h4>Herramientas</h4>
+      <a href="Exchanges.html">Exchanges</a>
+      <a href="Procesadores-de-pago.html">Procesadores de pago</a>
+      <a href="trading.html">Plataformas</a>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank">Señales</a>
+    </div>
+    <div class="footer-links">
+      <h4>Soporte</h4>
+      <a href="Acerca-de.html">Acerca de</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos de uso</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+    <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+  </div>
+</footer>
+
+<a href="https://t.me/eprocashacademyofficial" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+  <i class="fa-brands fa-telegram"></i>
+  <span class="tg-tip">Únete al grupo</span>
+</a>
+
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="js/app.js"></script>
+<script src="js/academia.js"></script>
+</body>
+</html>

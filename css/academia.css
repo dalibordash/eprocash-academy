@@ -1,0 +1,591 @@
+/* ============================================================
+   ACADEMIA.CSS — Eprocash Academy v3.0
+   Namespace: .aca-*
+   REGLA: este archivo NO redefine variables de color, tipografía
+   ni animaciones globales. Solo usa var(--...) ya definidas en
+   css/styles.css (--cyan, --bg-dark, --gradient, fuentes Syne/DM Sans).
+   Si una variable no existiera (fallback), se define un valor
+   idéntico al usado en index.html/bitcoin.html para no romper nada.
+============================================================ */
+
+:root {
+  /* Fallbacks — solo se aplican si styles.css no los definió antes */
+  --aca-cyan: var(--cyan, #00cfff);
+  --aca-purple: var(--purple, #a855f7);
+  --aca-bg: var(--bg-dark, #0a0e17);
+  --aca-card-bg: var(--card-bg, rgba(255,255,255,0.03));
+  --aca-border: var(--border-color, rgba(255,255,255,0.08));
+  --aca-text: var(--text-light, #e2e8f0);
+  --aca-text-dim: var(--text-dim, #94a3b8);
+}
+
+/* ============================================================
+   HUB — HERO ACADEMIA
+============================================================ */
+.aca-hero {
+  position: relative;
+  padding: 160px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.aca-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.aca-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.aca-hero p {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--aca-text-dim);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+/* ============================================================
+   PROGRESO GLOBAL — barra reutilizable
+============================================================ */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--aca-cyan), var(--aca-purple));
+  transition: width 0.6s ease;
+  width: 0%;
+}
+
+.progress-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--aca-card-bg);
+  border: 1px solid var(--aca-border);
+  border-radius: 16px;
+  padding: 18px 22px;
+  backdrop-filter: blur(12px);
+}
+
+.progress-summary-text {
+  flex: 1;
+  text-align: left;
+}
+
+.progress-summary-text span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.progress-summary-label {
+  font-size: 0.78rem;
+  color: var(--aca-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progress-summary-value {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   GRID DE MÓDULOS
+============================================================ */
+.modules-section {
+  padding: 40px 24px 100px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* ============================================================
+   MODULE CARD — componente reutilizable
+============================================================ */
+.module-card {
+  position: relative;
+  background: var(--aca-card-bg);
+  border: 1px solid var(--aca-border);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  text-decoration: none;
+  color: var(--aca-text);
+  overflow: hidden;
+}
+
+.module-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 0%, rgba(0,207,255,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.module-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,207,255,0.35);
+  box-shadow: 0 20px 40px -20px rgba(0,207,255,0.25);
+}
+
+.module-card:hover::before {
+  opacity: 1;
+}
+
+.module-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.module-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: linear-gradient(135deg, rgba(0,207,255,0.15), rgba(168,85,247,0.15));
+  border: 1px solid rgba(0,207,255,0.25);
+  color: var(--aca-cyan);
+  flex-shrink: 0;
+}
+
+.module-status {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.module-status.disponible {
+  background: rgba(34,197,94,0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34,197,94,0.3);
+}
+
+.module-status.proximo {
+  background: rgba(148,163,184,0.12);
+  color: var(--aca-text-dim);
+  border: 1px solid rgba(148,163,184,0.2);
+}
+
+.module-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.module-card p {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--aca-text-dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.module-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--aca-text-dim);
+}
+
+.module-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.module-card .progress-bar {
+  height: 6px;
+  margin-top: 4px;
+}
+
+.module-cta {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--aca-cyan);
+}
+
+.module-card:hover .module-cta i {
+  transform: translateX(4px);
+}
+
+.module-cta i {
+  transition: transform 0.25s ease;
+}
+
+/* ============================================================
+   PÁGINA DE MÓDULO — header
+============================================================ */
+.module-hero {
+  position: relative;
+  padding: 150px 24px 60px;
+  overflow: hidden;
+}
+
+.module-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.module-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--aca-text-dim);
+  margin-bottom: 22px;
+}
+
+.module-breadcrumb a {
+  color: var(--aca-text-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.module-breadcrumb a:hover {
+  color: var(--aca-cyan);
+}
+
+.module-hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.module-hero-text h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  margin-bottom: 14px;
+}
+
+.module-hero-text p {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--aca-text-dim);
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.module-hero-progress {
+  min-width: 260px;
+  background: var(--aca-card-bg);
+  border: 1px solid var(--aca-border);
+  border-radius: 18px;
+  padding: 22px;
+  backdrop-filter: blur(12px);
+}
+
+.module-hero-progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.module-hero-progress-top strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  color: var(--aca-cyan);
+}
+
+.module-hero-progress-top span {
+  font-size: 0.8rem;
+  color: var(--aca-text-dim);
+}
+
+/* ============================================================
+   TABS DE CONTENIDO (Video / PDF / Artículo)
+============================================================ */
+.content-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0;
+  border-bottom: 1px solid var(--aca-border);
+  flex-wrap: wrap;
+}
+
+.content-tab {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 12px 18px;
+  background: none;
+  border: none;
+  color: var(--aca-text-dim);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.25s ease;
+}
+
+.content-tab.active {
+  color: var(--aca-cyan);
+}
+
+.content-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--aca-cyan), var(--aca-purple));
+  border-radius: 2px;
+}
+
+.content-tab[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.content-panel {
+  display: none;
+}
+
+.content-panel.active {
+  display: block;
+}
+
+/* Placeholder de video/pdf/artículo — usado mientras no hay contenido real */
+.content-placeholder {
+  border: 1px dashed var(--aca-border);
+  border-radius: 16px;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--aca-text-dim);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.content-placeholder i {
+  font-size: 32px;
+  color: var(--aca-cyan);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.video-frame-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-frame-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ============================================================
+   LISTA DE LECCIONES — componente reutilizable
+============================================================ */
+.lessons-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .lessons-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--aca-card-bg);
+  border: 1px solid var(--aca-border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.lesson-item:hover {
+  border-color: rgba(0,207,255,0.3);
+  background: rgba(0,207,255,0.04);
+}
+
+.lesson-item.active {
+  border-color: var(--aca-cyan);
+  background: rgba(0,207,255,0.07);
+}
+
+.lesson-status-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  border: 1px solid var(--aca-border);
+  color: var(--aca-text-dim);
+}
+
+.lesson-item.completed .lesson-status-icon {
+  background: rgba(34,197,94,0.15);
+  border-color: rgba(34,197,94,0.4);
+  color: #4ade80;
+}
+
+.lesson-item.locked .lesson-status-icon {
+  color: var(--aca-text-dim);
+}
+
+.lesson-item.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.lesson-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lesson-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 2px;
+}
+
+.lesson-meta {
+  font-size: 0.78rem;
+  color: var(--aca-text-dim);
+  display: flex;
+  gap: 10px;
+}
+
+.lesson-type-icon {
+  font-size: 0.85rem;
+  color: var(--aca-cyan);
+}
+
+/* Sidebar de recursos del módulo */
+.module-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-box {
+  background: var(--aca-card-bg);
+  border: 1px solid var(--aca-border);
+  border-radius: 16px;
+  padding: 22px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.sidebar-box h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-box p {
+  color: var(--aca-text-dim);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — ajustes mobile adicionales
+   (la navbar/menu mobile ya existe y no se toca)
+============================================================ */
+@media (max-width: 600px) {
+  .aca-hero {
+    padding: 130px 20px 60px;
+  }
+  .progress-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+  .progress-summary-text {
+    text-align: center;
+  }
+  .module-hero {
+    padding: 120px 20px 40px;
+  }
+  .module-hero-progress {
+    width: 100%;
+  }
+}

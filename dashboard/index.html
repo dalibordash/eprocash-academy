@@ -1,375 +1,482 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Eprocash Academy</title>
-    <link rel="icon" href="../images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO -->
+<title>Eprocash Academy — Aprende, Invierte y Crece</title>
+<meta name="description" content="La plataforma de educación financiera, trading y criptomonedas en español. Aprende con Zenix, tu guía en el mundo digital.">
+<meta name="keywords" content="trading, bitcoin, criptomonedas, educación financiera, inversión, exchanges, análisis técnico">
+<meta name="author" content="Eprocash Academy">
+<!-- Open Graph -->
+<meta property="og:title" content="Eprocash Academy — Aprende, Invierte y Crece">
+<meta property="og:description" content="La plataforma de trading y cripto en español. Aprende con Zenix.">
+<meta property="og:image" content="images/og-zenix.png">
+<meta property="og:url" content="https://eprocashacademy.com">
+<meta property="og:type" content="website">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eprocash Academy">
+<meta name="twitter:description" content="Aprende trading y cripto con Zenix.">
+<meta name="twitter:image" content="images/og-zenix.png">
+<!-- Favicon -->
+<link rel="icon" href="images/favicon.png">
+<!-- Tipografía premium -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Iconos Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="dash-body">
+<body>
 
-<!-- NAVBAR PRIVADO -->
-<header class="dash-navbar" id="navbar">
-    <div class="dash-nav-left">
-        <a href="../index.html" class="dash-logo">
-            <img src="../images/logo.png" alt="Eprocash Academy">
+<!-- ============================================================
+  NAVBAR — v3.0
+  CAMBIOS:
+  - Reestructurado menú principal con 7 items + botón Acceder
+  - "Academia" dropdown: Bitcoin, Cursos, Análisis Técnico, Análisis Fundamental
+  - "Herramientas" dropdown: Exchanges, Procesadores de Pago
+  - "Bots" → enlace directo (sin página aún, marcado coming-soon)
+  - "Señales" → Telegram oficial
+  - "Plataformas" → trading.html
+  - "Comunidad" → Telegram oficial
+  - "Acceder" reemplaza los dos botones separados (dropdown login/registro)
+  - Corregidos nombres de archivo con mayúsculas (case-sensitive en Vercel)
+============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="images/logo.png" alt="Eprocash Academy">
+    </a>
+  </div>
+
+  <nav>
+    <ul class="menu" id="menu">
+
+      <!-- 1. INICIO -->
+      <li>
+        <a href="index.html" class="nav-active">
+          <i class="fa-solid fa-house"></i> Inicio
         </a>
-        <nav class="dash-nav-links">
-            <a href="index.html" class="dash-link active">
-                <i class="fa-solid fa-gauge"></i> Dashboard
-            </a>
-            <a href="rutas.html" class="dash-link">
-                <i class="fa-solid fa-road"></i> Rutas
-            </a>
-            <a href="recursos.html" class="dash-link">
-                <i class="fa-solid fa-folder-open"></i> Recursos
-            </a>
-            <a href="eventos.html" class="dash-link">
-                <i class="fa-solid fa-calendar-star"></i> Eventos
-            </a>
-            <a href="logros.html" class="dash-link">
-                <i class="fa-solid fa-trophy"></i> Logros
-            </a>
-            <a href="zenix.html" class="dash-link">
-                <i class="fa-solid fa-star"></i> Mi Zenix
-            </a>
-        </nav>
-    </div>
-    <div class="dash-nav-right">
-        <button id="theme-toggle" title="Cambiar tema">
-            <i class="fa-solid fa-moon" id="theme-icon"></i>
-        </button>
-        <a href="perfil.html" class="dash-user-btn" id="dash-user-btn">
-            <div class="dash-zenix-mini" id="dash-nav-zenix">
-                <img src="../images/favicon.png" alt="Zenix" id="dash-nav-zenix-img">
-            </div>
-            <span id="dash-nav-nombre">Cargando...</span>
+      </li>
+
+      <!-- 2. ACADEMIA (dropdown) -->
+      <li class="has-dropdown">
+        <a href="#">
+          <i class="fa-solid fa-graduation-cap"></i> Academia
+          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
         </a>
-        <button class="dash-logout" onclick="DashboardSystem.cerrarSesion()" title="Cerrar sesión">
-            <i class="fa-solid fa-right-from-bracket"></i>
-        </button>
-        <button class="dash-hamburger" id="dash-hamburger">
-            <span></span><span></span><span></span>
-        </button>
+        <ul class="dropdown">
+          <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+          <li><a href="cursos.html"><i class="fa-solid fa-play-circle"></i> Cursos</a></li>
+          <li><a href="Analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis Técnico</a></li>
+          <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis Fundamental</a></li>
+        </ul>
+      </li>
+
+      <!-- 3. HERRAMIENTAS (dropdown) -->
+      <li class="has-dropdown">
+        <a href="#">
+          <i class="fa-solid fa-wrench"></i> Herramientas
+          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+        </a>
+        <ul class="dropdown">
+          <li><a href="Exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+          <li><a href="Procesadores-de-pago.html"><i class="fa-solid fa-credit-card"></i> Procesadores de Pago</a></li>
+        </ul>
+      </li>
+
+      <!-- 4. BOTS -->
+      <!-- NOTA: bots.html no existe aún. El link apunta a #bots-pronto para evitar 404.
+           Cuando se cree la página, cambiar href="bots.html" y quitar la clase "nav-coming-soon" -->
+      <li>
+        <a href="#bots-pronto" class="nav-coming-soon" title="Próximamente">
+          <i class="fa-solid fa-robot"></i> Bots
+          <span class="nav-badge">Pronto</span>
+        </a>
+      </li>
+
+      <!-- 5. SEÑALES → Telegram oficial -->
+      <li>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener">
+          <i class="fa-solid fa-signal"></i> Señales
+        </a>
+      </li>
+
+      <!-- 6. PLATAFORMAS → trading.html -->
+      <li>
+        <a href="trading.html">
+          <i class="fa-solid fa-chart-line"></i> Plataformas
+        </a>
+      </li>
+
+      <!-- 7. COMUNIDAD → Telegram oficial -->
+      <li>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener">
+          <i class="fa-brands fa-telegram"></i> Comunidad
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- ACCEDER: dropdown con login y registro -->
+  <div class="right-icons">
+    <button id="theme-toggle" title="Cambiar tema">
+      <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </button>
+
+    <!-- Dropdown "Acceder" que contiene login y registro -->
+    <div class="acceder-wrap has-dropdown">
+      <a href="login.html" class="register-btn acceder-btn">
+        Acceder <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+      </a>
+      <ul class="dropdown dropdown-right">
+        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
+        <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registrarse gratis</a></li>
+      </ul>
     </div>
+  </div>
+
+  <!-- Hamburguesa mobile -->
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </header>
 
-<!-- Menú mobile -->
-<div class="dash-mobile-menu" id="dash-mobile-menu">
-    <a href="index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
-    <a href="rutas.html"><i class="fa-solid fa-road"></i> Rutas de Aprendizaje</a>
-    <a href="recursos.html"><i class="fa-solid fa-folder-open"></i> Centro de Recursos</a>
-    <a href="eventos.html"><i class="fa-solid fa-calendar-star"></i> Eventos</a>
-    <a href="logros.html"><i class="fa-solid fa-trophy"></i> Logros</a>
-    <a href="zenix.html"><i class="fa-solid fa-star"></i> Mi Zenix</a>
-    <a href="perfil.html"><i class="fa-solid fa-user"></i> Mi Perfil</a>
-    <button onclick="DashboardSystem.cerrarSesion()">
-        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
-    </button>
+<!-- Overlay oscuro al abrir menú mobile -->
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- ============================================================
+  HERO — sin cambios
+============================================================ -->
+<section class="hero" id="inicio">
+  <!-- Fondo decorativo -->
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="hero-text">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Plataforma #1 de finanzas digitales en español
+    </div>
+    <h1>
+      Aprende.<br>
+      Invierte.<br>
+      <span class="gradient-text">Crece.</span>
+    </h1>
+    <p>
+      Tu camino hacia la libertad financiera empieza aquí.
+      Trading, cripto e IA — todo en un solo lugar.
+    </p>
+    <div class="hero-buttons">
+      <a href="registro.html" class="primary-btn">
+        Comenzar gratis <i class="fa-solid fa-rocket"></i>
+      </a>
+      <a href="cursos.html" class="secondary-btn">
+        Ver cursos <i class="fa-solid fa-play"></i>
+      </a>
+    </div>
+
+    <!-- Estadísticas animadas -->
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-top">
+          <span class="stat-num" data-target="5200">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Estudiantes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-top">
+          <span class="stat-num" data-target="48">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Lecciones</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-top">
+          <span class="stat-num" data-target="12">0</span><span class="stat-plus">+</span>
+        </div>
+        <span class="stat-label">Países</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="zenix-glow"></div>
+    <img src="images/Zenix_hero.png" alt="Zenix — Tu guía en el mundo digital" class="zenix-float">
+    <!-- Tarjetas flotantes -->
+    <div class="floating-card card-top">
+      <i class="fa-brands fa-bitcoin fc-ico" style="color:#f7931a"></i>
+      <div>
+        <span class="fc-label">BTC/USDT</span>
+        <span class="fc-value up">+4.21%</span>
+      </div>
+    </div>
+    <div class="floating-card card-bottom">
+      <i class="fa-solid fa-robot fc-ico" style="color:#00cfff"></i>
+      <div>
+        <span class="fc-label">Bot activo</span>
+        <span class="fc-value up">+127.4%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  TICKER DE PRECIOS — sin cambios
+============================================================ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>₿ BTC <em class="up">+4.21%</em></span>
+    <span>Ξ ETH <em class="up">+2.85%</em></span>
+    <span>◎ SOL <em class="up">+6.10%</em></span>
+    <span>● BNB <em class="down">-1.33%</em></span>
+    <span>◆ XRP <em class="up">+3.44%</em></span>
+    <span>▲ ADA <em class="down">-0.78%</em></span>
+    <span>⬡ MATIC <em class="up">+5.92%</em></span>
+    <span>⊙ DOT <em class="up">+1.60%</em></span>
+    <!-- Duplicado para loop infinito -->
+    <span>₿ BTC <em class="up">+4.21%</em></span>
+    <span>Ξ ETH <em class="up">+2.85%</em></span>
+    <span>◎ SOL <em class="up">+6.10%</em></span>
+    <span>● BNB <em class="down">-1.33%</em></span>
+    <span>◆ XRP <em class="up">+3.44%</em></span>
+    <span>▲ ADA <em class="down">-0.78%</em></span>
+    <span>⬡ MATIC <em class="up">+5.92%</em></span>
+    <span>⊙ DOT <em class="up">+1.60%</em></span>
+  </div>
 </div>
-<div class="dash-overlay" id="dash-overlay"></div>
 
+<!-- ============================================================
+  CARDS — ECOSISTEMA — sin cambios
+============================================================ -->
+<section class="cards-section" id="ecosistema">
+  <div class="section-header reveal">
+    <span class="section-tag">¿Qué aprenderás?</span>
+    <h2 class="section-title">
+      Explora el Ecosistema <span class="gradient-text">Eprocash</span>
+    </h2>
+    <p class="section-desc">Todo lo que necesitas para dominar las finanzas digitales del siglo XXI.</p>
+  </div>
 
-<!-- CONTENIDO PRINCIPAL -->
-<main class="dash-main">
+  <div class="cards-container">
+    <div class="card reveal" style="--d:0.05s">
+      <div class="card-icon"><i class="fa-brands fa-bitcoin"></i></div>
+      <h3>Bitcoin & Cripto</h3>
+      <p>Aprende sobre Bitcoin...</p>
+      <a href="bitcoin.html">Explorar <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="card reveal" style="--d:0.15s">
+      <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Trading Profesional</h3>
+      <p>Domina análisis técnico, gestión de riesgo y estrategias ganadoras de mercado.</p>
+      <a href="trading.html">Explorar <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="card reveal" style="--d:0.25s">
+      <div class="card-icon"><i class="fa-solid fa-credit-card"></i></div>
+      <h3>Procesadores de Pago</h3>
+      <p>Descubre las mejores plataformas de pagos, remesas online y cómo mover dinero globalmente.</p>
+      <!-- CORREGIDO: procesadores.html → Procesadores-de-pago.html -->
+      <a href="Procesadores-de-pago.html">Explorar <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="card reveal" style="--d:0.35s">
+      <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+      <h3>Exchanges</h3>
+      <p>Aprende a usar Binance, Bybit, KuCoin y las mejores plataformas cripto del mundo.</p>
+      <!-- CORREGIDO: exchanges.html → Exchanges.html -->
+      <a href="Exchanges.html">Explorar <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="card reveal" style="--d:0.45s">
+      <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+      <h3>Bots de Trading</h3>
+      <p>Automatiza tus estrategias con bots inteligentes que operan 24/7 mientras descansas.</p>
+      <!-- NOTA: bots.html no existe — mantenido como coming-soon hasta crear la página -->
+      <a href="#bots-pronto" class="link-locked">Próximamente <i class="fa-solid fa-lock"></i></a>
+    </div>
+    <div class="card reveal" style="--d:0.55s">
+      <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+      <h3>Inteligencia Artificial</h3>
+      <p>Usa la IA para analizar mercados, automatizar decisiones y multiplicar tu productividad.</p>
+      <!-- NOTA: ia.html no existe — mantenido como coming-soon hasta crear la página -->
+      <a href="#ia-pronto" class="link-locked">Próximamente <i class="fa-solid fa-lock"></i></a>
+    </div>
+  </div>
+</section>
 
-    <!-- BIENVENIDA -->
-    <section class="dash-welcome">
-        <div class="dash-welcome-text">
-            <h1>Bienvenido de vuelta, <span class="gradient-text" id="dash-nombre">...</span> 👋</h1>
-            <p id="zenix-frase" class="dash-frase">"La información es el mejor activo."</p>
-        </div>
-        <div class="dash-welcome-meta">
-            <span class="dash-nivel-badge" id="dash-nivel">Nivel 1 — Iniciado</span>
-        </div>
-    </section>
+<!-- ============================================================
+  SECCIÓN ZENIX — sin cambios
+============================================================ -->
+<section class="zenix-section">
+  <div class="zenix-content reveal">
+    <img src="images/zenix_guiño.png" alt="Zenix" class="zenix-img">
+    <div class="zenix-text">
+      <span class="section-tag">Tu guía en el mundo digital</span>
+      <h2>Conoce a <span class="gradient-text">Zenix</span></h2>
+      <p>
+        Zenix es tu compañero de aprendizaje dentro de Eprocash Academy.
+        Diseñado para guiarte paso a paso, explicar conceptos complejos de forma
+        simple y mantenerte motivado en tu viaje hacia la libertad financiera.
+      </p>
+      <ul class="zenix-features">
+        <li><i class="fa-solid fa-circle-check"></i> Explica trading y cripto en lenguaje simple</li>
+        <li><i class="fa-solid fa-circle-check"></i> Disponible 24/7 en nuestra comunidad</li>
+        <li><i class="fa-solid fa-circle-check"></i> Te alerta de oportunidades del mercado</li>
+        <li><i class="fa-solid fa-circle-check"></i> Pronto: Zenix AI a tu disposición</li>
+      </ul>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank" class="primary-btn">
+        Únete a la comunidad <i class="fa-brands fa-telegram"></i>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- STATS RÁPIDAS -->
-    <div class="dash-stats-row">
-        <div class="dash-stat-card">
-            <div class="dsc-icon" style="background:rgba(0,207,255,0.1);color:var(--cyan)">
-                <i class="fa-solid fa-bolt"></i>
-            </div>
-            <div class="dsc-info">
-                <span class="dsc-val" id="dash-xp">0 XP</span>
-                <span class="dsc-lbl">Experiencia total</span>
-            </div>
+<!-- ============================================================
+  SLIDER — sin cambios
+============================================================ -->
+<section class="slider-section">
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+      <div class="slide active">
+        <div class="slide-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h2>Aprende Trading Profesional</h2>
+        <p>Domina análisis técnico, patrones de velas y gestión de riesgo paso a paso.</p>
+      </div>
+      <div class="slide">
+        <div class="slide-icon"><i class="fa-brands fa-bitcoin"></i></div>
+        <h2>Descubre el Mundo Bitcoin</h2>
+        <p>Desde qué es una wallet hasta cómo funciona la blockchain — sin tecnicismos.</p>
+      </div>
+      <div class="slide">
+        <div class="slide-icon"><i class="fa-solid fa-robot"></i></div>
+        <h2>Automatiza con Bots de IA</h2>
+        <p>Estrategias que operan solas mientras tú duermes. El futuro del trading ya llegó.</p>
+      </div>
+      <div class="slide">
+        <div class="slide-icon"><i class="fa-solid fa-users"></i></div>
+        <h2>Comunidad que te Impulsa</h2>
+        <p>Miles de traders compartiendo señales, análisis y oportunidades reales.</p>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="slider-prev" aria-label="Anterior">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="slider-dots" id="slider-dots"></div>
+      <button class="slider-btn" id="slider-next" aria-label="Siguiente">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  CTA — NEWSLETTER — sin cambios
+============================================================ -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <img src="images/Zenix_hero.png" alt="Zenix" class="cta-zenix">
+    <div class="cta-content">
+      <span class="section-tag">Comunidad gratuita</span>
+      <h2>¿Listo para empezar<br><span class="gradient-text">tu viaje financiero?</span></h2>
+      <p>Únete a más de 5.000 estudiantes que ya están aprendiendo a invertir, tradear y crecer con Eprocash Academy.</p>
+      <form class="cta-form" id="cta-form" novalidate>
+        <div class="form-row">
+          <input
+            type="email"
+            id="cta-email"
+            placeholder="Tu correo electrónico"
+            autocomplete="email"
+            required
+          >
+          <button type="submit" class="primary-btn">
+            Quiero acceso gratis <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
-        <div class="dash-stat-card">
-            <div class="dsc-icon" style="background:rgba(0,229,155,0.1);color:var(--up)">
-                <i class="fa-solid fa-book-open-reader"></i>
-            </div>
-            <div class="dsc-info">
-                <span class="dsc-val" id="dash-lecciones">0</span>
-                <span class="dsc-lbl">Lecciones completadas</span>
-            </div>
-        </div>
-        <div class="dash-stat-card">
-            <div class="dsc-icon" style="background:rgba(255,184,0,0.1);color:#ffb800">
-                <i class="fa-solid fa-fire"></i>
-            </div>
-            <div class="dsc-info">
-                <span class="dsc-val" id="dash-racha">0 días</span>
-                <span class="dsc-lbl">Racha actual</span>
-            </div>
-        </div>
-        <div class="dash-stat-card">
-            <div class="dsc-icon" style="background:rgba(168,85,247,0.1);color:#a855f7">
-                <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <div class="dsc-info">
-                <span class="dsc-val" id="dash-prog-pct">0%</span>
-                <span class="dsc-lbl">Progreso general</span>
-            </div>
-        </div>
+        <p class="form-note">
+          <i class="fa-solid fa-lock"></i> Sin spam. Cancela cuando quieras.
+        </p>
+        <p class="form-success" id="form-success">
+          <i class="fa-solid fa-circle-check"></i> ¡Listo! Revisa tu correo.
+        </p>
+        <p class="form-error" id="form-error">
+          <i class="fa-solid fa-triangle-exclamation"></i> Ingresa un correo válido.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  FOOTER
+  CAMBIOS:
+  - Columna "Explorar" actualizada con nueva estructura del menú
+  - Links corregidos con nombres de archivo correctos
+  - Comunidad apunta a Telegram oficial
+============================================================ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Eprocash Academy">
+      <p>Aprende, invierte y crece junto a Zenix. La plataforma de educación financiera digital en español.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@eprocashacademy5935" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
     </div>
 
-
-    <!-- GRID PRINCIPAL -->
-    <div class="dash-grid">
-
-        <!-- MI ZENIX -->
-        <div class="dash-card zenix-dash-card">
-            <div class="dash-card-header">
-                <i class="fa-solid fa-star"></i>
-                <h3>Mi Zenix</h3>
-                <a href="zenix.html" class="dash-card-link">Ver completo <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="zenix-dash-body">
-                <div class="zenix-dash-img-wrap">
-                    <div class="zenix-dash-glow" id="zenix-dash-glow"></div>
-                    <img src="../images/favicon.png" alt="Mi Zenix" class="zenix-dash-img" id="dash-zenix-img">
-                </div>
-                <div class="zenix-dash-info">
-                    <h2 id="dash-zenix-nombre">—</h2>
-                    <span class="zenix-dash-rareza" id="dash-zenix-rareza">—</span>
-                    <span class="zenix-dash-nivel" id="dash-zenix-nivel">Nivel 1</span>
-                    <div class="zenix-dash-xp-wrap">
-                        <div class="zenix-dash-xp-bar">
-                            <div class="zenix-dash-xp-fill" id="dash-xp-bar"></div>
-                        </div>
-                        <span class="zenix-dash-xp-label" id="dash-xp-label">0 / 100 XP</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRÓXIMA LECCIÓN -->
-        <div class="dash-card prox-leccion-card">
-            <div class="dash-card-header">
-                <i class="fa-solid fa-play-circle"></i>
-                <h3>Próxima Lección</h3>
-                <a href="rutas.html" class="dash-card-link">Ver ruta <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="prox-leccion-body">
-                <div class="prox-leccion-icon">
-                    <i class="fa-solid fa-book"></i>
-                </div>
-                <div class="prox-leccion-info">
-                    <span class="prox-nivel" id="dash-prox-nivel">Nivel Básico</span>
-                    <h3 id="dash-prox-leccion">¿Qué es el trading?</h3>
-                    <span class="prox-modulo" id="dash-prox-modulo">Módulo 1</span>
-                    <span class="prox-duracion"><i class="fa-solid fa-clock"></i> <span id="dash-prox-duracion">8 min</span></span>
-                </div>
-                <a href="rutas.html" class="primary-btn prox-btn">
-                    Continuar <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- PROGRESO GENERAL -->
-        <div class="dash-card progreso-card">
-            <div class="dash-card-header">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Progreso General</h3>
-            </div>
-            <div class="progreso-body">
-                <p class="progreso-texto" id="dash-prog-texto">0 de 0 lecciones</p>
-                <div class="progreso-bar-wrap">
-                    <div class="progreso-bar">
-                        <div class="progreso-bar-fill" id="dash-prog-bar"></div>
-                    </div>
-                </div>
-                <div class="progreso-niveles">
-                    <div class="prog-nivel-item">
-                        <span>📗 Básico</span>
-                        <span id="prog-basico-label">0/0</span>
-                    </div>
-                    <div class="prog-nivel-item">
-                        <span>📘 Intermedio</span>
-                        <span id="prog-inter-label">Bloqueado</span>
-                    </div>
-                    <div class="prog-nivel-item">
-                        <span>📕 Avanzado</span>
-                        <span id="prog-avanz-label">Bloqueado</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- LOGROS RECIENTES -->
-        <div class="dash-card logros-card">
-            <div class="dash-card-header">
-                <i class="fa-solid fa-trophy"></i>
-                <h3>Logros Recientes</h3>
-                <a href="logros.html" class="dash-card-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div id="logros-recientes" class="logros-recientes-body">
-                <!-- Se genera por JS -->
-            </div>
-        </div>
-
-        <!-- PRÓXIMO EVENTO -->
-        <div class="dash-card evento-card">
-            <div class="dash-card-header">
-                <i class="fa-solid fa-calendar-star"></i>
-                <h3>Próximo Evento</h3>
-                <a href="eventos.html" class="dash-card-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="evento-placeholder">
-                <!-- PLACEHOLDER — reemplazar con datos reales -->
-                <div class="evento-placeholder-content">
-                    <div class="evento-fecha-badge">
-                        <span class="evento-mes">JUN</span>
-                        <span class="evento-dia">15</span>
-                    </div>
-                    <div class="evento-info">
-                        <h4>Webinar: Análisis Bitcoin 2026</h4>
-                        <p>Con Zenix · 8:00 PM GMT-5</p>
-                        <span class="evento-tipo">En vivo</span>
-                    </div>
-                </div>
-                <a href="eventos.html" class="secondary-btn evento-btn">
-                    Registrarme <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- RECURSO DESTACADO -->
-        <div class="dash-card recurso-card">
-            <div class="dash-card-header">
-                <i class="fa-solid fa-folder-open"></i>
-                <h3>Recurso Destacado</h3>
-                <a href="recursos.html" class="dash-card-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="recurso-placeholder">
-                <!-- PLACEHOLDER — reemplazar con recurso real -->
-                <div class="recurso-icon-wrap">
-                    <i class="fa-solid fa-calculator" style="color:var(--cyan);font-size:28px;"></i>
-                </div>
-                <div class="recurso-info">
-                    <h4>Calculadora de Riesgo</h4>
-                    <p>Calcula el tamaño de tu posición y gestiona el riesgo por operación.</p>
-                    <a href="recursos.html" class="recurso-link">
-                        Abrir herramienta <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
+    <div class="footer-links">
+      <h4>Academia</h4>
+      <a href="bitcoin.html">Bitcoin</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="Analisis-tecnico.html">Análisis Técnico</a>
+      <a href="analisis-fundamental.html">Análisis Fundamental</a>
     </div>
 
-    <!-- ZENIX TUTOR (preparado para IA) -->
-    <div class="zenix-tutor-banner">
-        <img src="../images/favicon.png" alt="Zenix Tutor" class="zenix-tutor-img">
-        <div class="zenix-tutor-text">
-            <h3>Zenix Tutor <span class="soon-badge">Próximamente</span></h3>
-            <p>Tu asistente de IA personal para resolver dudas, recomendar contenido y guiarte en tu aprendizaje financiero.</p>
-        </div>
-        <button class="secondary-btn" disabled>
-            <i class="fa-solid fa-robot"></i> En desarrollo
-        </button>
+    <div class="footer-links">
+      <h4>Herramientas</h4>
+      <a href="Exchanges.html">Exchanges</a>
+      <a href="Procesadores-de-pago.html">Procesadores de pago</a>
+      <a href="trading.html">Plataformas</a>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank">Señales</a>
     </div>
 
-</main>
+    <div class="footer-links">
+      <h4>Soporte</h4>
+      <a href="Acerca-de.html">Acerca de</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos de uso</a>
+    </div>
+  </div>
 
+  <div class="footer-bottom">
+    <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+    <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+  </div>
+</footer>
 
-<!-- Telegram flotante -->
-<a href="TU_LINK_TELEGRAM" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
-    <i class="fa-brands fa-telegram"></i>
-    <span class="tg-tip">Comunidad</span>
+<!-- Botón flotante Telegram -->
+<a href="https://t.me/eprocashacademyofficial" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+  <i class="fa-brands fa-telegram"></i>
+  <span class="tg-tip">Únete al grupo</span>
 </a>
 
+<!-- Botón volver arriba -->
 <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
-    <i class="fa-solid fa-chevron-up"></i>
+  <i class="fa-solid fa-chevron-up"></i>
 </button>
 
-<script src="../js/app.js"></script>
-<script src="../js/zenix.js"></script>
-<script src="../js/dashboard.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    /* Proteger ruta y renderizar */
-    DashboardSystem.renderDashboard();
-
-    /* Navbar imagen Zenix */
-    const perfil = DashboardSystem.cargarPerfil();
-    if (perfil) {
-        const z = perfil.zenix_activo;
-        const img = document.getElementById('dash-nav-zenix-img');
-        if (img) img.src = z.imagen;
-        const nom = document.getElementById('dash-nav-nombre');
-        if (nom) nom.textContent = perfil.nombre.split(' ')[0];
-
-        const glow = document.getElementById('zenix-dash-glow');
-        if (glow) glow.style.background =
-            `radial-gradient(circle, ${z.rareza_color}30 0%, transparent 70%)`;
-
-        const nav_wrap = document.getElementById('dash-nav-zenix');
-        if (nav_wrap) nav_wrap.style.setProperty('--rc', z.rareza_color);
-
-        /* Progreso niveles en sidebar */
-        const prog = DashboardSystem.getProgresoTotal();
-        const el = (id, t) => { const e = document.getElementById(id); if(e) e.textContent = t; };
-        el('prog-basico-label', prog.basico.completadas + '/' + prog.basico.total);
-    }
-
-    /* Hamburguesa mobile */
-    const ham = document.getElementById('dash-hamburger');
-    const menu = document.getElementById('dash-mobile-menu');
-    const overlay = document.getElementById('dash-overlay');
-    if (ham) {
-        ham.addEventListener('click', () => {
-            ham.classList.toggle('open');
-            menu.classList.toggle('open');
-            overlay.classList.toggle('visible');
-        });
-        overlay.addEventListener('click', () => {
-            ham.classList.remove('open');
-            menu.classList.remove('open');
-            overlay.classList.remove('visible');
-        });
-    }
-
-    /* Scroll top */
-    const scrollBtn = document.getElementById('scroll-top');
-    window.addEventListener('scroll', () => {
-        if (scrollBtn) scrollBtn.classList.toggle('visible', window.scrollY > 300);
-    });
-    if (scrollBtn) scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-    /* Theme toggle */
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const saved = localStorage.getItem('epc-theme') || 'dark';
-    if (saved === 'light') {
-        document.body.classList.add('light-mode');
-        if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-    }
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            const isLight = document.body.classList.toggle('light-mode');
-            if (themeIcon) themeIcon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-            localStorage.setItem('epc-theme', isLight ? 'light' : 'dark');
-        });
-    }
-});
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
