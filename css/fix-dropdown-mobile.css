@@ -1,0 +1,27 @@
+/* ================================================================
+   FIX-DROPDOWN-MOBILE.CSS — Eprocash Academy
+   Aditivo, no reemplaza ni sobreescribe estilos existentes.
+   Único propósito: dar un área táctil clara al ícono de flecha
+   que ahora actúa como trigger independiente del dropdown "Academia"
+   en mobile, sin tocar colores, tipografía ni animaciones.
+================================================================ */
+
+.dropdown-arrow-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Área táctil cómoda (mínimo recomendado ~44px) sin alterar el
+     tamaño visual del ícono en sí */
+  padding: 10px 8px;
+  margin: -10px -8px -10px 2px;
+  cursor: pointer;
+}
+
+/* En desktop el hover ya abre el dropdown vía CSS existente;
+   aquí solo evitamos que el padding extra mueva el layout */
+@media (min-width: 901px) {
+  .dropdown-arrow-trigger {
+    padding: 0;
+    margin: 0 0 0 2px;
+  }
+}

@@ -1,5 +1,5 @@
 /* ================================================================
-   EPROCASH ACADEMY — js/app.js  v2.1 (corregido)
+   EPROCASH ACADEMY — js/app.js  v2.2 (fix navegación mobile dropdown)
 ================================================================ */
 
 'use strict';
@@ -61,23 +61,51 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ================================================================
-   03. DROPDOWN MOBILE
+   03. DROPDOWN MOBILE — CORREGIDO (v2.2)
+   ANTES: el click en TODO el <a> (texto + flecha) hacía preventDefault,
+   así que un link real como "Academia" (href="academia.html") nunca
+   navegaba en mobile, solo abría el submenú.
+
+   AHORA: si el <li> tiene un elemento .dropdown-arrow-trigger separado
+   (icono de flecha envuelto aparte), SOLO ese elemento abre/cierra el
+   submenú y detiene la propagación. El resto del <a> (el texto) navega
+   con normalidad usando su href.
+
+   Para los <li> que NO tengan .dropdown-arrow-trigger (ej. "Herramientas",
+   que no tiene página propia todavía), se mantiene el comportamiento
+   anterior: todo el <a> abre el submenú, sin romper nada existente.
 ================================================================ */
 (function initMobileDropdowns() {
     $$('.has-dropdown').forEach(li => {
-        const trigger = $('a', li);
+        const trigger      = $('a', li);
+        const arrowTrigger = $('.dropdown-arrow-trigger', li);
         if (!trigger) return;
-        trigger.addEventListener('click', e => {
-            if (window.innerWidth > 900) return;
-            e.preventDefault();
-            li.classList.toggle('open');
-        });
+
+        if (arrowTrigger) {
+            /* Caso nuevo: link con href real + flecha separada */
+            arrowTrigger.addEventListener('click', e => {
+                if (window.innerWidth > 900) return;
+                e.preventDefault();
+                e.stopPropagation();
+                li.classList.toggle('open');
+            });
+            /* El <a> padre conserva su comportamiento normal de navegación.
+               No se le agrega preventDefault: en mobile, tocar el texto
+               navega directo al href. */
+        } else {
+            /* Caso anterior, sin cambios: el <a> completo abre el submenú */
+            trigger.addEventListener('click', e => {
+                if (window.innerWidth > 900) return;
+                e.preventDefault();
+                li.classList.toggle('open');
+            });
+        }
     });
 })();
 
 
 /* ================================================================
-   04. DARK / LIGHT MODE — CORREGIDO
+   04. DARK / LIGHT MODE
 ================================================================ */
 (function initTheme() {
     const btn  = $('#theme-toggle');
@@ -113,7 +141,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 
 /* ================================================================
-   05. SLIDER — CORREGIDO con dots generados correctamente
+   05. SLIDER
 ================================================================ */
 (function initSlider() {
     const slider   = $('#slider');
