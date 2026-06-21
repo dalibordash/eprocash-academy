@@ -1,0 +1,353 @@
+/* ============================================================
+   HERRAMIENTAS.CSS — Eprocash Academy v3.0
+   Namespace: .herr-*
+   REGLA: no redefine variables de color/tipografía globales.
+   Usa var(--...) ya definidas, con mismos fallbacks que academia.css.
+============================================================ */
+
+:root {
+  --herr-cyan: var(--cyan, #00cfff);
+  --herr-purple: var(--purple, #a855f7);
+  --herr-card-bg: var(--card-bg, rgba(255,255,255,0.03));
+  --herr-border: var(--border-color, rgba(255,255,255,0.08));
+  --herr-text: var(--text-light, #e2e8f0);
+  --herr-text-dim: var(--text-dim, #94a3b8);
+  --herr-green: #4ade80;
+  --herr-red: #f87171;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.herr-hero {
+  position: relative;
+  padding: 160px 24px 50px;
+  text-align: center;
+}
+
+.herr-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.herr-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.herr-hero p {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--herr-text-dim);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Disclaimer legal — visible, no intrusivo */
+.herr-disclaimer {
+  max-width: 640px;
+  margin: 24px auto 0;
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--herr-text-dim);
+}
+
+.herr-disclaimer i {
+  color: #f59e0b;
+  font-size: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   TABS DE CALCULADORAS — reutiliza patrón .content-tabs de academia.css
+   pero namespaced por si herramientas.html se usa sin academia.css
+============================================================ */
+.herr-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+.herr-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: var(--herr-card-bg);
+  border: 1px solid var(--herr-border);
+  border-radius: 16px;
+  padding: 8px;
+  margin-bottom: 32px;
+}
+
+.herr-tab {
+  flex: 1;
+  min-width: 140px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 14px 12px;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  color: var(--herr-text-dim);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.25s ease, color 0.25s ease;
+  text-align: center;
+}
+
+.herr-tab i {
+  font-size: 18px;
+}
+
+.herr-tab.active {
+  background: linear-gradient(135deg, rgba(0,207,255,0.15), rgba(168,85,247,0.15));
+  color: var(--herr-cyan);
+  border: 1px solid rgba(0,207,255,0.3);
+}
+
+.herr-tab:hover:not(.active) {
+  background: rgba(255,255,255,0.04);
+  color: var(--herr-text);
+}
+
+/* ============================================================
+   PANEL DE CALCULADORA
+============================================================ */
+.herr-panel {
+  display: none;
+}
+
+.herr-panel.active {
+  display: block;
+  animation: herrFadeIn 0.35s ease;
+}
+
+@keyframes herrFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.herr-calc-card {
+  background: var(--herr-card-bg);
+  border: 1px solid var(--herr-border);
+  border-radius: 20px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 760px) {
+  .herr-calc-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
+.herr-calc-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  grid-column: 1 / -1;
+}
+
+.herr-calc-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--herr-text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  grid-column: 1 / -1;
+}
+
+/* ── Formulario de inputs ── */
+.herr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.herr-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.herr-field label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--herr-text);
+}
+
+.herr-field label small {
+  font-weight: 400;
+  color: var(--herr-text-dim);
+}
+
+.herr-field input,
+.herr-field select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--herr-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--herr-text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease;
+}
+
+.herr-field input:focus,
+.herr-field select:focus {
+  outline: none;
+  border-color: var(--herr-cyan);
+}
+
+.herr-field-error {
+  font-size: 0.78rem;
+  color: var(--herr-red);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 16px;
+}
+
+/* ── Panel de resultado ── */
+.herr-result {
+  background: rgba(0,207,255,0.04);
+  border: 1px solid rgba(0,207,255,0.18);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+
+.herr-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.herr-result-label {
+  font-size: 0.85rem;
+  color: var(--herr-text-dim);
+}
+
+.herr-result-value {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--herr-cyan);
+}
+
+.herr-result-value.main {
+  font-size: 1.7rem;
+}
+
+.herr-result-divider {
+  height: 1px;
+  background: var(--herr-border);
+}
+
+.herr-result-empty {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--herr-text-dim);
+  font-size: 0.88rem;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* ── Caja "Cómo se calcula" ── */
+.herr-formula-box {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  border-top: 1px dashed var(--herr-border);
+  padding-top: 20px;
+}
+
+.herr-formula-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--herr-cyan);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.herr-formula-content {
+  display: none;
+  margin-top: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--herr-text-dim);
+  line-height: 1.7;
+}
+
+.herr-formula-content.open {
+  display: block;
+}
+
+.herr-formula-code {
+  display: block;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--herr-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  font-family: 'DM Sans', monospace;
+  color: var(--herr-cyan);
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+/* ============================================================
+   ENLACE A EXCHANGES / PROCESADORES (ya existentes)
+============================================================ */
+.herr-links-section {
+  margin-top: 56px;
+}
+
+.herr-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 600px) {
+  .herr-hero {
+    padding: 130px 20px 40px;
+  }
+  .herr-tabs {
+    flex-direction: column;
+  }
+  .herr-tab {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}

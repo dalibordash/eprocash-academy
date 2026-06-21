@@ -28,6 +28,7 @@
 <!-- Iconos Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/fix-dropdown-mobile.css">
 </head>
 <body>
 
@@ -65,7 +66,7 @@
       <li class="has-dropdown">
         <a href="academia.html">
           <i class="fa-solid fa-graduation-cap"></i> Academia
-          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+          <span class="dropdown-arrow-trigger"><i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></span>
         </a>
         <ul class="dropdown">
           <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
@@ -77,11 +78,15 @@
 
       <!-- 3. HERRAMIENTAS (dropdown) -->
       <li class="has-dropdown">
-        <a href="#">
+        <a href="herramientas.html">
           <i class="fa-solid fa-wrench"></i> Herramientas
-          <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i>
+          <span class="dropdown-arrow-trigger"><i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></span>
         </a>
         <ul class="dropdown">
+          <li><a href="herramientas.html#calc-riesgo-cuenta"><i class="fa-solid fa-calculator"></i> Riesgo de cuenta</a></li>
+          <li><a href="herramientas.html#calc-lotaje"><i class="fa-solid fa-calculator"></i> Lotaje Forex</a></li>
+          <li><a href="herramientas.html#calc-riesgo-beneficio"><i class="fa-solid fa-calculator"></i> Riesgo-Beneficio</a></li>
+          <li><a href="herramientas.html#calc-tamano-posicion"><i class="fa-solid fa-calculator"></i> Tamaño de posición</a></li>
           <li><a href="Exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
           <li><a href="Procesadores-de-pago.html"><i class="fa-solid fa-credit-card"></i> Procesadores de Pago</a></li>
         </ul>

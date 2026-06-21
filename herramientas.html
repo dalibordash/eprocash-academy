@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas — Eprocash Academy</title>
+<meta name="description" content="Calculadoras de trading gratuitas: riesgo de cuenta, lotaje Forex, ratio riesgo-beneficio y tamaño de posición. Fórmulas explicadas paso a paso.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/fix-dropdown-mobile.css">
+<link rel="stylesheet" href="css/academia.css">
+<link rel="stylesheet" href="css/herramientas.css">
+</head>
+<body>
+
+<!-- ============================================================
+  NAVBAR — idéntico al estandarizado.
+  CAMBIOS respecto al navbar anterior:
+  - "Herramientas" pasa de href="#" a href="herramientas.html"
+  - Flecha envuelta en dropdown-arrow-trigger (mismo fix mobile de Academia)
+  - Dropdown ahora tiene 6 opciones: 4 calculadoras nuevas + Exchanges
+    y Procesadores de pago (ya existentes, se mantienen intactas)
+============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+  </div>
+
+  <nav>
+    <ul class="menu" id="menu">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+
+      <li class="has-dropdown">
+        <a href="academia.html">
+          <i class="fa-solid fa-graduation-cap"></i> Academia
+          <span class="dropdown-arrow-trigger"><i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></span>
+        </a>
+        <ul class="dropdown">
+          <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+          <li><a href="cursos.html"><i class="fa-solid fa-play-circle"></i> Cursos</a></li>
+          <li><a href="Analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis Técnico</a></li>
+          <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis Fundamental</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="herramientas.html" class="nav-active">
+          <i class="fa-solid fa-wrench"></i> Herramientas
+          <span class="dropdown-arrow-trigger"><i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></span>
+        </a>
+        <ul class="dropdown">
+          <li><a href="herramientas.html#calc-riesgo-cuenta"><i class="fa-solid fa-calculator"></i> Riesgo de cuenta</a></li>
+          <li><a href="herramientas.html#calc-lotaje"><i class="fa-solid fa-calculator"></i> Lotaje Forex</a></li>
+          <li><a href="herramientas.html#calc-riesgo-beneficio"><i class="fa-solid fa-calculator"></i> Riesgo-Beneficio</a></li>
+          <li><a href="herramientas.html#calc-tamano-posicion"><i class="fa-solid fa-calculator"></i> Tamaño de posición</a></li>
+          <li><a href="Exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+          <li><a href="Procesadores-de-pago.html"><i class="fa-solid fa-credit-card"></i> Procesadores de Pago</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#bots-pronto" class="nav-coming-soon" title="Próximamente"><i class="fa-solid fa-robot"></i> Bots <span class="nav-badge">Pronto</span></a></li>
+      <li><a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener"><i class="fa-solid fa-signal"></i> Señales</a></li>
+      <li><a href="trading.html"><i class="fa-solid fa-chart-line"></i> Plataformas</a></li>
+      <li><a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Comunidad</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-icons">
+    <button id="theme-toggle" title="Cambiar tema"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+    <div class="acceder-wrap has-dropdown">
+      <a href="login.html" class="register-btn acceder-btn">Acceder <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></a>
+      <ul class="dropdown dropdown-right">
+        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
+        <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registrarse gratis</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- ============================================================
+  HERO
+============================================================ -->
+<section class="herr-hero">
+  <div class="herr-hero-inner reveal">
+    <span class="section-tag">4 calculadoras gratuitas</span>
+    <h1>Centro de <span class="gradient-text">Herramientas</span></h1>
+    <p>
+      Calcula tu riesgo, lotaje y tamaño de posición antes de operar.
+      Cada herramienta muestra la fórmula exacta que usa, sin cajas negras.
+    </p>
+    <div class="herr-disclaimer">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span>Estas calculadoras son herramientas educativas de apoyo. No constituyen asesoría financiera. Verifica siempre los datos de tu bróker antes de operar con dinero real.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  TABS + PANELES DE CALCULADORAS
+============================================================ -->
+<section class="herr-section">
+
+  <div class="herr-tabs" role="tablist">
+    <button class="herr-tab active" data-herr-tab="riesgo-cuenta">
+      <i class="fa-solid fa-shield-halved"></i> Riesgo de cuenta
+    </button>
+    <button class="herr-tab" data-herr-tab="lotaje">
+      <i class="fa-solid fa-coins"></i> Lotaje Forex
+    </button>
+    <button class="herr-tab" data-herr-tab="riesgo-beneficio">
+      <i class="fa-solid fa-scale-balanced"></i> Riesgo-Beneficio
+    </button>
+    <button class="herr-tab" data-herr-tab="tamano-posicion">
+      <i class="fa-solid fa-bullseye"></i> Tamaño posición
+    </button>
+  </div>
+
+  <!-- ───────────────────────────────────────────
+    PANEL 1 — RIESGO DE CUENTA
+  ─────────────────────────────────────────── -->
+  <div class="herr-panel active" data-herr-panel="riesgo-cuenta" id="calc-riesgo-cuenta">
+    <div class="herr-calc-card">
+      <div class="herr-calc-title">Calculadora de riesgo de cuenta</div>
+      <div class="herr-calc-subtitle">Calcula cuánto dinero estás dispuesto a arriesgar en una operación, según un porcentaje de tu balance total.</div>
+
+      <form class="herr-form" id="form-riesgo-cuenta">
+        <div class="herr-field">
+          <label for="rc-balance">Balance de tu cuenta <small>(USD)</small></label>
+          <input type="number" id="rc-balance" placeholder="Ej: 1000" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="rc-porcentaje">% de riesgo por operación <small>(recomendado: 1-2%)</small></label>
+          <input type="number" id="rc-porcentaje" placeholder="Ej: 2" min="0" max="100" step="any">
+        </div>
+      </form>
+
+      <div class="herr-result" id="rc-resultado" style="display:none;">
+        <div class="herr-result-row">
+          <span class="herr-result-label">Riesgo máximo por operación</span>
+          <span class="herr-result-value main" id="rc-riesgo-usd">$0.00</span>
+        </div>
+        <div class="herr-result-divider"></div>
+        <div class="herr-result-row">
+          <span class="herr-result-label">Balance restante si pierdes</span>
+          <span class="herr-result-value" id="rc-balance-restante">$0.00</span>
+        </div>
+      </div>
+      <div class="herr-result-empty" id="rc-vacio">Ingresa tu balance y porcentaje para ver el resultado.</div>
+
+      <div class="herr-formula-box">
+        <button class="herr-formula-toggle" data-formula-target="rc-formula-content">
+          <i class="fa-solid fa-chevron-down"></i> Ver fórmula utilizada
+        </button>
+        <div class="herr-formula-content" id="rc-formula-content">
+          <p>El riesgo de cuenta es el monto en dinero que aceptas perder si la operación sale mal. Se calcula como un porcentaje fijo de tu balance, sin importar el instrumento que operes.</p>
+          <code class="herr-formula-code">riesgo_USD = balance × (porcentaje / 100)</code>
+          <p>Ejemplo: con $1,000 de balance y 2% de riesgo → 1000 × 0.02 = $20 de riesgo máximo por operación. La mayoría de traders profesionales arriesgan entre 0.5% y 2% por operación para sobrevivir rachas de pérdidas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────────────
+    PANEL 2 — LOTAJE FOREX
+  ─────────────────────────────────────────── -->
+  <div class="herr-panel" data-herr-panel="lotaje" id="calc-lotaje">
+    <div class="herr-calc-card">
+      <div class="herr-calc-title">Calculadora de lotaje (Forex)</div>
+      <div class="herr-calc-subtitle">Calcula cuántos lotes operar en Forex según tu riesgo y la distancia de tu stop loss en pips.</div>
+
+      <form class="herr-form" id="form-lotaje">
+        <div class="herr-field">
+          <label for="lt-balance">Balance de tu cuenta <small>(USD)</small></label>
+          <input type="number" id="lt-balance" placeholder="Ej: 1000" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="lt-porcentaje">% de riesgo por operación</label>
+          <input type="number" id="lt-porcentaje" placeholder="Ej: 2" min="0" max="100" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="lt-sl-pips">Stop loss <small>(en pips)</small></label>
+          <input type="number" id="lt-sl-pips" placeholder="Ej: 30" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="lt-valor-pip">Valor del pip por lote estándar <small>(USD, usualmente ~10)</small></label>
+          <input type="number" id="lt-valor-pip" placeholder="Ej: 10" min="0" step="any" value="10">
+        </div>
+      </form>
+
+      <div class="herr-result" id="lt-resultado" style="display:none;">
+        <div class="herr-result-row">
+          <span class="herr-result-label">Riesgo máximo</span>
+          <span class="herr-result-value" id="lt-riesgo-usd">$0.00</span>
+        </div>
+        <div class="herr-result-divider"></div>
+        <div class="herr-result-row">
+          <span class="herr-result-label">Tamaño de lote recomendado</span>
+          <span class="herr-result-value main" id="lt-lotaje">0.00 lotes</span>
+        </div>
+      </div>
+      <div class="herr-result-empty" id="lt-vacio">Completa los 4 campos para ver el lotaje recomendado.</div>
+
+      <div class="herr-formula-box">
+        <button class="herr-formula-toggle" data-formula-target="lt-formula-content">
+          <i class="fa-solid fa-chevron-down"></i> Ver fórmula utilizada
+        </button>
+        <div class="herr-formula-content" id="lt-formula-content">
+          <p>El lotaje correcto asegura que, si tu stop loss se activa, pierdas exactamente el riesgo que definiste — ni más, ni menos.</p>
+          <code class="herr-formula-code">lotaje = riesgo_USD / (SL_pips × valor_pip_por_lote)</code>
+          <p>Ejemplo: con $20 de riesgo, stop loss de 30 pips y valor de pip de $10 por lote → 20 / (30 × 10) = 0.067 lotes. El "valor del pip por lote" depende del par que operes y de tu bróker — revísalo en la especificación de tu cuenta si no es exactamente $10.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────────────
+    PANEL 3 — RIESGO-BENEFICIO
+  ─────────────────────────────────────────── -->
+  <div class="herr-panel" data-herr-panel="riesgo-beneficio" id="calc-riesgo-beneficio">
+    <div class="herr-calc-card">
+      <div class="herr-calc-title">Calculadora riesgo-beneficio (R:R)</div>
+      <div class="herr-calc-subtitle">Calcula el ratio entre lo que arriesgas y lo que puedes ganar en una operación.</div>
+
+      <form class="herr-form" id="form-riesgo-beneficio">
+        <div class="herr-field">
+          <label>Dirección de la operación</label>
+          <div style="display:flex;gap:16px;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--herr-text,#e2e8f0);">
+            <label style="display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer;">
+              <input type="radio" name="rb-direccion" value="larga" checked> Compra (larga)
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:400;cursor:pointer;">
+              <input type="radio" name="rb-direccion" value="corta"> Venta (corta)
+            </label>
+          </div>
+        </div>
+        <div class="herr-field">
+          <label for="rb-entrada">Precio de entrada</label>
+          <input type="number" id="rb-entrada" placeholder="Ej: 100" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="rb-stop-loss">Precio de stop loss</label>
+          <input type="number" id="rb-stop-loss" placeholder="Ej: 95" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="rb-take-profit">Precio de take profit</label>
+          <input type="number" id="rb-take-profit" placeholder="Ej: 115" min="0" step="any">
+        </div>
+      </form>
+
+      <div class="herr-result" id="rb-resultado" style="display:none;">
+        <div class="herr-result-row">
+          <span class="herr-result-label">Ratio Riesgo:Beneficio</span>
+          <span class="herr-result-value main" id="rb-ratio">1 : 0</span>
+        </div>
+        <div class="herr-result-divider"></div>
+        <div class="herr-result-row">
+          <span class="herr-result-label">Distancia al riesgo</span>
+          <span class="herr-result-value" id="rb-riesgo-puntos">0</span>
+        </div>
+        <div class="herr-result-row">
+          <span class="herr-result-label">Distancia al beneficio</span>
+          <span class="herr-result-value" id="rb-beneficio-puntos">0</span>
+        </div>
+      </div>
+      <div class="herr-result-empty" id="rb-vacio">Completa los 3 precios para ver el ratio riesgo-beneficio.</div>
+      <div class="herr-result-empty" id="rb-warning" style="display:none;color:var(--herr-red,#f87171);">
+        Revisa los precios: el stop loss debe estar del lado correcto respecto a tu entrada según la dirección elegida.
+      </div>
+
+      <div class="herr-formula-box">
+        <button class="herr-formula-toggle" data-formula-target="rb-formula-content">
+          <i class="fa-solid fa-chevron-down"></i> Ver fórmula utilizada
+        </button>
+        <div class="herr-formula-content" id="rb-formula-content">
+          <p>El ratio R:R compara cuánto puedes perder contra cuánto puedes ganar. Un ratio de 1:2 significa que arriesgas 1 para ganar 2.</p>
+          <code class="herr-formula-code">Compra:  R:R = (TP − entrada) / (entrada − SL)
+Venta:   R:R = (entrada − TP) / (SL − entrada)</code>
+          <p>Ejemplo en compra: entrada 100, stop loss 95, take profit 115 → (115−100)/(100−95) = 15/5 = ratio 1:3. Generalmente se recomienda buscar operaciones con ratio mínimo 1:1.5 o 1:2 para que el sistema sea rentable incluso sin un alto porcentaje de aciertos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────────────
+    PANEL 4 — TAMAÑO DE POSICIÓN
+  ─────────────────────────────────────────── -->
+  <div class="herr-panel" data-herr-panel="tamano-posicion" id="calc-tamano-posicion">
+    <div class="herr-calc-card">
+      <div class="herr-calc-title">Calculadora de tamaño de posición</div>
+      <div class="herr-calc-subtitle">Calcula cuántas unidades (cripto, acciones o CFDs) comprar según tu riesgo y la distancia a tu stop loss.</div>
+
+      <form class="herr-form" id="form-tamano-posicion">
+        <div class="herr-field">
+          <label for="tp-balance">Balance de tu cuenta <small>(USD)</small></label>
+          <input type="number" id="tp-balance" placeholder="Ej: 1000" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="tp-porcentaje">% de riesgo por operación</label>
+          <input type="number" id="tp-porcentaje" placeholder="Ej: 2" min="0" max="100" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="tp-entrada">Precio de entrada</label>
+          <input type="number" id="tp-entrada" placeholder="Ej: 65000" min="0" step="any">
+        </div>
+        <div class="herr-field">
+          <label for="tp-stop-loss">Precio de stop loss</label>
+          <input type="number" id="tp-stop-loss" placeholder="Ej: 63000" min="0" step="any">
+        </div>
+      </form>
+
+      <div class="herr-result" id="tp-resultado" style="display:none;">
+        <div class="herr-result-row">
+          <span class="herr-result-label">Riesgo máximo</span>
+          <span class="herr-result-value" id="tp-riesgo-usd">$0.00</span>
+        </div>
+        <div class="herr-result-divider"></div>
+        <div class="herr-result-row">
+          <span class="herr-result-label">Unidades a comprar</span>
+          <span class="herr-result-value main" id="tp-unidades">0</span>
+        </div>
+        <div class="herr-result-row">
+          <span class="herr-result-label">Valor total de la posición</span>
+          <span class="herr-result-value" id="tp-valor-posicion">$0.00</span>
+        </div>
+      </div>
+      <div class="herr-result-empty" id="tp-vacio">Completa los 4 campos para ver el tamaño de posición.</div>
+
+      <div class="herr-formula-box">
+        <button class="herr-formula-toggle" data-formula-target="tp-formula-content">
+          <i class="fa-solid fa-chevron-down"></i> Ver fórmula utilizada
+        </button>
+        <div class="herr-formula-content" id="tp-formula-content">
+          <p>Esta calculadora sirve para cripto, acciones o CFDs donde compras unidades directamente (a diferencia del lotaje en Forex).</p>
+          <code class="herr-formula-code">unidades = riesgo_USD / |entrada − stop_loss|
+valor_posición_USD = unidades × entrada</code>
+          <p>Ejemplo: con $20 de riesgo, entrada en $65,000 y stop loss en $63,000 → 20 / |65000−63000| = 20/2000 = 0.01 unidades de BTC. El valor total de esa posición sería 0.01 × 65000 = $650.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+  ENLACE A EXCHANGES Y PROCESADORES — ya existentes, no se tocan
+============================================================ -->
+<section class="herr-links-section">
+  <div class="section-header reveal">
+    <span class="section-tag">¿Necesitas más herramientas?</span>
+    <h2 class="section-title">Exchanges y <span class="gradient-text">procesadores de pago</span></h2>
+  </div>
+  <div class="herr-links-grid">
+    <a href="Exchanges.html" class="module-card reveal" style="--d:0.05s;">
+      <div class="module-card-top">
+        <div class="module-icon"><i class="fa-solid fa-building-columns"></i></div>
+      </div>
+      <h3>Exchanges</h3>
+      <p>Compara las mejores plataformas para comprar y vender criptomonedas.</p>
+      <div class="module-cta">Explorar <i class="fa-solid fa-arrow-right"></i></div>
+    </a>
+    <a href="Procesadores-de-pago.html" class="module-card reveal" style="--d:0.1s;">
+      <div class="module-card-top">
+        <div class="module-icon"><i class="fa-solid fa-credit-card"></i></div>
+      </div>
+      <h3>Procesadores de pago</h3>
+      <p>Las mejores opciones para mover dinero y remesas globalmente.</p>
+      <div class="module-cta">Explorar <i class="fa-solid fa-arrow-right"></i></div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+  FOOTER — idéntico al estandarizado
+============================================================ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Eprocash Academy">
+      <p>Aprende, invierte y crece junto a Zenix.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@eprocashacademy5935" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Academia</h4>
+      <a href="academia-trading-desde-cero.html">Trading desde cero</a>
+      <a href="academia-analisis-tecnico.html">Análisis Técnico</a>
+      <a href="academia-gestion-riesgo.html">Gestión de riesgo</a>
+      <a href="academia-psicologia-trading.html">Psicología</a>
+    </div>
+    <div class="footer-links">
+      <h4>Herramientas</h4>
+      <a href="herramientas.html#calc-riesgo-cuenta">Riesgo de cuenta</a>
+      <a href="herramientas.html#calc-lotaje">Lotaje Forex</a>
+      <a href="herramientas.html#calc-riesgo-beneficio">Riesgo-Beneficio</a>
+      <a href="herramientas.html#calc-tamano-posicion">Tamaño de posición</a>
+    </div>
+    <div class="footer-links">
+      <h4>Soporte</h4>
+      <a href="Acerca-de.html">Acerca de</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos de uso</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+    <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+  </div>
+</footer>
+
+<a href="https://t.me/eprocashacademyofficial" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+  <i class="fa-brands fa-telegram"></i>
+  <span class="tg-tip">Únete al grupo</span>
+</a>
+
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="js/app.js"></script>
+<script src="js/calculadoras.js"></script>
+</body>
+</html>
