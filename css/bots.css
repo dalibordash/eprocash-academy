@@ -1,0 +1,421 @@
+/* ============================================================
+   BOTS.CSS — Eprocash Academy v3.0
+   Namespace: .bots-*
+   REGLA: no redefine variables de color/tipografía globales.
+============================================================ */
+
+:root {
+  --bots-cyan: var(--cyan, #00cfff);
+  --bots-purple: var(--purple, #a855f7);
+  --bots-card-bg: var(--card-bg, rgba(255,255,255,0.03));
+  --bots-border: var(--border-color, rgba(255,255,255,0.08));
+  --bots-text: var(--text-light, #e2e8f0);
+  --bots-text-dim: var(--text-dim, #94a3b8);
+  --bots-green: #4ade80;
+  --bots-amber: #f59e0b;
+  --bots-gray: #94a3b8;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.bots-hero {
+  position: relative;
+  padding: 160px 24px 50px;
+  text-align: center;
+}
+
+.bots-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.bots-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.bots-hero p {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--bots-text-dim);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bots-disclaimer {
+  max-width: 660px;
+  margin: 24px auto 0;
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--bots-text-dim);
+}
+
+.bots-disclaimer i {
+  color: var(--bots-amber);
+  font-size: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   ESTADO BADGE — reutilizado del patrón module-status de academia.css
+============================================================ */
+.bots-status {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bots-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.bots-status.operativo {
+  background: rgba(34,197,94,0.15);
+  color: var(--bots-green);
+  border: 1px solid rgba(34,197,94,0.3);
+}
+
+.bots-status.desarrollo {
+  background: rgba(245,158,11,0.15);
+  color: var(--bots-amber);
+  border: 1px solid rgba(245,158,11,0.3);
+}
+
+.bots-status.planeado {
+  background: rgba(148,163,184,0.12);
+  color: var(--bots-gray);
+  border: 1px solid rgba(148,163,184,0.25);
+}
+
+/* ============================================================
+   GRID DE 3 MÓDULOS — reutiliza .module-card de academia.css
+   Solo se agregan ajustes específicos para 3 columnas
+============================================================ */
+.bots-modules-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.bots-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .bots-modules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   SECCIONES DE DETALLE POR BOT (anclas)
+============================================================ */
+.bots-detail-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 70px 24px 50px;
+  border-top: 1px solid var(--bots-border);
+  scroll-margin-top: 100px;
+}
+
+.bots-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.bots-detail-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bots-detail-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: linear-gradient(135deg, rgba(0,207,255,0.15), rgba(168,85,247,0.15));
+  border: 1px solid rgba(0,207,255,0.25);
+  color: var(--bots-cyan);
+  flex-shrink: 0;
+}
+
+.bots-detail-title-wrap h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  margin: 0 0 4px;
+}
+
+.bots-detail-tagline {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--bots-text-dim);
+  font-size: 0.92rem;
+}
+
+/* ============================================================
+   TABS internas de cada bot (Descripción / Funcionamiento / etc.)
+   Reutiliza el patrón visual de .herr-tabs pero namespaced propio
+============================================================ */
+.bots-subtabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  background: var(--bots-card-bg);
+  border: 1px solid var(--bots-border);
+  border-radius: 14px;
+  padding: 6px;
+  margin-bottom: 24px;
+}
+
+.bots-subtab {
+  flex: 1;
+  min-width: 120px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 11px 10px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  color: var(--bots-text-dim);
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+  text-align: center;
+}
+
+.bots-subtab.active {
+  background: linear-gradient(135deg, rgba(0,207,255,0.15), rgba(168,85,247,0.15));
+  color: var(--bots-cyan);
+  border: 1px solid rgba(0,207,255,0.3);
+}
+
+.bots-subtab:hover:not(.active) {
+  background: rgba(255,255,255,0.04);
+  color: var(--bots-text);
+}
+
+.bots-subpanel {
+  display: none;
+}
+
+.bots-subpanel.active {
+  display: block;
+  animation: botsFadeIn 0.3s ease;
+}
+
+@keyframes botsFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bots-subpanel-card {
+  background: var(--bots-card-bg);
+  border: 1px solid var(--bots-border);
+  border-radius: 18px;
+  padding: 28px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--bots-text-dim);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.bots-subpanel-card h4 {
+  font-family: 'Syne', sans-serif;
+  color: var(--bots-text);
+  font-size: 1rem;
+  margin: 18px 0 8px;
+}
+
+.bots-subpanel-card h4:first-child {
+  margin-top: 0;
+}
+
+.bots-subpanel-card ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.bots-subpanel-card li {
+  margin-bottom: 6px;
+}
+
+.bots-subpanel-card code {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--bots-border);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: 'DM Sans', monospace;
+  color: var(--bots-cyan);
+  font-size: 0.85rem;
+}
+
+/* ── Lista de beneficios con check ── */
+.bots-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.bots-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+}
+
+.bots-benefits-list i {
+  color: var(--bots-green);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* ── FAQ acordeón (reutiliza patrón faq-item ya existente en bitcoin/trading) ── */
+.bots-faq-item {
+  border-bottom: 1px solid var(--bots-border);
+}
+
+.bots-faq-item:last-child {
+  border-bottom: none;
+}
+
+.bots-faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--bots-text);
+  font-size: 0.92rem;
+}
+
+.bots-faq-arrow {
+  transition: transform 0.25s ease;
+  color: var(--bots-cyan);
+  flex-shrink: 0;
+}
+
+.bots-faq-item.open .bots-faq-arrow {
+  transform: rotate(180deg);
+}
+
+.bots-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.bots-faq-item.open .bots-faq-a {
+  max-height: 300px;
+}
+
+.bots-faq-a p {
+  padding-bottom: 16px;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ── Tech stack chips (para Funcionamiento) ── */
+.bots-tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.bots-tech-chip {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0,207,255,0.08);
+  border: 1px solid rgba(0,207,255,0.2);
+  color: var(--bots-cyan);
+}
+
+/* ============================================================
+   CTA INTEGRACIÓN FUTURA — nota de arquitectura visible para el usuario
+============================================================ */
+.bots-integration-note {
+  background: rgba(168,85,247,0.06);
+  border: 1px solid rgba(168,85,247,0.2);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--bots-text-dim);
+}
+
+.bots-integration-note i {
+  color: var(--bots-purple);
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 600px) {
+  .bots-hero {
+    padding: 130px 20px 40px;
+  }
+  .bots-detail-section {
+    padding: 50px 20px 30px;
+  }
+  .bots-subtabs {
+    flex-direction: column;
+  }
+  .bots-detail-header {
+    flex-direction: column;
+  }
+}

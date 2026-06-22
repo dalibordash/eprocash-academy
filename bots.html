@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bots de Trading — Eprocash Academy</title>
+<meta name="description" content="Conoce los bots de trading de Eprocash: bot de señales, bot de ejecución automática y bot monitor. Tecnología real, construida con Python, MetaTrader 5 y Telegram.">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/fix-dropdown-mobile.css">
+<link rel="stylesheet" href="css/academia.css">
+<link rel="stylesheet" href="css/bots.css">
+</head>
+<body>
+
+<!-- ============================================================
+  NAVBAR — idéntico al estandarizado. "Bots" está activo en esta página.
+============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="Eprocash Academy"></a>
+  </div>
+
+  <nav>
+    <ul class="menu" id="menu">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+
+      <li class="has-dropdown">
+        <a href="academia.html">
+          <i class="fa-solid fa-graduation-cap"></i> Academia
+          <span class="dropdown-arrow-trigger"><i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></span>
+        </a>
+        <ul class="dropdown">
+          <li><a href="bitcoin.html"><i class="fa-brands fa-bitcoin"></i> Bitcoin</a></li>
+          <li><a href="cursos.html"><i class="fa-solid fa-play-circle"></i> Cursos</a></li>
+          <li><a href="Analisis-tecnico.html"><i class="fa-solid fa-chart-bar"></i> Análisis Técnico</a></li>
+          <li><a href="analisis-fundamental.html"><i class="fa-solid fa-newspaper"></i> Análisis Fundamental</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="herramientas.html">
+          <i class="fa-solid fa-wrench"></i> Herramientas
+          <span class="dropdown-arrow-trigger"><i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></span>
+        </a>
+        <ul class="dropdown">
+          <li><a href="herramientas.html#calc-riesgo-cuenta"><i class="fa-solid fa-calculator"></i> Riesgo de cuenta</a></li>
+          <li><a href="herramientas.html#calc-lotaje"><i class="fa-solid fa-calculator"></i> Lotaje Forex</a></li>
+          <li><a href="herramientas.html#calc-riesgo-beneficio"><i class="fa-solid fa-calculator"></i> Riesgo-Beneficio</a></li>
+          <li><a href="herramientas.html#calc-tamano-posicion"><i class="fa-solid fa-calculator"></i> Tamaño de posición</a></li>
+          <li><a href="Exchanges.html"><i class="fa-solid fa-building-columns"></i> Exchanges</a></li>
+          <li><a href="Procesadores-de-pago.html"><i class="fa-solid fa-credit-card"></i> Procesadores de Pago</a></li>
+        </ul>
+      </li>
+
+      <li><a href="bots.html" class="nav-active"><i class="fa-solid fa-robot"></i> Bots</a></li>
+      <li><a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener"><i class="fa-solid fa-signal"></i> Señales</a></li>
+      <li><a href="trading.html"><i class="fa-solid fa-chart-line"></i> Plataformas</a></li>
+      <li><a href="https://t.me/eprocashacademyofficial" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> Comunidad</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-icons">
+    <button id="theme-toggle" title="Cambiar tema"><i class="fa-solid fa-moon" id="theme-icon"></i></button>
+    <div class="acceder-wrap has-dropdown">
+      <a href="login.html" class="register-btn acceder-btn">Acceder <i class="fa-solid fa-chevron-down fa-xs arrow-icon"></i></a>
+      <ul class="dropdown dropdown-right">
+        <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
+        <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registrarse gratis</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- ============================================================
+  HERO
+============================================================ -->
+<section class="bots-hero">
+  <div class="bots-hero-inner reveal">
+    <span class="section-tag">Automatización real, construida por Eprocash</span>
+    <h1>Bots de <span class="gradient-text">Trading</span></h1>
+    <p>
+      Tecnología desarrollada en Python, conectada a MetaTrader 5 y Telegram.
+      Tres módulos, cada uno en una etapa distinta de desarrollo — sin promesas vacías.
+    </p>
+    <div class="bots-disclaimer">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span>Los bots de trading no garantizan ganancias. Todo sistema automatizado conlleva riesgo de pérdida de capital. Mostramos el estado real de cada módulo para que sepas exactamente qué está operativo hoy.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  GRID DE 3 MÓDULOS — reutiliza .module-card de academia.css
+============================================================ -->
+<section class="bots-modules-section">
+  <div class="section-header reveal">
+    <span class="section-tag">3 módulos del sistema</span>
+    <h2 class="section-title">Elige un <span class="gradient-text">módulo</span></h2>
+    <p class="section-desc">Cada uno cubre una etapa distinta de la automatización de trading.</p>
+  </div>
+
+  <div class="bots-modules-grid">
+
+    <a href="#bot-senales" class="module-card reveal" style="--d:0.05s" data-bots-scroll data-bot-id="bot-senales">
+      <div class="module-card-top">
+        <div class="module-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+        <span class="bots-status operativo">Operativo</span>
+      </div>
+      <h3>Bot de señales</h3>
+      <p>Analiza EUR/USD, BTC/USD, WTI y XAU/USD, y envía alertas directo a Telegram cuando detecta una oportunidad.</p>
+      <div class="module-cta">Ver detalles <i class="fa-solid fa-arrow-right"></i></div>
+    </a>
+
+    <a href="#bot-ejecucion" class="module-card reveal" style="--d:0.1s" data-bots-scroll data-bot-id="bot-ejecucion">
+      <div class="module-card-top">
+        <div class="module-icon"><i class="fa-solid fa-bolt"></i></div>
+        <span class="bots-status desarrollo">En desarrollo</span>
+      </div>
+      <h3>Bot de ejecución automática</h3>
+      <p>Toma las señales y las ejecuta directamente en MetaTrader 5, sin intervención manual. Actualmente en cuenta demo.</p>
+      <div class="module-cta">Ver detalles <i class="fa-solid fa-arrow-right"></i></div>
+    </a>
+
+    <a href="#bot-monitor" class="module-card reveal" style="--d:0.15s" data-bots-scroll data-bot-id="bot-monitor">
+      <div class="module-card-top">
+        <div class="module-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <span class="bots-status planeado">Planeado</span>
+      </div>
+      <h3>Bot monitor</h3>
+      <p>Vigila que el sistema esté corriendo 24/7 y avisa si algo falla. La pieza final para operar sin supervisión constante.</p>
+      <div class="module-cta">Ver detalles <i class="fa-solid fa-arrow-right"></i></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============================================================
+  MÓDULO 1 — BOT DE SEÑALES (ancla #bot-senales)
+============================================================ -->
+<section class="bots-detail-section" id="bot-senales">
+  <div class="bots-detail-header">
+    <div class="bots-detail-title-wrap">
+      <div class="bots-detail-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+      <div>
+        <h2>Bot de señales</h2>
+        <span class="bots-detail-tagline">El primer módulo del sistema — ya operativo</span>
+      </div>
+    </div>
+    <span class="bots-status operativo">Operativo</span>
+  </div>
+
+  <div class="bots-subtabs">
+    <button class="bots-subtab active" data-bots-subtab="descripcion">Descripción</button>
+    <button class="bots-subtab" data-bots-subtab="funcionamiento">Funcionamiento</button>
+    <button class="bots-subtab" data-bots-subtab="beneficios">Beneficios</button>
+    <button class="bots-subtab" data-bots-subtab="requisitos">Requisitos</button>
+    <button class="bots-subtab" data-bots-subtab="faq">Preguntas frecuentes</button>
+  </div>
+
+  <div class="bots-subpanel active" data-bots-subpanel="descripcion">
+    <div class="bots-subpanel-card">
+      <p>El bot de señales es un sistema de análisis automatizado que vigila cuatro mercados clave —EUR/USD, BTC/USD, WTI (petróleo) y XAU/USD (oro)— de forma continua, y envía una alerta a Telegram en el momento en que detecta una configuración de entrada según las reglas definidas.</p>
+      <p>No ejecuta órdenes por sí solo: su función es informar, para que el trader (o, en el futuro, el bot de ejecución) decida qué hacer con esa información.</p>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="funcionamiento">
+    <div class="bots-subpanel-card">
+      <h4>Flujo de trabajo</h4>
+      <ul>
+        <li>Descarga datos de precio en tiempo real de los 4 activos vía <code>yfinance</code></li>
+        <li>Aplica las reglas de análisis técnico configuradas (indicadores, patrones)</li>
+        <li>Cuando se cumple una condición de entrada, genera una alerta</li>
+        <li>Envía esa alerta al canal de Telegram configurado, vía la API de BotFather</li>
+      </ul>
+      <h4>Stack tecnológico</h4>
+      <div class="bots-tech-chips">
+        <span class="bots-tech-chip">Python</span>
+        <span class="bots-tech-chip">yfinance</span>
+        <span class="bots-tech-chip">Telegram Bot API</span>
+        <span class="bots-tech-chip">.bat launcher</span>
+      </div>
+      <p style="margin-top:14px;">El sistema corre actualmente desde un script local con un launcher <code>.bat</code> para encenderlo fácilmente desde escritorio. El siguiente paso natural es moverlo a un VPS para que funcione 24/7 sin depender de que el equipo esté encendido (ver módulo "Bot monitor").</p>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="beneficios">
+    <div class="bots-subpanel-card">
+      <ul class="bots-benefits-list">
+        <li><i class="fa-solid fa-circle-check"></i> No necesitas estar mirando gráficos todo el día</li>
+        <li><i class="fa-solid fa-circle-check"></i> Cubre 4 mercados distintos simultáneamente</li>
+        <li><i class="fa-solid fa-circle-check"></i> Las alertas llegan directo a tu Telegram, sin instalar nada extra</li>
+        <li><i class="fa-solid fa-circle-check"></i> Reglas de entrada consistentes, sin sesgo emocional</li>
+        <li><i class="fa-solid fa-circle-check"></i> Base sólida para escalar hacia ejecución automática</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="requisitos">
+    <div class="bots-subpanel-card">
+      <h4>Para usar las señales (usuario final)</h4>
+      <ul>
+        <li>Cuenta de Telegram y unirte al canal oficial de Eprocash Academy</li>
+        <li>Conocimientos básicos de gestión de riesgo (ver Centro de Herramientas) antes de operar cualquier señal</li>
+      </ul>
+      <h4>Para correr tu propia instancia (avanzado)</h4>
+      <ul>
+        <li>Python instalado (Windows, Mac o Linux)</li>
+        <li>Librería <code>yfinance</code> y dependencias del proyecto</li>
+        <li>Un bot de Telegram creado vía BotFather con su token</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="faq">
+    <div class="bots-subpanel-card" style="padding-top:8px;">
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿El bot de señales garantiza ganancias? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>No. Ningún sistema de señales garantiza ganancias. Es una herramienta de apoyo para identificar oportunidades según reglas técnicas, pero el riesgo de mercado siempre existe.</p></div>
+      </div>
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Cada cuánto se actualizan los datos? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>El bot consulta los precios de forma continua durante su ejecución. La frecuencia exacta depende de la configuración activa del script.</p></div>
+      </div>
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Puedo ver el historial de señales pasadas? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>Actualmente las señales se envían en tiempo real al canal de Telegram. Un historial estructurado (backtesting visible) está en el roadmap del proyecto.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bots-integration-note">
+    <i class="fa-solid fa-plug"></i>
+    <span><strong>Arquitectura preparada para integración:</strong> este módulo está conectado a Telegram vía BotFather. El siguiente paso de integración es exponer un endpoint propio para mostrar señales en vivo directamente en esta página, sin depender solo de Telegram.</span>
+  </div>
+</section>
+
+<!-- ============================================================
+  MÓDULO 2 — BOT DE EJECUCIÓN AUTOMÁTICA (ancla #bot-ejecucion)
+============================================================ -->
+<section class="bots-detail-section" id="bot-ejecucion">
+  <div class="bots-detail-header">
+    <div class="bots-detail-title-wrap">
+      <div class="bots-detail-icon"><i class="fa-solid fa-bolt"></i></div>
+      <div>
+        <h2>Bot de ejecución automática</h2>
+        <span class="bots-detail-tagline">El siguiente paso evolutivo del bot de señales</span>
+      </div>
+    </div>
+    <span class="bots-status desarrollo">En desarrollo</span>
+  </div>
+
+  <div class="bots-subtabs">
+    <button class="bots-subtab active" data-bots-subtab="descripcion">Descripción</button>
+    <button class="bots-subtab" data-bots-subtab="funcionamiento">Funcionamiento</button>
+    <button class="bots-subtab" data-bots-subtab="beneficios">Beneficios</button>
+    <button class="bots-subtab" data-bots-subtab="requisitos">Requisitos</button>
+    <button class="bots-subtab" data-bots-subtab="faq">Preguntas frecuentes</button>
+  </div>
+
+  <div class="bots-subpanel active" data-bots-subpanel="descripcion">
+    <div class="bots-subpanel-card">
+      <p>El bot de ejecución automática toma el mismo análisis que genera el bot de señales, pero en vez de solo avisar, coloca la orden directamente en MetaTrader 5 — sin que el trader tenga que abrir el gráfico y operar manualmente.</p>
+      <p>Hoy este módulo está conectado a una <strong>cuenta demo de XM</strong> mientras se completa el proceso de backtesting necesario antes de operar con dinero real.</p>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="funcionamiento">
+    <div class="bots-subpanel-card">
+      <h4>Flujo de trabajo</h4>
+      <ul>
+        <li>Recibe la señal generada por el módulo de análisis</li>
+        <li>Se conecta a la cuenta de trading vía la librería <code>MetaTrader5</code> de Python</li>
+        <li>Verifica el símbolo correcto — en XM los símbolos llevan el sufijo <code>m</code> (ej. <code>EURUSDm</code> en vez de <code>EURUSD</code>)</li>
+        <li>Envía la orden con su stop loss y take profit calculados</li>
+      </ul>
+      <h4>Stack tecnológico</h4>
+      <div class="bots-tech-chips">
+        <span class="bots-tech-chip">Python</span>
+        <span class="bots-tech-chip">MetaTrader5 (librería)</span>
+        <span class="bots-tech-chip">Cuenta demo XM</span>
+      </div>
+      <p style="margin-top:14px;">El descubrimiento de la convención de sufijo <code>m</code> en los símbolos de XM (ej. <code>EURUSDm</code>) fue clave para que la conexión funcionara correctamente — un detalle que no siempre está documentado y que cambia según el bróker.</p>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="beneficios">
+    <div class="bots-subpanel-card">
+      <ul class="bots-benefits-list">
+        <li><i class="fa-solid fa-circle-check"></i> Elimina el retraso entre ver la señal y ejecutar la orden</li>
+        <li><i class="fa-solid fa-circle-check"></i> Sin errores de digitación manual al colocar órdenes</li>
+        <li><i class="fa-solid fa-circle-check"></i> Stop loss y take profit calculados automáticamente</li>
+        <li><i class="fa-solid fa-circle-check"></i> Permite operar mientras no estás frente a la pantalla</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="requisitos">
+    <div class="bots-subpanel-card">
+      <h4>Para esta etapa (demo)</h4>
+      <ul>
+        <li>Cuenta demo en un bróker compatible con MetaTrader 5 (actualmente XM)</li>
+        <li>Terminal MT5 instalado y la cuenta conectada</li>
+      </ul>
+      <h4>Antes de pasar a cuenta real</h4>
+      <ul>
+        <li>Completar el proceso de backtesting (próximo hito del proyecto)</li>
+        <li>Validar resultados en demo durante un periodo prolongado</li>
+        <li>Definir reglas claras de gestión de riesgo por operación (ver Centro de Herramientas)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="faq">
+    <div class="bots-subpanel-card" style="padding-top:8px;">
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Ya opera con dinero real? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>No todavía. Está en cuenta demo mientras se completa el backtesting necesario para validar la estrategia antes de arriesgar capital real.</p></div>
+      </div>
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Funciona con cualquier bróker? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>Actualmente está probado con XM. Otros brókers compatibles con MetaTrader 5 podrían requerir ajustes, especialmente en la nomenclatura de símbolos.</p></div>
+      </div>
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Cuándo estará disponible para cuenta real? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>Depende de los resultados del backtesting en curso. No se dará una fecha fija para evitar promesas que no se puedan cumplir — el progreso se comunicará en el canal de Telegram.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bots-integration-note">
+    <i class="fa-solid fa-plug"></i>
+    <span><strong>Arquitectura preparada para integración:</strong> la conexión MT5 ya existe vía Python. El siguiente paso es exponer el estado de la cuenta (operaciones abiertas, balance) a esta página de forma segura, una vez exista backend.</span>
+  </div>
+</section>
+
+<!-- ============================================================
+  MÓDULO 3 — BOT MONITOR (ancla #bot-monitor)
+============================================================ -->
+<section class="bots-detail-section" id="bot-monitor">
+  <div class="bots-detail-header">
+    <div class="bots-detail-title-wrap">
+      <div class="bots-detail-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+      <div>
+        <h2>Bot monitor</h2>
+        <span class="bots-detail-tagline">La pieza que falta para operar sin supervisión constante</span>
+      </div>
+    </div>
+    <span class="bots-status planeado">Planeado</span>
+  </div>
+
+  <div class="bots-subtabs">
+    <button class="bots-subtab active" data-bots-subtab="descripcion">Descripción</button>
+    <button class="bots-subtab" data-bots-subtab="funcionamiento">Funcionamiento</button>
+    <button class="bots-subtab" data-bots-subtab="beneficios">Beneficios</button>
+    <button class="bots-subtab" data-bots-subtab="requisitos">Requisitos</button>
+    <button class="bots-subtab" data-bots-subtab="faq">Preguntas frecuentes</button>
+  </div>
+
+  <div class="bots-subpanel active" data-bots-subpanel="descripcion">
+    <div class="bots-subpanel-card">
+      <p>El bot monitor es el módulo de vigilancia del sistema: su función no es analizar mercado ni ejecutar órdenes, sino asegurarse de que los otros dos bots estén funcionando correctamente, y avisar de inmediato si algo se detiene o falla.</p>
+      <p>Este módulo todavía está en fase de planeación. Hoy el sistema se enciende manualmente desde un launcher <code>.bat</code> en un equipo local — el bot monitor es lo que permitirá pasar a una operación verdaderamente autónoma en un VPS.</p>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="funcionamiento">
+    <div class="bots-subpanel-card">
+      <h4>Funcionamiento previsto</h4>
+      <ul>
+        <li>Verificación periódica de que el proceso del bot de señales sigue corriendo</li>
+        <li>Verificación de la conexión activa a MT5 (cuando el bot de ejecución esté en producción)</li>
+        <li>Si detecta una caída, envía una alerta inmediata por Telegram</li>
+        <li>Registro de uptime y errores para revisión posterior</li>
+      </ul>
+      <h4>Stack tecnológico previsto</h4>
+      <div class="bots-tech-chips">
+        <span class="bots-tech-chip">Python</span>
+        <span class="bots-tech-chip">VPS (pendiente de elegir proveedor)</span>
+        <span class="bots-tech-chip">Telegram Bot API</span>
+      </div>
+      <p style="margin-top:14px;">Este módulo depende directamente del despliegue en VPS, que es el siguiente hito planeado del proyecto después del backtesting del bot de ejecución.</p>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="beneficios">
+    <div class="bots-subpanel-card">
+      <ul class="bots-benefits-list">
+        <li><i class="fa-solid fa-circle-check"></i> Detecta caídas del sistema sin que tengas que revisarlo manualmente</li>
+        <li><i class="fa-solid fa-circle-check"></i> Permite operar 24/7 sin depender de un equipo encendido</li>
+        <li><i class="fa-solid fa-circle-check"></i> Da tranquilidad: sabrás si algo falla antes de perder oportunidades</li>
+        <li><i class="fa-solid fa-circle-check"></i> Base para escalar a múltiples estrategias monitoreadas a la vez</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="requisitos">
+    <div class="bots-subpanel-card">
+      <h4>Lo que falta antes de construirlo</h4>
+      <ul>
+        <li>Completar el despliegue del bot de señales y ejecución en VPS</li>
+        <li>Elegir proveedor de VPS (criterio: uptime, ubicación cercana al bróker, costo)</li>
+        <li>Definir qué métricas son críticas de monitorear (proceso activo, conexión MT5, latencia)</li>
+      </ul>
+      <h4>Una vez construido (usuario final)</h4>
+      <ul>
+        <li>No requiere nada adicional — las alertas de estado llegarán por el mismo canal de Telegram</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bots-subpanel" data-bots-subpanel="faq">
+    <div class="bots-subpanel-card" style="padding-top:8px;">
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Por qué este módulo va después de los otros dos? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>Porque monitorear algo requiere que ese algo ya esté corriendo de forma estable en un servidor (VPS). Primero se valida el bot de señales y ejecución; el monitor llega cuando haya algo concreto que vigilar 24/7.</p></div>
+      </div>
+      <div class="bots-faq-item">
+        <button class="bots-faq-q">¿Esto significa que el sistema actual no es confiable? <i class="fa-solid fa-chevron-down bots-faq-arrow"></i></button>
+        <div class="bots-faq-a"><p>No. Significa que hoy el sistema corre localmente y se enciende manualmente. El bot monitor es lo que se necesita para automatizar esa supervisión cuando el sistema se mueva a un servidor permanente.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bots-integration-note">
+    <i class="fa-solid fa-plug"></i>
+    <span><strong>Arquitectura preparada para integración:</strong> este módulo está intencionalmente desacoplado de los otros dos en <code>js/bots.js</code> (objeto <code>BotsRegistry</code>), para que activarlo en el futuro sea agregar una integración nueva, no reescribir la página.</span>
+  </div>
+</section>
+
+<!-- ============================================================
+  CTA FINAL
+============================================================ -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <img src="images/zenix_ejecutivo.png" alt="Zenix" class="cta-zenix">
+    <div class="cta-content">
+      <span class="section-tag">Sigue el progreso en tiempo real</span>
+      <h2>Entérate cuando <span class="gradient-text">cada módulo avance</span></h2>
+      <p>El desarrollo de los bots se comparte en la comunidad de Telegram: backtesting, despliegue en VPS y nuevos hitos del proyecto.</p>
+      <a href="https://t.me/eprocashacademyofficial" target="_blank" class="primary-btn">
+        Unirme a la comunidad <i class="fa-brands fa-telegram"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  FOOTER — idéntico al estandarizado
+============================================================ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Eprocash Academy">
+      <p>Aprende, invierte y crece junto a Zenix.</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@eprocashacademy5935" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://t.me/eprocashacademyofficial" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        <a href="#" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Bots</h4>
+      <a href="#bot-senales">Bot de señales</a>
+      <a href="#bot-ejecucion">Bot de ejecución</a>
+      <a href="#bot-monitor">Bot monitor</a>
+    </div>
+    <div class="footer-links">
+      <h4>Herramientas</h4>
+      <a href="herramientas.html#calc-riesgo-cuenta">Riesgo de cuenta</a>
+      <a href="herramientas.html#calc-lotaje">Lotaje Forex</a>
+      <a href="Exchanges.html">Exchanges</a>
+      <a href="Procesadores-de-pago.html">Procesadores de pago</a>
+    </div>
+    <div class="footer-links">
+      <h4>Soporte</h4>
+      <a href="Acerca-de.html">Acerca de</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos de uso</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Eprocash Academy — Todos los derechos reservados.</span>
+    <span>Hecho con <i class="fa-solid fa-heart" style="color:#ff4060"></i> para la comunidad hispana</span>
+  </div>
+</footer>
+
+<a href="https://t.me/eprocashacademyofficial" class="tg-float" target="_blank" rel="noopener" aria-label="Telegram">
+  <i class="fa-brands fa-telegram"></i>
+  <span class="tg-tip">Únete al grupo</span>
+</a>
+
+<button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="js/app.js"></script>
+<script src="js/bots.js"></script>
+</body>
+</html>
